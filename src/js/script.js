@@ -3,37 +3,47 @@ jQuery(function ($) {
 
         // ハンバーガーメニュー
         $(function () {
-          $(".js-hamburger").on("click", function () {
-              $(this).toggleClass("is-open");
-              if ($(this).hasClass("is-open")) {
-                  openDrawer();
-              } else {
-                  closeDrawer();
-              }
-          });
+            $(".js-hamburger").on("click", function () {
+                $(this).toggleClass("is-open");
+                if ($(this).hasClass("is-open")) {
+                    openDrawer();
+                } else {
+                    closeDrawer();
+                }
+            });
 
-          // backgroundまたはページ内リンクをクリックで閉じる
-          $(".js-drawer a[href]").on("click", function () {
-              closeDrawer();
-          });
+            // backgroundまたはページ内リンクをクリックで閉じる
+            $(".js-drawer a[href]").on("click", function () {
+                closeDrawer();
+            });
 
-          // resizeイベント
-          $(window).on('resize', function() {
-              if (window.matchMedia("(min-width: 768px)").matches) {
-                  closeDrawer();
-              }
-          });
-      });
+            // resizeイベント
+            $(window).on('resize', function() {
+                if (window.matchMedia("(min-width: 768px)").matches) {
+                    closeDrawer();
+                }
+            });
+        });
 
-      function openDrawer() {
-          $(".js-sp-nav").fadeIn();
-          $(".js-hamburger").addClass("is-open");
-      }
+        function openDrawer() {
+            $(".js-sp-nav").fadeIn();
+            $(".js-hamburger").addClass("is-open");
+        }
 
-      function closeDrawer() {
-              $(".js-sp-nav").fadeOut();
-          $(".js-hamburger").removeClass("is-open");
-      }
+        function closeDrawer() {
+                $(".js-sp-nav").fadeOut();
+            $(".js-hamburger").removeClass("is-open");
+        }
+
+      //スライダー
+      var swiper = new Swiper(".js-mv-swiper", {
+        loop: true,
+        speed: 3000,
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+        },
+    });
 
 
 });

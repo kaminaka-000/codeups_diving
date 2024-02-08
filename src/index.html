@@ -29,13 +29,19 @@
       rel="stylesheet"
     />
     <!-- css -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
     <link rel="stylesheet" href="./assets/css/style.css" />
     <!-- JavaScript -->
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script defer src="./assets/js/script.js"></script>
   </head>
   <body>
-    <!-- <header class="header">
+    <!-- header -->
+    <header class="header">
       <div class="header__inner">
         <h1 class="header__logo">
           <a href="#">
@@ -195,20 +201,55 @@
           </div>
         </nav>
       </div>
-    </header> -->
+    </header>
 
     <main>
+      <!-- mv -->
+      <section class="mv">
+        <div class="mv__inner">
+          <div class="mv__header">
+            <h2 class="mv__title">DIVING</h2>
+            <p class="mv__subtitle">into the ocean</p>
+          </div>
+          <div class="swiper js-mv-swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide mv__img">
+                <picture>
+                <source media="(min-width: 768px)" srcset="/assets/images/common/mv-main-pc.jpeg">
+                <img src="/assets/images/common/mv-main.jpeg" alt="" />
+                </picture>
+              </div>
+              <div class="swiper-slide mv__img">
+                <picture>
+                <source media="(min-width: 768px)" srcset="/assets/images/common/mv-img-pc.jpeg">
+                <img src="/assets/images/common/mv-img.jpeg" alt="" />
+                </picture>
+              </div>
+              <div class="swiper-slide mv__img">
+                <picture>
+                <source media="(min-width: 768px)" srcset="/assets/images/common/mv-img-2-pc.jpeg">
+                <img src="/assets/images/common/mv-img-2.jpeg" alt="" />
+                </picture>
+              </div>
+              <div class="swiper-slide mv__img">
+                <picture>
+                <source media="(min-width: 768px)" srcset="/assets/images/common/mv-img-3-pc.jpeg">
+                <img src="/assets/images/common/mv-img-3.jpeg" alt="" />
+                </picture>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-      <div class="heading">
+      <!-- <div class="heading">
         <h2 class="heading__engtitle"><span>C</span>ampaign</h2>
         <p class="heading__jatitle">キャンペーン</p>
-      </div>
-
+      </div> -->
 
       <!-- <div class="btn">
       <a href="#" class="btn-design">View more</a>
       </div> -->
-
     </main>
 
     <!-- <footer class="footer">
