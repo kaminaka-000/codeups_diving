@@ -1,5 +1,71 @@
 @use "global" as *;
 
 .btn {
-    
+    position: relative;
+    display: inline-block;
+}
+
+.btn::before {
+    content: "";
+    position: absolute;
+    top: rem(10);
+    left: rem(8);
+    width: rem(202);
+    height: rem(54);
+    border: 1px solid $accent-green;
+    z-index: -2;
+    transition: .3s;
+}
+
+
+.btn-design {
+    background: $accent-green;
+    position: relative;
+    display: inline-block;
+    margin: 0 auto;
+    padding: rem(16) rem(80) rem(16) rem(40); /* 右のパディングを増やして矢印のスペースを作る */
+    color: $white;
+    font-family: $accent-font-family;
+    line-height: 1.57143;
+    transition: 0.3s ease-in-out;
+    z-index: 0;
+    border: 1px solid $accent-green;
+}
+
+.btn-design:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: rem(16); /* 矢印の位置を調整 */
+    width: rem(40); /* 矢印のサイズを設定 */
+    height: rem(6); /* 矢印のサイズを設定 */
+    background-image: url(/assets/images/common/arrow-icon.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    transform: translate(0, -50%);
+}
+
+.btn-design:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 0;
+    display: block;
+    background: $white;
+    transition: .3s;
+    left: 0;
+    z-index: -1;
+}
+
+.btn-design:hover {
+    color: $accent-green;
+}
+
+.btn-design:hover:before {
+    width: 100%;
+}
+
+.btn-design:hover:after {
+    background-image: url(/assets/images/common/arrow-green.svg);
 }

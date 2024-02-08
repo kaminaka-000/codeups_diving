@@ -10,10 +10,6 @@
   }
 }
 
-.a {
-  @include mq(md) {
-  }
-}
 
 .nav__content {
   margin-top: rem(40);
