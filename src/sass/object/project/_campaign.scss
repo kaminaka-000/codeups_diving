@@ -1,0 +1,53 @@
+@use "global" as *;
+
+.campaign {
+    margin-top: rem(40);
+    overflow: hidden;
+    @include mq(md){
+        margin-top: rem(120);
+    }
+}
+
+.campaign__inner {
+    padding: 0 rem(15);
+    max-width: rem(600);
+    width: 100%;
+    //margin-inline: auto;
+    @include mq(md){
+        //max-width: rem(1260);
+        //padding: 0 rem(30);
+    }
+
+}
+
+.campaign__title {
+
+}
+
+.heading {
+
+}
+
+.heading__engtitle {
+
+}
+
+.heading__jatitle {
+
+}
+
+.campaign__info {
+    margin-top: rem(24);
+
+    @include mq(md){
+        //padding-left: 150px;
+    }
+}
+
+.campaign__btn {
+    margin-top: rem(30);
+    text-align: center;
+    @include mq(md){
+        margin-top: rem(70);
+    }
+}

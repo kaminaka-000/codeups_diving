@@ -35,13 +35,30 @@ jQuery(function ($) {
             $(".js-hamburger").removeClass("is-open");
         }
 
-      //スライダー
-      var swiper = new Swiper(".js-mv-swiper", {
+    //スライダー
+    var swiper = new Swiper(".js-mv-swiper", {
         loop: true,
         speed: 3000,
         autoplay: {
             delay: 3000,
             disableOnInteraction: false,
+        },
+    });
+
+    //
+    var swiper = new Swiper(".js-info-card", {
+        loop: true,
+        slidesPerView: 1.2,
+        spaceBetween: 20,
+        breakpoints: {
+            768: {
+                slidesPerView: 3.5,
+                spaceBetween: 40
+            }
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
         },
     });
 
