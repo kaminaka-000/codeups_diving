@@ -52,7 +52,7 @@ jQuery(function ($) {
         spaceBetween: 20,
         breakpoints: {
             768: {
-                slidesPerView: 3.5,
+                slidesPerView: 4,
                 spaceBetween: 40
             }
         },
