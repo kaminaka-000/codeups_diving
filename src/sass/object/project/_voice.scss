@@ -1,0 +1,63 @@
+@use "global" as *;
+
+.voice {
+    margin-top: rem(80);
+    @include mq(md){
+        margin-top: rem(2);
+
+    }
+}
+
+.voice__fish-design {
+    @include mq(md){
+        margin-left: rem(100);
+    }
+}
+
+.voice__fish-design img {
+    display: none;
+    @include mq(md){
+        display: block;
+        max-width: rem(301);
+        width: 100%;
+    }
+}
+
+.voice__inner {
+    max-width: rem(600);
+    width: 100%;
+    margin-inline: auto;
+    @include mq(md){
+    }
+}
+
+.voice__wrapper {
+    margin-top: rem(40);
+    @include mq(md){
+        margin-top: rem(30);
+    }
+}
+
+.voice__btn {
+    text-align: center;
+    margin-top: rem(40);
+    @include mq(md){
+        margin-top: rem(80);
+    }
+}
+
+.voice__seahorse-design {
+    position: relative;
+}
+
+.voice__seahorse-design img {
+    display: none;
+    @include mq(md){
+        display: block;
+        position: absolute;
+        max-width: rem(71);
+        width: 100%;
+        right: 0;
+        transform: translateY(rem(-100));
+    }
+}
