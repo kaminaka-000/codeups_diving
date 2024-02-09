@@ -37,13 +37,14 @@
         content: "";
         max-width: rem(194);
         width: 100%;
-        right: -10%;
-        top: rem(90);
+        right: 8%;
+        top: rem(60);
         background-image: url(../images/common/about-decoration.svg);
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
         height: rem(181);
+        transform: translateX(36%);
     }
 }
 
