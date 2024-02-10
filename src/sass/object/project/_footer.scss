@@ -17,20 +17,30 @@
 }
 
 .footer__group {
-
+    @include mq(md){
+        display: flex;
+        gap: rem(40);
+        align-items: end;
+    }
 }
 
 .footer__logo {
     max-width: rem(120);
     width: 100%;
     padding-top: rem(48);
-
+    @include mq(md){
+        max-width: rem(200);
+        padding-top: rem(80);
+    }
 }
 
 .footer__icons {
     display: flex;
     gap: rem(16);
     margin-top: rem(16);
+    @include mq(md){
+        margin-top: rem(80);
+    }
 }
 
 .footer__icon {

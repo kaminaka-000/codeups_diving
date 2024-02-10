@@ -46,6 +46,23 @@ jQuery(function ($) {
     });
 
     //
+
+    const service_slideLength = document.querySelectorAll('.js-service-swiper .swiper-slide').length
+    $(window).resize(function () {
+        service_arrow();
+    });
+    service_arrow();
+    function service_arrow() {
+        if (window.matchMedia('(max-width: 767px)').matches || service_slideLength <= 3) {
+            $('.js-service-arrow').hide();
+        } else {
+            $('.js-service-arrow').show();
+        }
+    }
+
+
+
+
     var swiper = new Swiper(".js-info-card", {
         loop: true,
         slidesPerView: 1.2,
