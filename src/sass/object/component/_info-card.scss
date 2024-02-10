@@ -2,8 +2,7 @@
 
 .info-card {
     margin-right: calc(50% - 50vw);
-    width: 100vw;
-    
+    //width: 100vw;
     position: relative;
 }
 
@@ -22,19 +21,27 @@
 }
 
 .info-card__item-img {
-    width: 100%;
-
-    overflow: hidden;
+    position: relative;
 
 }
 
-.info-card__item-img img {
-    width: 100%;
-    aspect-ratio: 280/188;
-    object-fit: cover;
+.info-card__item-img::before {
+    content: "";
+    display: block;
+    padding-top: 67.142857%;
     @include mq(md){
-        aspect-ratio: 334/223;
+        padding-top: 66.966966%;
     }
+}
+
+.info-card__item-img img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .info-card__item-content {
@@ -113,3 +120,15 @@
     }
 }
 
+.info-card__wrap {
+    @include mq(md){
+        position: absolute;
+        top: 0;
+        right: 25%;
+        margin-top: rem(-80);
+    }
+}
+
+.info-card__wrap .swiper-button-prev {
+    margin-left: rem(80);
+}

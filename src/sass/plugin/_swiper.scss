@@ -1,2 +1,48 @@
 @use "global" as *;
 
+.swiper-button-prev,
+.swiper-button-next {
+    @include mq(md){
+        width: rem(80);
+        height: rem(80);
+    }
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+    @include mq(md){
+        background-repeat: no-repeat;
+        background-size: contain;
+        content: "";
+        height: rem(80);
+        margin: auto;
+        width: rem(80);
+    }
+}
+
+/* 前への矢印カスタマイズ */
+.swiper-button-prev::after {
+    display: none;
+    @include mq(md){
+        display: block;
+        background-image: url(../images/common/info-arrow1.svg);
+    }
+}
+
+  /* 次への矢印カスタマイズ */
+.swiper-button-next::after {
+    display: none;
+    @include mq(md){
+        display: block;
+        background-image: url(../images/common/info-arrow2.svg);
+    }
+}
+
+  /* 画像サイズ調整 */
+.swiper-slide img {
+    height: auto;
+    width: 100%;
+}
+
+
+
