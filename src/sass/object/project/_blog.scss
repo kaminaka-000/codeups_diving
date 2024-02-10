@@ -65,3 +65,10 @@
         margin-top: rem(80);
     }
 }
+
+.blog__wrapper {
+    margin-top: rem(24);
+    @include mq(md){
+        margin-top: rem(80);
+    }
+}

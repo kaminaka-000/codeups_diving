@@ -33,5 +33,7 @@
 .heading--blog,
 .heading__engtitle--blog span,
 .heading__jatitle--blog {
-    color: $white;
+    @include mq(md){
+        color: $white;
+    }
 }
