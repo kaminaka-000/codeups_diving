@@ -48,7 +48,7 @@ jQuery(function ($) {
     //campaignスライダー
     var swiper = new Swiper(".js-info-card", {
         loop: true,
-        slidesPerView: 1.2,
+        slidesPerView: 1.26,
         spaceBetween: 24,
         breakpoints: {
             768: {
