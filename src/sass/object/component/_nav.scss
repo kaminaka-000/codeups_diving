@@ -10,7 +10,6 @@
   }
 }
 
-
 .nav__content {
   margin-top: rem(40);
 }
@@ -45,14 +44,29 @@
   font-weight: $bold;
 }
 
-.nav__item a span::before {
-  content: "";
-  background-image: url(../images/common/starfish-icon.svg);
-  background-repeat: no-repeat;
-  background-size: contain;
-  display: inline-block;
+// .nav__item a span::before {
+//   content: "";
+//   background-image: url(../images/common/starfish-icon.svg);
+//   background-repeat: no-repeat;
+//   background-size: contain;
+//   display: inline-block;
+//   max-width: rem(18);
+//   width: 100%;
+//   height: rem(18);
+//   margin-right: rem(4);
+// }
+
+
+//
+.nav__item-wrapper {
+  display: flex;
+  gap: rem(4);
+}
+
+.nav__item-img {
   max-width: rem(18);
   width: 100%;
-  height: rem(18);
-  margin-right: rem(4);
 }
+
+
+//
