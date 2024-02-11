@@ -1,0 +1,13 @@
+@use "global" as *;
+
+.to-top {
+    position: fixed;
+    bottom: rem(20);
+    right: rem(20);
+    z-index: 99;
+}
+
+.to-top img {
+    max-width: rem(80);
+    width: 100%;
+}

@@ -28,9 +28,14 @@
     width: 100%;
     position: relative;
     z-index: 100;
+    transition: all 0.3s ease 0s;
     @include mq(md){
       max-width: rem(133);
     }
+}
+
+.header__logo:hover {
+	opacity: 0.6;
 }
 
 .header__nav-pc {

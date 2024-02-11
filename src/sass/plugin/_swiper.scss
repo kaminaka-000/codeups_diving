@@ -8,6 +8,12 @@
     }
 }
 
+.swiper-button-prev {
+    @include mq(md){
+        margin-left: rem(80);
+    }
+}
+
 .swiper-button-prev::after,
 .swiper-button-next::after {
     @include mq(md){

@@ -2,13 +2,16 @@
 
 .info-card {
     margin-right: calc(50% - 50vw);
-    //width: 100vw;
     position: relative;
 }
 
 .info-card__items {
     padding: 0 0 rem(10) rem(2);
+    transition: all 0.3s ease 0s;
+}
 
+.info-card__items:hover {
+    opacity: 0.6;
 }
 
 .info-card__item {
@@ -123,12 +126,8 @@
 .info-card__wrap {
     @include mq(md){
         position: absolute;
-        top: 0;
-        right: 25%;
-        margin-top: rem(-80);
+        top: 0; /* コンテナの上端から */
+        right: 25%; /* コンテナの右端から */
+        margin-top: rem(-80); /* トップからのマージンを調整 */
     }
-}
-
-.info-card__wrap .swiper-button-prev {
-    margin-left: rem(80);
 }
