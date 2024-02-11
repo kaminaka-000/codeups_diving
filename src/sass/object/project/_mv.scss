@@ -24,8 +24,9 @@
 .mv__title {
     font-family: $second-font-family;
     font-size: rem(40);
-    letter-spacing: 0.54rem;
+    letter-spacing: 0.4rem;
     font-weight: $normal;
+    line-height: normal;
     @include mq(md){
         font-size: rem(80);
     }
@@ -34,6 +35,7 @@
 .mv__subtitle {
     font-family: $accent-font-family;
     font-size: rem(20);
+    line-height: normal;
 }
 
 .mv__img {

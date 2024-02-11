@@ -2,8 +2,10 @@
 
 .header-hamburger {
     position: relative;
+    // width: rem(32);
+    // height: rem(24);
     width: rem(32);
-    height: rem(24);
+    height: rem(40);
     z-index: 100;
     @include mq(md){
         display: none;
@@ -13,25 +15,25 @@
 .header-hamburger span {
     position: absolute;
     width: inherit;
-    height: rem(1);
+    height: rem(2);
     background-color: $white;
     transition: 0.3s;
     display: block;
 }
 
 .header-hamburger span:nth-child(1) {
-    top: 15%;
+    top: 18%;
     left: 1%;
 }
 
 .header-hamburger span:nth-child(2) {
-    top: 51%;
+    top: 48%;
     opacity: 1;
     left: 1%;
 }
 
 .header__hamburger span:nth-child(3) {
-    top: 85%;
+    top: 78%;
     left: 1%;
 }
 

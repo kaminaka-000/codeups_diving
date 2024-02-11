@@ -49,7 +49,7 @@ jQuery(function ($) {
     var swiper = new Swiper(".js-info-card", {
         loop: true,
         slidesPerView: 1.2,
-        spaceBetween: 20,
+        spaceBetween: 24,
         breakpoints: {
             768: {
                 slidesPerView: 3.5,
