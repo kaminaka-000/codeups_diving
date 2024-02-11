@@ -1,6 +1,6 @@
 @use "global" as *;
 
-.project__item {
+.course__item {
     @include mq(md){
         display: flex;
         gap: rem(48);
@@ -8,14 +8,24 @@
     }
 }
 
-.project__item-img {
+.course__item-img {
     position: relative;
     @include mq(md){
         width: 50%;
     }
 }
 
-.project__item-img::before {
+.course__item-img div.color {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background-color: #408F95;
+}
+
+.course__item-img::before {
     content: "";
     display: block;
     padding-top: 65.79710%;
@@ -24,7 +34,7 @@
     }
 }
 
-.project__item-img img {
+.course__item-img img {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -34,26 +44,26 @@
     object-fit: cover;
 }
 
-.project__item-wrapper {
+.course__item-wrapper {
     margin-top: rem(24);
     @include mq(md){
         width: 50%;
     }
 }
 
-.project__item-wrapper-title {
+.course__item-wrapper-title {
     font-size: rem(20);
     font-weight: $bold;
     line-height: 1.2;
 }
 
-.project__item-wrapper-text {
+.course__item-wrapper-text {
     border-top: 1px solid $accent-green;
     padding-top: rem(8);
     line-height: 1.5;
 }
 
-.project__item-btn {
+.course__item-btn {
     margin-top: rem(40);
     text-align: center;
 }

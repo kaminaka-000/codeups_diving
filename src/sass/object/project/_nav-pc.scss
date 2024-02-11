@@ -1,8 +1,5 @@
 @use "global" as *;
 
-.nav-pc {
-}
-
 .nav-pc__items {
     display: flex;
     align-items: center;
@@ -26,6 +23,24 @@
     line-height: 1;
     font-family: $accent-font-family;
     color: $white;
+    position: relative;
+}
+
+.nav-pc__item a::after {
+    content: '';
+    position: absolute;
+    top: 80%;
+    left: 10%;
+    width: 80%;
+    height: rem(2);
+    background: $white;
+    transition: all .3s;
+    transform: scale(0, 1);
+    transform-origin: center top;
+}
+
+.nav-pc__item a:hover::after {
+    transform: scale(1, 1);
 }
 
 .nav-pc__item span {
