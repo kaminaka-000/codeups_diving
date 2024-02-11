@@ -1,8 +1,5 @@
 @use "global" as *;
 
-.card {
-}
-
 .card__list {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
@@ -18,6 +15,12 @@
   background-color: $white;
 }
 
+.card__item:hover .card__item-img img{
+      @include mq(md){
+        transform: scale(1.2);
+    }
+}
+
 .card__item + .card__item {
   margin-top: rem(40);
   @include mq(md){
@@ -28,13 +31,15 @@
 
 .card__item-img {
   aspect-ratio: 301 / 201;
-
+  width: 100%;
+  overflow: hidden;
 }
 
 .card__item-img img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: .6s;
 }
 
 .card__item-content {
