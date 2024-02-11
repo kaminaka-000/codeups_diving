@@ -2,8 +2,8 @@
 
 .information {
     background-color: $pale-blue;
-    margin-top: rem(70);
-    padding: rem(80) 0;
+    margin-top: rem(73);
+    padding: rem(82) 0 rem(81);
     @include mq(md){
         margin-top: rem(356);
         padding: rem(100) 0 rem(76);
@@ -11,7 +11,7 @@
 }
 
 .information__items {
-    margin-top: rem(24);
+    margin-top: rem(26);
     @include mq(md){
         margin-top: rem(40);
     }
