@@ -3,7 +3,7 @@
 .price {
     background-color: $pale-blue;
     margin-top: rem(84);
-    padding: rem(80) 0;
+    padding: rem(80) 0 rem(82);
     @include mq(md){
         margin-top: rem(140);
         padding: rem(100) 0;
