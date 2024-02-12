@@ -4,6 +4,7 @@
   display: grid;
   grid-auto-flow: column;
   grid-template-rows: repeat(2, auto);
+  gap: rem(1) rem(6);
   @include mq(md) {
     display: flex;
     justify-content: space-between;
@@ -11,7 +12,24 @@
 }
 
 .nav__content {
+  margin-top: rem(37);
+}
+
+.nav__content.nav__content__a {
+  margin-top: 36px;
+}
+.nav__content.nav__content__b {
+  margin-top: 33px;
+}
+
+.nav__content.nav__content__c {
   margin-top: rem(40);
+}
+.nav__content.nav__content__d {
+  margin-top: rem(36);
+}
+.nav__content.nav__content__e {
+  margin-top: rem(42);
 }
 
 .nav__items {
@@ -25,8 +43,12 @@
 }
 
 .nav__item + .nav__item {
-  margin-top: rem(24);
-  margin-left: rem(22);
+  margin-top: rem(19);
+  margin-left: rem(23);
+}
+
+.nav__item:nth-child(2) {
+  margin-top: 22px;
 }
 
 .nav__item a {

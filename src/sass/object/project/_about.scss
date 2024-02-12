@@ -3,13 +3,16 @@
 .about {
     margin-top: rem(72);
     @include mq(md){
-        margin-top: rem(130);
+        margin-top: rem(132);
     }
 }
 
 .about__btn {
-    margin-top: rem(50);
+    margin-top: rem(52);
     text-align: center;
+    @include mq(md){
+        margin-top: rem(40);
+    }
 }
 
 .about__decoration {
@@ -26,8 +29,8 @@
         content: "";
         max-width: rem(194);
         width: 100%;
-        right: 10%;
-        top: rem(125);
+        right: 10.6%;
+        top: rem(134);
         background-image: url(../images/common/about-decoration.svg);
         background-size: contain;
         background-position: center;

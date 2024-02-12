@@ -1,7 +1,7 @@
 @use "global" as *;
 
 .contact {
-  margin: rem(80) 0 rem(100);
+  margin: rem(80) 0 rem(103);
   position: relative;
   @include mq(md) {
     margin: rem(140) 0 rem(160);
@@ -20,7 +20,7 @@
   width: 100%;
   height: rem(50);
   bottom: 96%;
-  left: 70%;
+  left: 67%;
   @include mq(md){
     max-width: rem(301);
     height: rem(138);

@@ -14,7 +14,7 @@
 
 .header-hamburger span {
     position: absolute;
-    width: inherit;
+    width: 40px;
     height: rem(2);
     background-color: $white;
     transition: 0.3s;
@@ -23,29 +23,29 @@
 
 .header-hamburger span:nth-child(1) {
     top: 18%;
-    left: 1%;
+    left: -14%;
 }
 
 .header-hamburger span:nth-child(2) {
     top: 48%;
     opacity: 1;
-    left: 1%;
+    left: -13%;
 }
 
 .header__hamburger span:nth-child(3) {
     top: 78%;
-    left: 1%;
+    left: -13%;
 }
 
 .header-hamburger.is-open span:nth-child(1) {
-    top: 60%;
-    transform: rotate(45deg);
+    top: 47%;
+    transform: rotate(37deg);
 }
 .header-hamburger.is-open span:nth-child(2) {
     top: 51%;
     opacity: 0;
 }
 .header-hamburger.is-open span:nth-child(3) {
-    top: 60%;
-    transform: rotate(-45deg);
+    top: 46%;
+    transform: rotate(-36deg);
 }
