@@ -2,7 +2,7 @@
 
 .price {
     background-color: $pale-blue;
-    margin-top: rem(80);
+    margin-top: rem(84);
     padding: rem(80) 0;
     @include mq(md){
         margin-top: rem(140);
@@ -40,7 +40,7 @@
 }
 
 .price__content {
-    margin-top: rem(24);
+    margin-top: rem(27);
     @include mq(md){
         display: flex;
         gap: rem(93);
@@ -72,7 +72,7 @@
 
 
 .price__items {
-    margin-top: rem(40);
+    margin-top: rem(42);
     @include mq(md){
         max-width: rem(492);
         width: 100%;
@@ -88,13 +88,14 @@
     font-weight: $bold;
     line-height: 1.5;
     border-bottom: 1px solid $accent-green;
+
+    padding-bottom: 3px;
 }
 
 .price__item-layout {
     display: flex;
     justify-content: space-between;
     margin-top: rem(8);
-
 }
 
 .price__item-menu {
