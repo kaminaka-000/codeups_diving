@@ -7,13 +7,33 @@
   gap: 0 rem(6);
   @include mq(md) {
     display: flex;
-    justify-content: space-between;
+    gap: 0;
+  }
+}
+
+.nav__section:nth-child(2) {
+  @include mq(md){
+    margin-left: rem(102);
+  }
+}
+
+.nav__section:nth-child(3),
+.nav__section:nth-child(4) {
+  @include mq(md){
+    margin-left: rem(88);
   }
 }
 
 .nav__content {
   margin-top: rem(40);
 }
+
+.nav__content:first-child {
+  @include mq(md){
+    margin-top: rem(29);
+  }
+}
+
 
 .nav__items {
   @include mq(md) {
@@ -23,6 +43,7 @@
 
 .nav__item {
   width: 100%;
+
 }
 
 .nav__item + .nav__item {

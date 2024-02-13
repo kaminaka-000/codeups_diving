@@ -63,7 +63,7 @@ jQuery(function ($) {
     });
 
 
-    //要素の取得とスピードの設定
+    //画像の出現アニメーション
     var box = $('.course__item-img, .testimonial__item-box-img, .price__img-sp, .price__img-pc'),
     speed = 700;
 

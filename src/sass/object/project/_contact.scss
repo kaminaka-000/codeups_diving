@@ -4,7 +4,7 @@
   margin: rem(80) 0 rem(100);
   position: relative;
   @include mq(md) {
-    margin: rem(140) 0 rem(160);
+    margin: rem(140) 0 rem(153);
   }
 }
 
@@ -68,7 +68,7 @@
 .contact__address,
 .contact__title {
     @include mq(md){
-        flex: 1; /* 両方のアイテムにフレックスグローを適用して、利用可能なスペースを均等に分ける */
+        flex: 1;
     }
 }
 
@@ -95,7 +95,6 @@
   line-height: 1.5;
   @include mq(md){
     white-space: nowrap;
-
     text-align: left;
   }
 }

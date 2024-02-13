@@ -147,6 +147,12 @@
     }
 }
 
+.info-card__item-content-after span {
+    @include mq(md){
+        margin-left: 10px;
+    }
+}
+
 .info-card__wrap {
     @include mq(md){
         position: absolute;

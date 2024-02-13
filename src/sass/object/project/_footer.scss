@@ -3,6 +3,9 @@
 .footer {
   background-color: $accent-green;
   padding-top: rem(48);
+  @include mq(md){
+    padding-top: rem(76);
+  }
 }
 
 .footer__inner {
@@ -11,7 +14,7 @@
   width: 100%;
   margin-inline: auto;
   @include mq(md) {
-    max-width: rem(1008);
+    max-width: rem(1080);
     padding: 0;
   }
 }
@@ -21,6 +24,8 @@
     display: flex;
     gap: rem(40);
     align-items: end;
+
+    height: rem(75);
   }
 }
 
@@ -30,7 +35,6 @@
   transition: all 0.3s ease 0s;
   @include mq(md) {
     max-width: rem(200);
-    padding-top: rem(80);
   }
 }
 
@@ -71,7 +75,7 @@
   @include mq(md) {
     font-size: rem(14);
     line-height: 1.28571;
-    padding: rem(80);
+    padding: rem(77) 0 rem(80) 0;
   }
 }
 
