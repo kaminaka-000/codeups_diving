@@ -1,14 +1,14 @@
 @use "global" as *;
 
 .about {
-    margin-top: rem(72);
+    margin-top: rem(74);
     @include mq(md){
         margin-top: rem(132);
     }
 }
 
 .about__btn {
-    margin-top: rem(52);
+    margin-top: rem(50);
     text-align: center;
     @include mq(md){
         margin-top: rem(40);

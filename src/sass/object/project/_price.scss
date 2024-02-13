@@ -3,7 +3,7 @@
 .price {
     background-color: $pale-blue;
     margin-top: rem(84);
-    padding: rem(80) 0 rem(82);
+    padding: rem(80) 0;
     @include mq(md){
         margin-top: rem(144);
         padding: rem(100) 0;
@@ -89,8 +89,7 @@
     font-weight: $bold;
     line-height: 1.5;
     border-bottom: 1px solid $accent-green;
-
-    padding-bottom: 3px;
+    padding-bottom: rem(3);
 }
 
 .price__item-layout {

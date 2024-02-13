@@ -1,7 +1,7 @@
 @use "global" as *;
 
 .blog {
-    margin-top: rem(82);
+    margin-top: rem(80);
     @include mq(md){
         padding-top: rem(100);
         margin-top: 0;
@@ -51,6 +51,13 @@
     }
 }
 
+.blog__wrapper {
+    margin-top: rem(29);
+    @include mq(md){
+        margin-top: rem(80);
+    }
+}
+
 .blog__item {
     margin-top: rem(24);
     @include mq(md){
@@ -60,15 +67,9 @@
 
 .blog__item-btn {
     text-align: center;
-    margin-top: rem(39);
+    margin-top: rem(40);
     @include mq(md){
         margin-top: rem(80);
     }
 }
 
-.blog__wrapper {
-    margin-top: rem(29);
-    @include mq(md){
-        margin-top: rem(80);
-    }
-}

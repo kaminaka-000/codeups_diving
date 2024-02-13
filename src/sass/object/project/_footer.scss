@@ -27,7 +27,6 @@
 .footer__logo {
   max-width: rem(120);
   width: 100%;
-  //padding-top: rem(48);
   transition: all 0.3s ease 0s;
   @include mq(md) {
     max-width: rem(200);
@@ -54,7 +53,6 @@
 
 .footer__icon img {
   width: rem(24);
-  //width: 100%;
   @include mq(md){
     width: rem(32);
   }
@@ -77,7 +75,3 @@
   }
 }
 
-.footer__nav {
-  //margin-top: rem(40);
-  //margin-top: rem(2);
-}

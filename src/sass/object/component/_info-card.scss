@@ -35,7 +35,7 @@
 .info-card__item-img::before {
     content: "";
     display: block;
-    padding-top: 67.142857%;
+    padding-top: 68.142857%;
     @include mq(md){
         padding-top: 66.966966%;
     }
@@ -53,7 +53,7 @@
 }
 
 .info-card__item-content {
-    padding: rem(16) rem(16) rem(26) rem(16);
+    padding: rem(16) rem(16) rem(24) rem(16);
     @include mq(md){
         padding: rem(26) rem(16) rem(40) rem(16);
     }
@@ -64,7 +64,7 @@
     border: 1px solid $accent-green;
     font-size: rem(12);
     line-height: 1.83333;
-    padding: rem(4) rem(11);
+    padding: rem(4) rem(12);
     display: inline-block;
     @include mq(md){
         padding: rem(6) rem(16) rem(4) rem(16);
@@ -105,7 +105,6 @@
     gap: rem(16);
     justify-content: center;
     @include mq(md){
-        
         gap: 0;
 
     }

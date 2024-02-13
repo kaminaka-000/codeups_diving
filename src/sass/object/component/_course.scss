@@ -45,7 +45,7 @@
 }
 
 .course__item-wrapper {
-    margin-top: rem(26);
+    margin-top: rem(24);
     @include mq(md){
         width: 45%;
         margin-top: 0;
@@ -72,8 +72,5 @@
     }
 }
 
-.course__item-btn {
-    margin-top: rem(40);
-    text-align: center;
-}
+
 

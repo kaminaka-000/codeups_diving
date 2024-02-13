@@ -2,7 +2,7 @@
 
 .image-design__img {
     position: relative;
-    margin-top: rem(53);
+    margin-top: rem(54);
     max-width: rem(345);
     margin-inline: auto;
     height: rem(185);
@@ -10,7 +10,6 @@
         margin-top: rem(120);
         margin-inline: none;
         max-width: none;
-
         height: rem(120);
     }
 }
@@ -53,14 +52,13 @@
 }
 
 .image-design__body {
-    margin-top: rem(42);
+    margin-top: rem(40);
     @include mq(md){
         position: relative;
         display: flex;
         margin-top: 0;
         gap: rem(40);
         justify-content: center;
-
         padding-left: rem(157);
     }
 }
@@ -88,8 +86,6 @@
         max-width: rem(400);
         width: 100%;
         margin-top: 0;
-
-
     }
 }
 
