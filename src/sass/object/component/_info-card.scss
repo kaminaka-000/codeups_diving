@@ -93,8 +93,7 @@
         font-size: rem(16);
         line-height: 1.5;
         padding-top: rem(16);
-
-        margin-right: 10px;
+        margin-right: rem(10);
     }
 }
 
@@ -119,6 +118,7 @@
     @include mq(md){
         font-size: rem(24);
         margin-top: rem(12);
+        min-width: 0;
     }
 }
 

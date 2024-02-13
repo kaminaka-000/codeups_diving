@@ -1,9 +1,5 @@
 @use "global" as *;
 
-.testimonial {
-
-}
-
 .testimonial__list {
     @include mq(md){
         display: flex;
@@ -133,4 +129,3 @@
         margin-top: rem(40);
     }
 }
-
