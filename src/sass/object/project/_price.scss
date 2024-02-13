@@ -5,7 +5,7 @@
     margin-top: rem(84);
     padding: rem(80) 0 rem(82);
     @include mq(md){
-        margin-top: rem(140);
+        margin-top: rem(144);
         padding: rem(100) 0;
         position: relative;
     }
@@ -24,8 +24,8 @@
         max-width: rem(437);
         width: 100%;
         height: rem(201);
-        right: 65%;
-        bottom: 10%;
+        right: 63%;
+        bottom: 5%;
     }
 }
 
@@ -44,6 +44,7 @@
     @include mq(md){
         display: flex;
         gap: rem(93);
+        margin-top: rem(40);
     }
 }
 
@@ -142,7 +143,7 @@
     text-align: center;
     margin-top: rem(40);
     @include mq(md){
-        margin: rem(80);
+        margin-top: rem(80);
     }
 }
 

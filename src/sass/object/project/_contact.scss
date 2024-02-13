@@ -22,10 +22,10 @@
   bottom: 96%;
   left: 67%;
   @include mq(md){
-    max-width: rem(301);
-    height: rem(138);
-    right: 4%;
-    bottom: 78%;
+    max-width: rem(314);
+    height: rem(144);
+    right: 3%;
+    bottom: 76%;
     left: auto;
   }
 }
@@ -45,7 +45,9 @@
   max-width: rem(174);
   width: 100%;
   margin-inline: auto;
-
+  @include mq(md){
+    max-width: rem(200);
+  }
 }
 
 .contact__layout {
@@ -53,7 +55,6 @@
         display: flex; /* Flexboxを有効化 */
         align-items: flex-start; /* アイテムを上端揃えに */
         box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.25);
-        //padding: rem(80) rem(125) rem(80) rem(50);
     }
 }
 
@@ -68,7 +69,6 @@
 .contact__title {
     @include mq(md){
         flex: 1; /* 両方のアイテムにフレックスグローを適用して、利用可能なスペースを均等に分ける */
-        //padding: 0 rem(16); /* 必要に応じて間隔を調整 */
     }
 }
 
@@ -78,7 +78,7 @@
     @include mq(md) {
         display: flex;
         gap: rem(21);
-        margin-top: rem(8);
+        margin-top: rem(6);
     }
 }
 
@@ -95,11 +95,16 @@
   line-height: 1.5;
   @include mq(md){
     white-space: nowrap;
+
+    text-align: left;
   }
 }
 
 .contact__address-body p:first-child {
   margin-top: rem(16);
+  @include mq(md){
+    margin-top: 0;
+  }
 }
 
 .contact__address-body p:not(:first-child) {
@@ -125,14 +130,6 @@
 
 .contact__line {
     @include mq(md){
-        // position: relative;
-    }
-}
-
-.contact__line {
-    @include mq(md){
-        // position: absolute;
-        // content: "";
         width: 1px;
         height: rem(255);
         background-color: $accent-green;
