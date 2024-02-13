@@ -29,8 +29,6 @@
     max-width: rem(600);
     width: 100%;
     margin-inline: auto;
-    @include mq(md){
-    }
 }
 
 .voice__wrapper {

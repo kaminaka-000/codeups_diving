@@ -3,6 +3,8 @@
 .testimonial__list {
     @include mq(md){
         display: flex;
+        flex-wrap: wrap;
+        gap: rem(40);
     }
 }
 
@@ -12,6 +14,8 @@
     padding: rem(15) rem(16) rem(24) rem(16);
     @include mq(md){
         padding: rem(24);
+        max-width: calc(50% - #{rem(30)} * 2/3);
+        width: 100%;
     }
 }
 
@@ -23,7 +27,6 @@
     margin-top: rem(40);
     @include mq(md){
         margin-top: 0;
-        margin-left: rem(40);
     }
 }
 
@@ -129,3 +132,6 @@
         margin-top: rem(40);
     }
 }
+
+
+//
