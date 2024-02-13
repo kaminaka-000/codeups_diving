@@ -38,6 +38,10 @@ jQuery(function ($) {
     //mvスライダー
     var swiper = new Swiper(".js-mv-swiper", {
         loop: true,
+        effect: 'fade', // フェード効果を適用
+        fadeEffect: {
+            crossFade: true // クロスフェード効果を有効にする
+        },
         speed: 3000,
         autoplay: {
             delay: 3000,
@@ -51,7 +55,15 @@ jQuery(function ($) {
         slidesPerView: 1.26,
         spaceBetween: 24,
         breakpoints: {
+            500: {
+                slidesPerView: 2,
+                spaceBetween: 40
+            },
             768: {
+                slidesPerView: 3,
+                spaceBetween: 40
+            },
+            1200: {
                 slidesPerView: 3.5,
                 spaceBetween: 40
             }
