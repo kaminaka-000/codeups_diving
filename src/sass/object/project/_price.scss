@@ -35,10 +35,6 @@
     margin-inline: auto;
 }
 
-.price__title {
-
-}
-
 .price__content {
     margin-top: rem(27);
     @include mq(md){
@@ -50,8 +46,6 @@
 
 .price__img-sp {
     position: relative;
-
-
     @include mq(md){
         display: none;
     }

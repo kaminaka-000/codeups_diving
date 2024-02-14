@@ -8,7 +8,6 @@
 .info-card__items {
     padding: 0 0 rem(10) rem(2);
     transition: all 0.3s ease 0s;
-
 }
 
 .info-card__items:hover .info-card__item-img img{
@@ -105,7 +104,6 @@
     justify-content: center;
     @include mq(md){
         gap: 0;
-
     }
 }
 

@@ -80,7 +80,6 @@
     @include mq(md){
         font-size: rem(24);
         margin-top: rem(10);
-        //width: rem(276);
     }
 }
 
@@ -89,7 +88,6 @@
     position: relative;
     width: 51.768115%;
     @include mq(md){
-        //width: 34.615384%;
         width: 42.615384%;
     }
 }
@@ -132,6 +130,3 @@
         margin-top: rem(40);
     }
 }
-
-
-//

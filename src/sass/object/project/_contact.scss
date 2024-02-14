@@ -52,8 +52,8 @@
 
 .contact__layout {
     @include mq(md){
-        display: flex; /* Flexboxを有効化 */
-        align-items: flex-start; /* アイテムを上端揃えに */
+        display: flex;
+        align-items: flex-start;
         box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.25);
     }
 }

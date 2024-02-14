@@ -1,78 +1,5 @@
 @use "global" as *;
 
-// .btn {
-//     position: relative;
-//     display: inline-block;
-// }
-
-// .btn::before {
-//     content: "";
-//     position: absolute;
-//     top: rem(4);
-//     left: rem(3);
-//     width: rem(202);
-//     height: rem(54);
-//     border: 1px solid $accent-green;
-//     //z-index: -2;
-//     transition: .3s;
-// }
-
-
-// .btn-design {
-//     background: $accent-green;
-//     position: relative;
-//     display: inline-block;
-//     margin: 0 auto;
-//     padding: rem(14) rem(80) rem(16) rem(45); /* 右のパディングを増やして矢印のスペースを作る */
-//     color: $white;
-//     font-size: rem(14);
-//     font-family: $accent-font-family;
-//     line-height: 1.57143;
-//     transition: 0.3s ease-in-out;
-//     z-index: 0;
-//     border: 1px solid $accent-green;
-// }
-
-// .btn-design:after {
-//     content: "";
-//     position: absolute;
-//     top: 43%;
-//     right: rem(40); /* 矢印の位置を調整 */
-//     width: rem(40); /* 矢印のサイズを設定 */
-//     height: rem(8); /* 矢印のサイズを設定 */
-//     background-image: url(/assets/images/common/arrow-icon.svg);
-//     background-repeat: no-repeat;
-//     background-size: contain;
-//     transform: translate(0, -50%);
-// }
-
-// .btn-design:before {
-//     content: "";
-//     position: absolute;
-//     top: 0;
-//     bottom: 0;
-//     width: 0;
-//     display: block;
-//     background: $white;
-//     transition: .3s;
-//     left: 0;
-//     z-index: -1;
-// }
-
-// .btn-design:hover {
-//     color: $accent-green;
-// }
-
-// .btn-design:hover:before {
-//     width: 100%;
-// }
-
-// .btn-design:hover:after {
-//     background-image: url(/assets/images/common/arrow-green.svg);
-// }
-
-
-//
 .btn {
     position: relative;
     display: inline-block;
@@ -86,7 +13,6 @@
     width: rem(199);
     height: rem(54);
     border: 1px solid $accent-green;
-    //z-index: -2;
     transition: .3s;
 }
 
@@ -99,7 +25,6 @@
     z-index: 0;
     border: 1px solid $accent-green;
     padding: rem(15) rem(40) rem(16) rem(35);
-
 }
 
 .btn__wrapper:before {
@@ -115,17 +40,13 @@
     z-index: -1;
 }
 
-
-
 .btn__wrapper:hover:before {
     width: 100%;
 }
 
 .btn__layout {
     display: flex;
-    //align-items: center;
 }
-
 
 .btn__img {
     margin-left: rem(8);
@@ -152,6 +73,3 @@
 .btn:hover .btn__img {
     background-image: url(../images/common/arrow-green.svg);
 }
-
-
-//

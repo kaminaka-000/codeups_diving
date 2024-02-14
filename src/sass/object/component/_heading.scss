@@ -8,16 +8,15 @@
     font-family: $accent-font-family;
     font-size: rem(32);
     line-height: 1.25;
+    font-weight: $normal;
     @include mq(md){
         font-size: rem(40);
         line-height: 1;
     }
-
 }
 
 .heading__engtitle span {
     color: $accent-green;
-
 }
 
 .heading__jatitle {
@@ -38,7 +37,6 @@
     }
 }
 
-
 .heading__engtitle--contact {
     font-size: rem(80);
     text-shadow: 2px 3px 3px rgba(0, 0, 0, 0.2);
@@ -47,7 +45,6 @@
         font-size: rem(80);
         text-shadow: none;
     }
-
 }
 
 .heading .heading__jatitle--contact {
