@@ -41,25 +41,29 @@
 
 .heading__engtitle--contact {
     font-size: rem(80);
-    //text-shadow: 2px 3px 3px rgba(0, 0, 0, 0.2);
+    text-shadow: 2px 3px 3px rgba(0, 0, 0, 0.2);
     line-height: 1;
     @include mq(md){
         font-size: rem(80);
+        text-shadow: none;
     }
 
 }
 
 .heading .heading__jatitle--contact {
-    //text-shadow: 2px 3px 3px rgba(0, 0, 0, 0.2);
+    text-shadow: 2px 3px 3px rgba(0, 0, 0, 0.2);
     margin-top: rem(-8);
-
+    @include mq(md){
+        text-shadow: none;
+    }
 }
 
 .heading__jatitle--contact-2 {
-    //text-shadow: 2px 3px 3px rgba(0, 0, 0, 0.2);
+    text-shadow: 2px 3px 3px rgba(0, 0, 0, 0.2);
     font-size: rem(14);
     margin-top: rem(6);
     @include mq(md){
         font-size: rem(14);
+        text-shadow: none;
     }
 }

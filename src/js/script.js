@@ -105,14 +105,30 @@ jQuery(function ($) {
     let topBtn = $('.to-top');
     topBtn.hide();
 
-    //ボタンの表示設定
+    // フッターの要素
+    let footer = $('.footer');
+
+    // ボタンの表示設定
     $(window).scroll(function () {
-        if ($(this).scrollTop() > 150) {
-        //指定のpx以上のスクロールでボタンを表示
+        let scrollAmount = $(window).scrollTop();
+        let windowHeight = $(window).height();
+        let footerTop = footer.offset().top;
+
+        if (scrollAmount > 150) {
+            // 指定のpx以上のスクロールでボタンを表示
             topBtn.fadeIn();
         } else {
-        //指定のpx以上のスクロールでボタンを非表示
+            // 指定のpx以上のスクロールでボタンを非表示
             topBtn.fadeOut();
+        }
+
+        // フッターが表示範囲に入ってきたらボタンの位置を上に移動
+        if (scrollAmount + windowHeight > footerTop) {
+            topBtn.css('position', 'absolute');
+            topBtn.css('bottom', windowHeight - (scrollAmount + topBtn.outerHeight() - footerTop) + 'px');
+        } else {
+            topBtn.css('position', 'fixed');
+            topBtn.css('bottom', '10px');
         }
     });
 

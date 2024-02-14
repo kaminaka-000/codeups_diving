@@ -8,7 +8,7 @@
     height: rem(185);
     @include mq(md){
         margin-top: rem(120);
-        margin-inline: none;
+        margin-inline: 0;
         max-width: none;
         height: rem(120);
     }
