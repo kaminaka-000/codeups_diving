@@ -3,10 +3,13 @@
 .header {
     height: rem(80);
     background: rgba(13, 41, 54, 0.68);
-    z-index: 1000;
+    z-index: 900;
     position: fixed;
     width: 100%;
     transition: 0.3s;
+    top: 0;
+    right: 0;
+    left: 0;
     @include mq(md){
       height: rem(90);
     }
@@ -55,6 +58,8 @@
   width: 100%;
   height: 100vh;
   background-color: $accent-green;
+  bottom: 0;
+  z-index: 900;
 }
 
 

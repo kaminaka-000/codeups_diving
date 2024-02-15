@@ -1,7 +1,7 @@
 jQuery(function ($) {
   // この中であればWordpressでも「$」が使用可能になる
 
-        // ハンバーガーメニュー
+        // // ハンバーガーメニュー
         $(function () {
             $(".js-hamburger").on("click", function () {
                 $(this).toggleClass("is-open");
@@ -31,9 +31,10 @@ jQuery(function ($) {
         }
 
         function closeDrawer() {
-                $(".js-sp-nav").fadeOut();
+            $(".js-sp-nav").fadeOut();
             $(".js-hamburger").removeClass("is-open");
         }
+
 
     //mvスライダー
     var swiper = new Swiper(".js-mv-swiper", {
