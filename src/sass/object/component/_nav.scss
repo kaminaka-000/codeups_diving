@@ -67,6 +67,10 @@
   font-weight: $bold;
 }
 
+.nav__item a span:hover {
+  opacity: 0.6;
+}
+
 .nav__item-wrapper {
   display: flex;
   gap: rem(4);
