@@ -7,6 +7,18 @@
     }
 }
 
+.about__inner {
+    max-width: rem(600);
+    width: 100%;
+    padding-left: rem(14);
+    padding-right: rem(16);
+    margin-inline: auto;
+    @include mq(md){
+        max-width: rem(1130);
+        padding: 0 rem(25);
+    }
+}
+
 .about__btn {
     margin-top: rem(50);
     text-align: center;

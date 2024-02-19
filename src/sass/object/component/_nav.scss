@@ -34,15 +34,10 @@
   }
 }
 
-
 .nav__items {
   @include mq(md) {
     width: rem(182);
   }
-}
-
-.nav__item {
-  width: 100%;
 }
 
 .nav__item + .nav__item {
@@ -87,13 +82,11 @@
   max-width: rem(375);
   width: 100%;
   padding: 0 rem(15);
-}
-
-.nav__item--header__sp-nav {
-  width: rem(144);
+  margin-inline: auto;
 }
 
 .nav__area--header__sp-nav {
   padding: rem(64) 0 rem(104);
   gap: 0;
+  width: rem(330);
 }

@@ -51,6 +51,13 @@
     }
 }
 
+.price__img-sp img {
+    height: auto;
+    aspect-ratio: 345/227;
+    object-fit: cover;
+    width: 100%;
+}
+
 .price__img-sp div.color {
     position: absolute;
     top: 0;
@@ -109,6 +116,13 @@
     }
 }
 
+.price__img-pc img{
+    height: auto;
+    aspect-ratio: 492/746;
+    object-fit: cover;
+    width: 100%;
+}
+
 .price__img-pc div.color {
     position: absolute;
     top: 0;
@@ -126,7 +140,9 @@
 .price__item-cost {
     font-size: rem(14);
     line-height: 1.71429;
+    margin-left: rem(5);
     @include mq(md){
+        margin-left: rem(10);
         font-size: rem(16);
         line-height: 1.5;
     }
