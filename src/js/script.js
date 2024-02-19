@@ -132,9 +132,4 @@ jQuery(function ($) {
             topBtn.css('bottom', '10px');
         }
     });
-
-
-
-
-
 });
