@@ -9,7 +9,6 @@
         margin-top: rem(120);
         margin-inline: 0;
         max-width: none;
-        height: rem(120);
     }
 }
 
@@ -50,12 +49,14 @@
 .image-design__body {
     margin-top: rem(40);
     @include mq(md){
-        position: relative;
         display: flex;
         margin-top: 0;
         gap: rem(40);
         justify-content: center;
         padding-left: rem(157);
+        position: absolute;
+        top: 40%;
+        left: 4%;
     }
 }
 

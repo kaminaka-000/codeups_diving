@@ -15,8 +15,14 @@
     }
 }
 
-.heading__engtitle span {
+.heading__engtitle::first-letter {
     color: $accent-green;
+}
+
+.heading__engtitle--blog::first-letter {
+    @include mq(md){
+        color: $white;
+    }
 }
 
 .heading__jatitle {

@@ -1,0 +1,30 @@
+@use "global" as *;
+
+.top-contact {
+    margin-top: rem(80);
+    position: relative;
+    @include mq(md){
+        margin-top: rem(140);
+    }
+}
+
+.top-contact::before {
+    display: block;
+    position: absolute;
+    content: "";
+    background-image: url(../images/common/contact-fish.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    max-width: rem(109);
+    width: 100%;
+    height: rem(50);
+    right: calc(50% - min(46vw, 42rem));
+    top: rem(-23);
+    @include mq(md){
+        max-width: rem(314);
+        height: rem(144);
+        top: rem(-42);
+        right: calc(50% - min(48vw, 42.2rem));
+    }
+}

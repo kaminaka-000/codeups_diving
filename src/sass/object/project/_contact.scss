@@ -1,35 +1,5 @@
 @use "global" as *;
 
-.contact {
-  margin: rem(80) 0 rem(100);
-  position: relative;
-  @include mq(md) {
-    margin: rem(140) 0 rem(153);
-  }
-}
-
-.contact::before {
-  display: block;
-  position: absolute;
-  content: "";
-  background-image: url(../images/common/contact-fish.svg);
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  max-width: rem(109);
-  width: 100%;
-  height: rem(50);
-  bottom: 96%;
-  left: 67%;
-  @include mq(md){
-    max-width: rem(314);
-    height: rem(144);
-    right: 3%;
-    bottom: 76%;
-    left: auto;
-  }
-}
-
 .contact__inner {
   padding: 0 rem(30);
   max-width: rem(600);

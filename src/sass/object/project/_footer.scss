@@ -1,13 +1,5 @@
 @use "global" as *;
 
-.footer {
-  background-color: $accent-green;
-  padding-top: rem(48);
-  @include mq(md){
-    padding-top: rem(76);
-  }
-}
-
 .footer__inner {
   max-width: rem(600);
   width: 100%;
@@ -63,9 +55,9 @@
 .footer__copyright {
   text-align: center;
   color: $white;
-  padding: rem(40) 0 rem(56);
+  margin-top: rem(40);
   @include mq(md) {
-    padding: rem(77) 0 rem(80) 0;
+    margin-top: rem(77);
   }
 }
 

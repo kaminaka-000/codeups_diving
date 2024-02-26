@@ -142,7 +142,7 @@
 .info-card__wrap {
     @include mq(md){
         position: absolute;
-        top: 0;
+        top: rem(6);
         right: 26.2%;
         margin-top: rem(-84);
     }
