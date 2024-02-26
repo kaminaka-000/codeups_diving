@@ -83,10 +83,14 @@
   width: 100%;
   padding: 0 rem(15);
   margin-inline: auto;
+  height: 100%;
+  overflow: scroll;
+
 }
 
 .nav__area--header__sp-nav {
-  padding: rem(64) 0 rem(104);
+  padding-bottom: rem(104);
   gap: 0;
   width: rem(330);
 }
+

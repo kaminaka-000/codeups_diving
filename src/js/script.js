@@ -1,39 +1,46 @@
 jQuery(function ($) {
   // この中であればWordpressでも「$」が使用可能になる
 
-        // // ハンバーガーメニュー
-        $(function () {
-            $(".js-hamburger").on("click", function () {
-                $(this).toggleClass("is-open");
-                if ($(this).hasClass("is-open")) {
-                    openDrawer();
-                } else {
-                    closeDrawer();
-                }
-            });
-
-            // backgroundまたはページ内リンクをクリックで閉じる
-            $(".js-drawer a[href]").on("click", function () {
+     // ハンバーガーメニュー
+    $(function () {
+        // ハンバーガーメニューのクリックイベントハンドラ
+        $(".js-hamburger").on("click", function () {
+            $(this).toggleClass("is-open");
+            if ($(this).hasClass("is-open")) {
+                openDrawer();
+            } else {
                 closeDrawer();
-            });
-
-            // resizeイベント
-            $(window).on('resize', function() {
-                if (window.matchMedia("(min-width: 768px)").matches) {
-                    closeDrawer();
-                }
-            });
+            }
         });
 
-        function openDrawer() {
-            $(".js-sp-nav").fadeIn();
-            $(".js-hamburger").addClass("is-open");
-        }
+        // 背景またはページ内リンクをクリックでドロワーを閉じるイベントハンドラ
+        $(".js-drawer a[href]").on("click", function () {
+            closeDrawer();
+        });
 
-        function closeDrawer() {
-            $(".js-sp-nav").fadeOut();
-            $(".js-hamburger").removeClass("is-open");
-        }
+        // ウィンドウのリサイズイベントハンドラ
+        $(window).on('resize', function() {
+            if (window.matchMedia("(min-width: 768px)").matches) {
+                closeDrawer(); // 768px以上でドロワーを閉じる
+            }
+        });
+    });
+
+    // ドロワーを開く処理
+    function openDrawer() {
+        $(".js-sp-nav").fadeIn();
+        $("body").css({ height: "100%", overflow: "hidden" });
+        $(".header").addClass("header-drawer-open");
+    }
+
+    // ドロワーを閉じる処理
+    function closeDrawer() {
+        $(".js-sp-nav").fadeOut();
+        $(".js-hamburger").removeClass("is-open");
+        $("body").css({ height: "", overflow: "" });
+        $(".header").removeClass("header-drawer-open");
+    }
+
 
 
     //mvスライダー

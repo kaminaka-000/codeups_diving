@@ -52,7 +52,6 @@
 .header__sp-nav {
   display: none;
   position: absolute;
-  top: 0;
   left: 0;
   right: 0;
   width: 100%;
@@ -60,7 +59,11 @@
   background-color: $accent-green;
   bottom: 0;
   z-index: 900;
+  top: rem(64);
 }
 
-
+//
+.header-drawer-open {
+  background-color: #408F95;
+}
 
