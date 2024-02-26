@@ -21,15 +21,18 @@
 
 .header-hamburger span:nth-child(1) {
     top: 0%;
+    left: 1%;
 }
 
 .header-hamburger span:nth-child(2) {
     top: 48%;
     opacity: 1;
+    left: 1%;
 }
 
 .header__hamburger span:nth-child(3) {
     top: 99%;
+    left: 1%;
 }
 
 .header-hamburger.is-open span:nth-child(1) {
