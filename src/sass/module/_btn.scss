@@ -1,32 +1,30 @@
 @use "global" as *;
 
-.btn {
-    position: relative;
-    display: inline-block;
-}
-
-.btn::before {
-    content: "";
-    position: absolute;
-    top: rem(4);
-    left: rem(4);
-    width: rem(199);
-    height: rem(54);
-    border: 1px solid $accent-green;
-    transition: .3s;
-}
-
-.btn__wrapper {
+.button {
     position: relative;
     display: inline-block;
     background-color: $accent-green;
-    transition: 0.3s ease-in-out;
-    z-index: 0;
+    padding: rem(15) rem(88) rem(16) rem(40);
     border: 1px solid $accent-green;
-    padding: rem(15) rem(40) rem(16) rem(35);
+    color: $white;
+    font-size: rem(14);
+    font-family: $accent-font-family;
+    z-index: 1;
 }
 
-.btn__wrapper:before {
+.button::before {
+    content: "";
+    position: absolute;
+    z-index: -2;
+    transition: width 0.3s ease;
+    top: rem(4);
+    left: rem(4);
+    width: 100%;
+    height: 100%;
+    border: 1px solid $accent-green;
+}
+
+.button::after {
     content: "";
     position: absolute;
     top: 0;
@@ -34,22 +32,23 @@
     width: 0;
     display: block;
     background: $white;
-    transition: .3s;
+    transition: 0.3s;
     left: 0;
     z-index: -1;
 }
 
-.btn__wrapper:hover:before {
+.button:hover::after {
     width: 100%;
 }
 
-.btn__layout {
-    display: flex;
-}
-
-.btn__img {
+.button span::after {
+    content: "";
+    position: absolute;
     margin-left: rem(8);
-    width: rem(41);
+    top: 50%;
+    transform: translateY(-50%); /* アイコンを垂直方向の中央に */
+    width: rem(40); /* アイコンのサイズ */
+    height: rem(6);
     background-image: url(../images/common/arrow-icon.svg);
     background-size: contain;
     background-position: center;
@@ -57,18 +56,10 @@
     transition: background-image 0.3s ease;
 }
 
-.btn__text {
-    color: $white;
-    font-size: rem(14);
-    font-family: $accent-font-family;
-    font-weight: $normal;
-    line-height: 1.57143;
-}
-
-.btn:hover .btn__text{
+.button:hover {
     color: $accent-green;
 }
 
-.btn:hover .btn__img {
+.button:hover span::after {
     background-image: url(../images/common/arrow-green.svg);
 }
