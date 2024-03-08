@@ -2,9 +2,7 @@
 
 .image-design__img {
     position: relative;
-    display: flex;
-    justify-content: right;
-    margin-top: rem(56);
+    margin-top: rem(50);
         @include mq(md){
         margin-top: rem(120);
         margin-inline: 0;
@@ -33,7 +31,8 @@
 }
 
 .image-design__img2 {
-    width: 82%;
+    width: 81.5%;
+    margin-left: auto;
 }
 
 .image-design__img2 img {

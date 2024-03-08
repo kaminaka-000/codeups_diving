@@ -1,12 +1,12 @@
 @use "global" as *;
 
-.voice__fish-design {
+.voice {
     @include mq(md){
         position: relative;
     }
 }
 
-.voice__fish-design::after {
+.voice::before {
     @include mq(md){
         position: absolute;
         content: "";
@@ -18,7 +18,25 @@
         width: 100%;
         height: rem(138);
         left: calc(49% - min(47vw, 38rem));
-        bottom: rem(-20);
+        top: -19%;
+    }
+}
+
+.voice::after {
+    display: none;
+    @include mq(md){
+        position: absolute;
+        content: "";
+        background-image: url(../images/common/voice-design.svg);
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        display: block;
+        max-width: rem(71);
+        width: 100%;
+        height: rem(162);
+        bottom: rem(-69);
+        right: calc(50% - min(48vw, 33.7rem));
     }
 }
 
@@ -43,26 +61,3 @@
     }
 }
 
-.voice__seahorse-design {
-    @include mq(md){
-        position: relative;
-    }
-}
-
-.voice__seahorse-design::after {
-    display: none;
-    @include mq(md){
-        position: absolute;
-        content: "";
-        background-image: url(../images/common/voice-design.svg);
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-        display: block;
-        max-width: rem(71);
-        width: 100%;
-        height: rem(162);
-        bottom: rem(-69);
-        right: calc(50% - min(48vw, 33.7rem));
-    }
-}

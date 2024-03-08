@@ -20,9 +20,9 @@
 }
 
 .card__item:hover .card__item-img img{
-      @include mq(md){
-        transform: scale(1.2);
-    }
+    @include mq(md){
+      transform: scale(1.2);
+  }
 }
 
 .card__item + .card__item {

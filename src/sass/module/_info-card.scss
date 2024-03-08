@@ -20,7 +20,6 @@
     flex-direction: column;
 }
 
-
 .info-card__item:hover .info-card__item-img img{
     @include mq(md){
         transform: scale(1.2);

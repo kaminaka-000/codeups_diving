@@ -3,7 +3,7 @@
 .top-information {
     background-color: $pale-blue;
     margin-top: rem(70);
-    padding: rem(80) 0 rem(81);
+    padding: rem(80) 0;
     @include mq(md){
         margin-top: rem(164);
         padding: rem(100) 0 rem(76);

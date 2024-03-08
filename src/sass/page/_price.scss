@@ -1,5 +1,29 @@
 @use "global" as *;
 
+.price {
+    @include mq(md){
+        position: relative;
+    }
+}
+
+.price::after {
+    display: none;
+    @include mq(md){
+        display: block;
+        position: absolute;
+        content: "";
+        background-image: url(../images/common/price-fish-design.svg);
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        max-width: rem(437);
+        width: 100%;
+        height: rem(201);
+        bottom: rem(62);
+        left: calc(50% - min(49vw, 38.7rem));
+    }
+}
+
 .price__inner {
     max-width: rem(600);
     width: 100%;
@@ -123,7 +147,7 @@
     text-align: center;
     margin-top: rem(40);
     @include mq(md){
-        margin-top: rem(80);
+        margin-top: rem(72);
     }
 }
 

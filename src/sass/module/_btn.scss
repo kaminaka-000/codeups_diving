@@ -10,6 +10,7 @@
     font-size: rem(14);
     font-family: $accent-font-family;
     z-index: 1;
+    margin-bottom: rem(4);
 }
 
 .button::before {
@@ -46,8 +47,8 @@
     position: absolute;
     margin-left: rem(8);
     top: 50%;
-    transform: translateY(-50%); /* アイコンを垂直方向の中央に */
-    width: rem(40); /* アイコンのサイズ */
+    transform: translateY(-50%);
+    width: rem(40);
     height: rem(6);
     background-image: url(../images/common/arrow-icon.svg);
     background-size: contain;
