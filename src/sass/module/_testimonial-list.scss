@@ -1,0 +1,9 @@
+@use "global" as *;
+
+.testimonial-list {
+    @include mq(md){
+        display: flex;
+        flex-wrap: wrap;
+        gap: rem(40);
+    }
+}

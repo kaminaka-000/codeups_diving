@@ -12,14 +12,21 @@
     @include mq(md){
         max-width: rem(1132);
         padding: 0 rem(25);
+        position: relative;
     }
 }
 
-.campaign__info {
+.campaign__cards {
     margin-top: rem(24);
+    margin-right: calc(50% - 50vw);
     @include mq(md){
         margin-top: rem(40);
     }
+}
+
+.campaign__cards-wrapper {
+    padding: 0 0 rem(10) rem(2);
+    transition: all 0.3s ease 0s;
 }
 
 .campaign__btn {

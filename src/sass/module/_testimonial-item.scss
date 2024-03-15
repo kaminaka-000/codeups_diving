@@ -1,14 +1,6 @@
 @use "global" as *;
 
-.testimonial__list {
-    @include mq(md){
-        display: flex;
-        flex-wrap: wrap;
-        gap: rem(40);
-    }
-}
-
-.testimonial__item {
+.testimonial-item {
     box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.25);
     background-color: $white;
     padding: rem(15) rem(16) rem(24) rem(16);
@@ -19,18 +11,18 @@
     }
 }
 
-.testimonial__item:hover {
+.testimonial-item:hover {
     opacity: 0.6;
 }
 
-.testimonial__item + .testimonial__item {
+.testimonial-item + .testimonial-item {
     margin-top: rem(40);
     @include mq(md){
         margin-top: 0;
     }
 }
 
-.testimonial__item-box {
+.testimonial-item__box {
     display: flex;
     align-items: center;
     gap: rem(14);
@@ -39,14 +31,14 @@
     }
 }
 
-.testimonial__item-layout {
+.testimonial-item__layout {
     width: 48.231885%;
     @include mq(md){
         width: 65.38461%;
     }
 }
 
-.testimonial__item-layout-group {
+.testimonial-item__group {
     @include mq(md){
         display: flex;
         align-items: end;
@@ -55,12 +47,12 @@
     }
 }
 
-.testimonial__item-layout-personal {
+.testimonial-item__personal {
     font-size: rem(12);
     line-height: 1.5;
 }
 
-.testimonial__item-layout-category {
+.testimonial-item__category {
     font-size: rem(12);
     line-height: 1.833333;
     color: $accent-green;
@@ -72,7 +64,7 @@
     }
 }
 
-.testimonial__item-layout-title {
+.testimonial-item__title {
     font-size: rem(16);
     font-weight: $medium;
     margin-top: rem(2);
@@ -83,7 +75,7 @@
     }
 }
 
-.testimonial__item-box-img {
+.testimonial-item__img {
     width: 100%;
     position: relative;
     width: 51.768115%;
@@ -92,7 +84,7 @@
     }
 }
 
-.testimonial__item-box-img div.color {
+.testimonial-item__img div.color {
     margin-top: rem(5);
     position: absolute;
     top: 0;
@@ -103,7 +95,7 @@
     background-color: #408F95;
 }
 
-.testimonial__item-box-img::before {
+.testimonial-item__img::before {
     content: "";
     display: block;
     padding-top: 77.483443%;
@@ -112,7 +104,7 @@
     }
 }
 
-.testimonial__item-box-img img {
+.testimonial-item__img img {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -123,7 +115,7 @@
     margin-top: rem(5);
 }
 
-.testimonial__item-text {
+.testimonial-item__text {
     margin-top: rem(17);
     line-height: 1.5;
     @include mq(md){

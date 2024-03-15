@@ -6,14 +6,9 @@
     margin-inline: auto;
 }
 
-.information__items {
+.information__course {
     margin-top: rem(32);
     @include mq(md){
         margin-top: rem(40);
     }
-}
-
-.information__item-btn {
-    margin-top: rem(40);
-    text-align: center;
 }

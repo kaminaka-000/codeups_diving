@@ -1,6 +1,6 @@
 @use "global" as *;
 
-.course__item {
+.course {
     @include mq(md){
         display: flex;
         gap: rem(48);
@@ -8,14 +8,14 @@
     }
 }
 
-.course__item-img {
+.course__img {
     position: relative;
     @include mq(md){
         width: 50%;
     }
 }
 
-.course__item-img div.color {
+.course__img div.color {
     position: absolute;
     top: 0;
     right: 0;
@@ -25,7 +25,7 @@
     background-color: #408F95;
 }
 
-.course__item-img::before {
+.course__img::before {
     content: "";
     display: block;
     padding-top: 65.79710%;
@@ -34,7 +34,7 @@
     }
 }
 
-.course__item-img img {
+.course__img img {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -44,7 +44,7 @@
     object-fit: cover;
 }
 
-.course__item-wrapper {
+.course__wrapper {
     margin-top: rem(24);
     @include mq(md){
         width: 45%;
@@ -52,7 +52,7 @@
     }
 }
 
-.course__item-wrapper-title {
+.course__title {
     font-size: rem(20);
     font-weight: $bold;
     line-height: 1.2;
@@ -62,7 +62,7 @@
     }
 }
 
-.course__item-wrapper-text {
+.course__text {
     border-top: 1px solid $accent-green;
     padding-top: rem(8);
     line-height: 1.5;
@@ -70,6 +70,11 @@
     @include mq(md){
         margin-top: rem(8);
     }
+}
+
+.course__btn {
+    margin-top: rem(40);
+    text-align: center;
 }
 
 

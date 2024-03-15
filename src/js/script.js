@@ -14,7 +14,7 @@ jQuery(function ($) {
         });
 
         // 背景またはページ内リンクをクリックでドロワーを閉じるイベントハンドラ
-        $(".js-drawer a[href]").on("click", function () {
+        $(".js-nav a[href]").on("click", function () {
             closeDrawer();
         });
 
@@ -28,14 +28,14 @@ jQuery(function ($) {
 
     // ドロワーを開く処理
     function openDrawer() {
-        $(".js-sp-nav").fadeIn();
+        $(".js-nav").fadeIn();
         $("body").css({ height: "100%", overflow: "hidden" });
         $(".header").addClass("header-drawer-open");
     }
 
     // ドロワーを閉じる処理
     function closeDrawer() {
-        $(".js-sp-nav").fadeOut();
+        $(".js-nav").fadeOut();
         $(".js-hamburger").removeClass("is-open");
         $("body").css({ height: "", overflow: "" });
         $(".header").removeClass("header-drawer-open");
@@ -58,7 +58,7 @@ jQuery(function ($) {
     });
 
     //campaignスライダー
-    var swiper = new Swiper(".js-info-card", {
+    var swiper = new Swiper(".js-campaign-cards", {
         loop: true,
         slidesPerView: 1.26,
         spaceBetween: 24,
@@ -84,7 +84,7 @@ jQuery(function ($) {
 
 
     //画像の出現アニメーション
-    var box = $('.course__item-img, .testimonial__item-box-img, .price__img-sp, .price__img-pc'),
+    var box = $('.course__img, .testimonial__item-box-img, .price__img-sp, .price__img-pc'),
     speed = 700;
 
     //.colorboxの付いた全ての要素に対して下記の処理を行う

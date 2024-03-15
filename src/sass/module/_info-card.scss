@@ -1,17 +1,6 @@
 @use "global" as *;
 
 .info-card {
-    margin-right: calc(50% - 50vw);
-    position: relative;
-    display: flex;
-}
-
-.info-card__item {
-    padding: 0 0 rem(10) rem(2);
-    transition: all 0.3s ease 0s;
-}
-
-.info-card__item a {
     display: block;
     height: 100%;
     box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.25);
@@ -20,25 +9,25 @@
     flex-direction: column;
 }
 
-.info-card__item:hover .info-card__item-img img{
+.info-cards__item:hover .info-card__img img{
     @include mq(md){
         transform: scale(1.2);
     }
 }
 
-.info-card__item-img {
+.info-card__img {
     transition: all 0.6s ease 0s;
     overflow: hidden;
 }
 
-.info-card__item-img img {
+.info-card__img img {
     object-fit: cover;
     transition: .6s;
     aspect-ratio: 333/223;
     width: 100%;
 }
 
-.info-card__item-content {
+.info-card__content {
     padding: rem(16) rem(16) rem(24) rem(16);
     display: flex;
     flex-direction: column;
@@ -48,7 +37,7 @@
     }
 }
 
-.info-card__item-content-category {
+.info-card__category {
     color: $accent-green;
     border: 1px solid $accent-green;
     font-size: rem(12);
@@ -60,7 +49,7 @@
     }
 }
 
-.info-card__item-content-title {
+.info-card__title {
     font-size: rem(16);
     font-weight: $medium;
     margin-top: rem(4);
@@ -71,7 +60,7 @@
     }
 }
 
-.info-card__item-content-lead {
+.info-card__lead {
     text-align: center;
     font-size: rem(14);
     border-top: 1px solid $accent-green;
@@ -86,7 +75,7 @@
     }
 }
 
-.info-card__item-content-layout {
+.info-card__layout {
     display: flex;
     align-items: center;
     margin-top: rem(8);
@@ -97,7 +86,7 @@
     }
 }
 
-.info-card__item-content-before {
+.info-card__before {
     font-family: $second-font-family;
     font-size: rem(20);
     font-weight: $bold;
@@ -110,11 +99,11 @@
     }
 }
 
-.info-card__item-content-before span {
+.info-card__before span {
     position: relative;
 }
 
-.info-card__item-content-before span::after {
+.info-card__before span::after {
     content: '';
     width: 103%;
     border-top: 3px solid #C94800;
@@ -123,7 +112,7 @@
     left: 0;
 }
 
-.info-card__item-content-after {
+.info-card__after {
     font-family: $second-font-family;
     font-size: rem(32);
     font-weight: $bold;
@@ -135,7 +124,7 @@
     }
 }
 
-.info-card__item-content-after span {
+.info-card__after span {
     @include mq(md){
         margin-left: 10px;
     }
@@ -145,7 +134,7 @@
     @include mq(md){
         position: absolute;
         top: rem(7);
-        right: 26.2%;
-        margin-top: rem(-84);
+        right: 15.5%;
+        margin-top: rem(17);
     }
 }
