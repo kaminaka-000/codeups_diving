@@ -84,7 +84,7 @@ jQuery(function ($) {
 
 
     //画像の出現アニメーション
-    var box = $('.course__img, .testimonial__item-box-img, .price__img-sp, .price__img-pc'),
+    var box = $('.course__img, .testimonial-item__img, .price__img-sp, .price__img-pc'),
     speed = 700;
 
     //.colorboxの付いた全ての要素に対して下記の処理を行う
