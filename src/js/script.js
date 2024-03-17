@@ -4,7 +4,7 @@ jQuery(function ($) {
      // ハンバーガーメニュー
     $(function () {
         // ハンバーガーメニューのクリックイベントハンドラ
-        $(".js-hamburger").on("click", function () {
+        $(".js-header-hamburger").on("click", function () {
             $(this).toggleClass("is-open");
             if ($(this).hasClass("is-open")) {
                 openDrawer();
