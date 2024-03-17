@@ -81,23 +81,34 @@
     margin-top: rem(40);
 }
 
-.price__item-title {
+.price__sub-title {
     font-weight: $bold;
     line-height: 1.5;
     border-bottom: 1px solid $accent-green;
     padding-bottom: rem(3);
 }
 
-.price__item-layout {
+.price__layout {
     display: flex;
     justify-content: space-between;
     margin-top: rem(8);
 }
 
-.price__item-menu {
+.price__menu {
     font-size: rem(14);
     line-height: 1.71429;
     @include mq(md){
+        font-size: rem(16);
+        line-height: 1.5;
+    }
+}
+
+.price__cost {
+    font-size: rem(14);
+    line-height: 1.71429;
+    margin-left: rem(5);
+    @include mq(md){
+        margin-left: rem(10);
         font-size: rem(16);
         line-height: 1.5;
     }
@@ -132,16 +143,6 @@
     width: 100%;
 }
 
-.price__item-cost {
-    font-size: rem(14);
-    line-height: 1.71429;
-    margin-left: rem(5);
-    @include mq(md){
-        margin-left: rem(10);
-        font-size: rem(16);
-        line-height: 1.5;
-    }
-}
 
 .price__button {
     text-align: center;
