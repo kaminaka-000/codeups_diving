@@ -1,13 +1,23 @@
 @use "global" as *;
 
+.nav__inner {
+  max-width: rem(375);
+  width: 100%;
+  padding: 0 rem(15);
+  margin-inline: auto;
+  height: 100%;
+  overflow: scroll;
+}
+
 .nav__area {
+  padding-bottom: rem(104);
+  gap: 0;
+  width: rem(330);
   display: grid;
   grid-auto-flow: column;
   grid-template-rows: repeat(2, auto);
-  gap: 0 rem(6);
   @include mq(md) {
-    display: flex;
-    gap: 0;
+    display: none;
   }
 }
 
@@ -78,18 +88,22 @@
 }
 
 //modifier
-.nav__inner--sp {
-  max-width: rem(375);
-  width: 100%;
-  padding: 0 rem(15);
-  margin-inline: auto;
-  height: 100%;
-  overflow: scroll;
+.nav__inner--footer {
+  overflow: visible;
+  height: auto;
+  padding: 0;
+  @include mq(md){
+    max-width: none;
+  }
 }
 
-.nav__area--sp {
-  padding-bottom: rem(104);
-  gap: 0;
-  width: rem(330);
+.nav__area--footer {
+  gap: 0 rem(6);
+  padding-bottom: rem(0);
+  width: rem(345);
+  @include mq(md) {
+    display: flex;
+    gap: 0;
+  }
 }
 
