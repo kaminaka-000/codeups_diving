@@ -29,6 +29,59 @@
     transition: all 0.3s ease 0s;
 }
 
+.campaign__wrap {
+    @include mq(md){
+        position: absolute;
+        top: rem(7);
+        right: 15.5%;
+        margin-top: rem(17);
+    }
+}
+
+.campaign__prev,
+.campaign__next {
+    @include mq(md){
+        width: rem(80);
+        height: rem(93);
+    }
+}
+
+.campaign__prev {
+    @include mq(md){
+        margin-left: rem(60);
+    }
+}
+
+.campaign__prev::after,
+.campaign__next::after {
+    @include mq(md){
+        background-repeat: no-repeat;
+        background-size: contain;
+        content: "";
+        height: rem(80);
+        margin: auto;
+        width: rem(80);
+    }
+}
+
+ /* 前への矢印カスタマイズ */
+.campaign__prev::after {
+    display: none;
+    @include mq(md){
+        display: block;
+        background-image: url(../images/common/info-arrow1.svg);
+    }
+}
+
+ /* 次への矢印カスタマイズ */
+.campaign__next::after {
+    display: none;
+    @include mq(md){
+        display: block;
+        background-image: url(../images/common/info-arrow2.svg);
+    }
+}
+
 .campaign__button {
     margin-top: rem(35);
     text-align: center;

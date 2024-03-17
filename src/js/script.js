@@ -77,8 +77,8 @@ jQuery(function ($) {
             }
         },
         navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
+            nextEl: ".campaign__prev",
+            prevEl: ".campaign__next",
         },
     });
 

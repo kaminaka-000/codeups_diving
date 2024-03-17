@@ -129,12 +129,3 @@
         margin-left: 10px;
     }
 }
-
-.info-card__wrap {
-    @include mq(md){
-        position: absolute;
-        top: rem(7);
-        right: 15.5%;
-        margin-top: rem(17);
-    }
-}
