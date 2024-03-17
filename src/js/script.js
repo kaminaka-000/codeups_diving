@@ -36,7 +36,7 @@ jQuery(function ($) {
     // ドロワーを閉じる処理
     function closeDrawer() {
         $(".js-nav").fadeOut();
-        $(".js-hamburger").removeClass("is-open");
+        $(".js-header-hamburger").removeClass("is-open");
         $("body").css({ height: "", overflow: "" });
         $(".header").removeClass("header-drawer-open");
     }
