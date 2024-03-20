@@ -8,7 +8,7 @@
     }
 }
 
-.image-design__img1 {
+.image-design__img-small {
     width: 37%;
     position: absolute;
     left: 0;
@@ -18,7 +18,7 @@
     }
 }
 
-.image-design__img1 img {
+.image-design__img-small img {
     height: auto;
     aspect-ratio: 128/194;
     object-fit: cover;
@@ -28,12 +28,12 @@
     }
 }
 
-.image-design__img2 {
+.image-design__img-large {
     width: 81.5%;
     margin-left: auto;
 }
 
-.image-design__img2 img {
+.image-design__img-large img {
     height: auto;
     aspect-ratio: 281/186;
     object-fit: cover;

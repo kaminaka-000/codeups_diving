@@ -43,7 +43,7 @@
     }
 }
 
-.heading__engtitle--contact {
+.heading .heading__engtitle--contact {
     font-size: rem(80);
     line-height: 1;
     @include mq(md){
@@ -52,7 +52,8 @@
 }
 
 .heading .heading__jatitle--contact {
-    margin-top: rem(-8);
+    margin-top: 0;
+    font-size: rem(12);
 }
 
 .heading__jatitle--contact2 {

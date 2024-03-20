@@ -24,9 +24,14 @@
     }
 }
 
+.campaign__cards-info-card {
+    height: auto;
+}
+
 .campaign__cards-wrapper {
     padding: 0 0 rem(10) rem(2);
     transition: all 0.3s ease 0s;
+
 }
 
 .campaign__wrap {
