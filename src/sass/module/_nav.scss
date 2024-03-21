@@ -82,6 +82,18 @@
   gap: rem(4);
 }
 
+.nav__item-wrapper::before {
+  content: "";
+  display: inline-block;
+  background-image: url(../images/common/starfish-icon.svg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  max-width: rem(18);
+  width: 100%;
+  height: rem(18);
+}
+
 .nav__item-img {
   max-width: rem(18);
   width: 100%;
