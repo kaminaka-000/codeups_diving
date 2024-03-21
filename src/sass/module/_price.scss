@@ -86,6 +86,10 @@
     line-height: 1.5;
     border-bottom: 1px solid $accent-green;
     padding-bottom: rem(3);
+    font-size: rem(16);
+    @include mq(md){
+        padding-bottom: rem(2);
+    }
 }
 
 .price__layout {
