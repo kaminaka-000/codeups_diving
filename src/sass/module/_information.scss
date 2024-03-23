@@ -1,5 +1,13 @@
 @use "global" as *;
 
+.information {
+    background-color: $pale-blue;
+    padding: rem(80) 0;
+    @include mq(md){
+        padding: rem(100) 0 rem(76);
+    }
+}
+
 .information__inner {
     max-width: rem(600);
     width: 100%;

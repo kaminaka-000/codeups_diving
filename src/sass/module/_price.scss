@@ -1,8 +1,11 @@
 @use "global" as *;
 
 .price {
+    background-color: $pale-blue;
+    padding: rem(80) 0;
     @include mq(md){
         position: relative;
+        padding: rem(100) 0;
     }
 }
 
