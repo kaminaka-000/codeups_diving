@@ -139,4 +139,30 @@ jQuery(function ($) {
             topBtn.css('bottom', '10px');
         }
     });
+
+    //タブメニュー
+    // 初期表示で全てのコンテンツを表示
+    $('.js-tab-campaign-cards-info-card').show();
+
+    // タブメニューのクリックイベント
+    $('.js-tab-menu').on('click', function() {
+        // クリックされたタブのカテゴリを取得
+        var category = $(this).data('category');
+
+        // タブメニューのアクティブ状態を更新
+        $('.js-tab-menu').removeClass('is-active');
+        $(this).addClass('is-active');
+
+        // タブコンテンツの表示を制御
+        if (category === 'all') {
+            $('.js-tab-campaign-cards-info-card').show();
+        } else {
+            $('.js-tab-campaign-cards-info-card').hide();
+            $('.js-tab-campaign-cards-info-card.' + category).show();
+        }
+    });
+
+
+
+
 });
