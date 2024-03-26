@@ -1,0 +1,133 @@
+@use "global" as *;
+
+.tab-second__menu {
+    display: flex;
+    justify-content: center;
+    @include mq(md){
+        justify-content: space-between;
+    }
+}
+
+.tab-second__item {
+    padding: rem(10) rem(16);
+    min-width: rem(102);
+    width: fit-content;
+    font-size: rem(14);
+    line-height: 1.5;
+    color: #408F95;
+    box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.25);
+    background-color: #DDF0F1;
+    text-align: center;
+    cursor: pointer;
+    @include mq(md){
+        font-size: rem(24);
+        padding: rem(18) 0;
+        min-width: rem(300);
+        line-height: 1;
+    }
+}
+
+.tab-second__item + .tab-second__item {
+    margin-left: rem(20);
+    @include mq(md){
+        margin-left: 0;
+    }
+}
+
+.tab-second__item.is-active {
+    color: #fff;
+    background-color: #408F95;
+}
+
+.tab-second__content {
+    margin-top: rem(16);
+    @include mq(md){
+        margin-top: rem(24);
+    }
+}
+
+.tab-second__content-item {
+    padding: rem(24);
+    display: none;
+    border: 1px solid $accent-green;
+}
+
+.tab-second__content-item.is-active {
+    display: block;
+    animation: fade .3s;
+}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.tab-second__wrapper {
+    @include mq(md){
+        display: flex;
+        align-items: center;
+        gap: rem(48);
+    }
+}
+
+.tab-second__box {
+    @include mq(md){
+        width: 54.444445%;
+    }
+}
+
+.tab-second__title {
+    font-size: rem(24);
+    font-weight: $bold;
+    line-height: 1;
+    border-bottom: 1px solid $accent-green;
+    padding-bottom: rem(8);
+}
+
+.tab-second__text {
+    margin-top: rem(8);
+    font-size: rem(16);
+    font-weight: $normal;
+    line-height: 1;
+    @include mq(md){
+        line-height: 1.5;
+    }
+}
+
+.tab-second__img {
+    margin-top: rem(8);
+    aspect-ratio: 297/189;
+    @include mq(md){
+        width: 45.555555%;
+    }
+}
+
+.tab-second__img img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+
+
+.tab-second__svg {
+    display: none;
+    @include mq(md){
+        display: inline-block;
+        width: rem(64);
+        height: rem(64);
+        vertical-align: middle;
+        margin-right: rem(8);
+    }
+}
+
+.tab-second__item .tab-second__svg path {
+    fill: #408F95;
+}
+
+.tab-second__item.is-active .tab-second__svg path {
+    fill: #fff;
+}

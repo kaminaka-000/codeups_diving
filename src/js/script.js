@@ -140,7 +140,7 @@ jQuery(function ($) {
         }
     });
 
-    //タブメニュー
+    //sub-campaignタブメニュー
     // 初期表示で全てのコンテンツを表示
     $('.js-tab-campaign-cards-info-card').show();
 
@@ -161,29 +161,6 @@ jQuery(function ($) {
             $('.js-tab-campaign-cards-info-card.' + category).show();
         }
     });
-
-    //モーダル
-    // // モーダルウィンドウ
-    // $(".js-modal-open").on("click", function () {
-    //     $(".js-modal").fadeIn();
-    //     return false;
-    // });
-    // $(".js-modal-close").on("click", function () {
-    //     $(".js-modal").fadeOut();
-    //     return false;
-    // });
-    // });
-    // // モーダルウィンドウオープン時の背景固定
-    // $(function () {
-    // let scrollPosition;
-    // $(".js-modal-open").on("click", function () {
-    //     scrollPosition = $(window).scrollTop();
-    //     $("body").addClass("gallery-list__fixed").css({ top: -scrollPosition });
-    // });
-    // $(".js-modal-close").on("click", function () {
-    //     $("body").removeClass("gallery-list__fixed").css({ top: 0 });
-    //     window.scrollTo(0, scrollPosition);
-    // });
 
     
     // モーダルウィンドウ
@@ -228,6 +205,15 @@ jQuery(function ($) {
             return false;
         });
 
+
+        //sub-informationタブメニュー
+        $('.js-tab-second').on('click', function () {
+            $('.js-tab-second').removeClass('is-active');
+            $('.js-tab-second-content').removeClass('is-active');
+            $(this).addClass('is-active');
+            var number = $(this).data("number");
+            $('#' + number).addClass('is-active');
+        });
 
 
 
