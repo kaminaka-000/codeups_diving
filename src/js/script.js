@@ -162,6 +162,73 @@ jQuery(function ($) {
         }
     });
 
+    //モーダル
+    // // モーダルウィンドウ
+    // $(".js-modal-open").on("click", function () {
+    //     $(".js-modal").fadeIn();
+    //     return false;
+    // });
+    // $(".js-modal-close").on("click", function () {
+    //     $(".js-modal").fadeOut();
+    //     return false;
+    // });
+    // });
+    // // モーダルウィンドウオープン時の背景固定
+    // $(function () {
+    // let scrollPosition;
+    // $(".js-modal-open").on("click", function () {
+    //     scrollPosition = $(window).scrollTop();
+    //     $("body").addClass("gallery-list__fixed").css({ top: -scrollPosition });
+    // });
+    // $(".js-modal-close").on("click", function () {
+    //     $("body").removeClass("gallery-list__fixed").css({ top: 0 });
+    //     window.scrollTo(0, scrollPosition);
+    // });
+
+    
+    // モーダルウィンドウ
+    $(".js-modal-open").on("click", function () {
+        var target = $(this).data("target");
+        var modal = $("#" + target);
+        $(modal).fadeIn();
+        //preventScroll(true);
+        return false;
+    })
+
+    $(".js-modal-close").on("click", function () {
+        $(".js-modal").fadeOut();
+        return false;
+    });
+    });
+    // モーダルウィンドウオープン時の背景固定
+    var scrollPosition; // スクロール位置を保存する変数
+
+    // モーダルオープン
+    $(function() {
+        var scrollPosition; // スクロール位置を保存する変数
+
+        // モーダルオープン
+        $(".js-modal-open").on("click", function() {
+            scrollPosition = $(window).scrollTop(); // 現在のスクロール位置を保存
+            $("body").css({
+                overflow: 'hidden',
+                position: 'static' // 'fixed'を避けて、ページの位置を保持
+            });
+            // モーダル表示処理（省略）
+            return false;
+        });
+
+        // モーダルクローズ
+        $(".js-modal-close").on("click", function() {
+            $("body").css({
+                overflow: '', // スクロールを再度許可
+                position: '' // 'body'のpositionをリセット
+            }).scrollTop(scrollPosition); // スクロール位置を復元
+            // モーダル非表示処理（省略）
+            return false;
+        });
+
+
 
 
 

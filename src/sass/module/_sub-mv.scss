@@ -1,17 +1,13 @@
 @use "global" as *;
 
-.sub-mv {
+.sub-mv{
     position: relative;
 }
 
-.sub-mv {
-  background-image: url(../images/common/sub-mv-img.webp);
-  background-repeat: no-repeat;
-  background-size: cover;
+.sub-mv__img img {
   aspect-ratio: 375 / 460;
   width: 100%;
   @include mq(md) {
-    background-image: url(../images/common/sub-mv-img-pc.webp);
     aspect-ratio: 1440 / 548;
   }
 }
