@@ -1,0 +1,16 @@
+@use "global" as *;
+
+.home-blog__inner {
+    @include mq(md){
+        display: flex;
+        gap: rem(80);
+    }
+}
+
+.home-blog__sidebar {
+    padding: 0 rem(25);
+    @include mq(md){
+        padding: 0;
+    }
+}
+

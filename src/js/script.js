@@ -217,5 +217,19 @@ jQuery(function ($) {
 
 
 
+        //サイドバーブログアーカイブ
+        $(document).ready(function() {
+            // 2023をクリックしたときのイベントハンドラを追加
+            $('.sidebar__archive-item > .sidebar__past').on('click', function() {
+                // クリックされた要素の直後のulの表示状態を切り替える
+                $(this).toggleClass('sidebar__past--active');
+                $(this).next('.sidebar__months').slideToggle();
+                return false; // デフォルトのアクション（リンクの遷移）を防ぐ
+            });
+        });
+
+
+
+
 
 });

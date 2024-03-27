@@ -15,3 +15,10 @@
         margin-top: 0;
     }
 }
+
+//modifier
+.cards--home-blog {
+    @include mq(md){
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
