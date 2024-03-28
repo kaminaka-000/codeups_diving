@@ -1,16 +1,10 @@
 @use "global" as *;
 
-.home-blog__inner {
-    max-width: rem(600);
-    width: 100%;
+.sub-voice {
     position: relative;
-    @include mq(md){
-        display: flex;
-        gap: rem(80);
-    }
 }
 
-.home-blog__inner::before {
+.sub-voice::before {
     position: absolute;
     content: "";
     background-image: url(../images/common/voice-design1.svg);
@@ -30,10 +24,11 @@
     }
 }
 
-.home-blog__sidebar {
-    padding: 0 rem(25);
-    @include mq(md){
-        padding: 0;
-    }
+.sub-voice__inner {
+    max-width: rem(600);
+    width: 100%;
 }
 
+.sub-voice__testimonial-list {
+    margin-top: rem(40);
+}
