@@ -119,3 +119,10 @@
   }
 }
 
+.nav--sitemap .nav__item a {
+  color: $green;
+}
+
+.nav__item-wrapper--sitemap::before {
+  background-image: url(../images/common/sitemap-starfish.svg);
+}
