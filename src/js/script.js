@@ -237,5 +237,116 @@ jQuery(function ($) {
 
 
 
+        //
+        $('form').submit(function(e) {
+            // エラーメッセージ要素を取得
+            var errorMessage = $('#error-message');
+
+            // 入力フィールドに変更があった場合、エラースタイルをリセットする
+            $('input, textarea').on('input', function() {
+                if ($(this).hasClass('error')) {
+                    $(this).css({
+                        'border': '1px solid #408F95', // デフォルトの枠線に戻す
+                        'color': '#0D2936', // デフォルトのテキスト色に戻す
+                        'background': '' // 背景色をリセット
+                    }).removeClass('error'); // エラークラスを削除
+                }
+            });
+
+            // 必須入力項目の検証
+            var name = $('input[type="text"]').val().trim();
+            var email = $('input[type="email"]').val().trim();
+            var tel = $('input[type="tel"]').val().trim();
+            var message = $('textarea[name="message"]').val().trim();
+            var privacy = $('input[name="privacy"]:checked').length > 0;
+
+            var isFormValid = true;
+
+            // 未入力の必須項目があるかチェックし、対象の入力欄にエラークラスを追加
+            if (!name) {
+                $('input[type="text"]').css({
+                    'border': '1px solid #C94800',
+                    'background': 'rgba(201, 72, 0, 0.20)'
+                }).addClass('error');
+                isFormValid = false;
+            }
+            if (!email) {
+                $('input[type="email"]').css({
+                    'border': '1px solid #C94800',
+                    'background': 'rgba(201, 72, 0, 0.20)'
+                }).addClass('error');
+                isFormValid = false;
+            }
+            if (!tel) {
+                $('input[type="tel"]').css({
+                    'border': '1px solid #C94800',
+                    'background': 'rgba(201, 72, 0, 0.20)'
+                }).addClass('error');
+                isFormValid = false;
+            }
+            if (!message) {
+                $('textarea[name="message"]').css({
+                    'border': '1px solid #C94800',
+                    'background': 'rgba(201, 72, 0, 0.20)'
+                }).addClass('error');
+                isFormValid = false;
+            }
+
+              // お問い合わせ項目のチェックボックス検証
+            var inquiryChecked = $('input[name="inquiry"]:checked').length > 0;
+            if (!inquiryChecked) {
+                isFormValid = false;
+            }
+
+            // プライバシーポリシー同意のチェックボックス検証
+            var privacyChecked = $('input[name="privacy"]:checked').length > 0;
+            if (!privacyChecked) {
+                isFormValid = false;
+            }
+
+            // フォームが有効でない場合はエラーメッセージを表示し、送信を中止
+            if (!isFormValid) {
+                errorMessage.show();
+
+                // パンくずリストの内容を更新
+                $('.breadcrumb__inner').html(`
+                <span>
+                    <a href="index.html">
+                        <span>TOP</span>
+                    </a>
+                </span>
+                &nbsp;&gt;&nbsp;
+                <span>
+                    <a href="contact.html">
+                        <span>お問い合わせ</span>
+                    </a>
+                </span>
+                &nbsp;&gt;&nbsp;
+                <span>
+                    <span>お問い合わせエラー</span>
+                </span>
+            `);
+
+                e.preventDefault(); // フォームの送信を中止
+            } else {
+                errorMessage.hide();
+
+                            // AJAXを使用してフォームデータを送信
+            $.ajax({
+                type: $(this).attr('method'), // フォームのメソッド属性を使用
+                url: $(this).attr('action'), // フォームのアクション属性を使用
+                data: $(this).serialize(), // フォームのデータをシリアライズ
+                success: function(response) {
+                    // 送信成功: サンキューページへ遷移
+                    window.location.href = 'page-contact-thankyou.html';
+                },
+                error: function(xhr, status, error) {
+                    // 送信失敗: エラーメッセージを表示
+                    alert("送信に失敗しました。");
+                }
+            });
+            e.preventDefault(); // デフォルトのフォーム送信を防止
+            }
+        });
 
 });

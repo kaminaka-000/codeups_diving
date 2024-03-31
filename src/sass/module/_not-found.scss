@@ -6,12 +6,10 @@
     @include mq(md){
         padding-top: rem(90);
     }
-
 }
 
 .not-found__inner {
     position: relative;
-
 }
 
 .not-found__inner::after {
