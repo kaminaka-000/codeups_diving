@@ -84,12 +84,7 @@
 }
 
 //
-.footer--not-found {
-  padding-top: rem(40);
-  @include mq(md){
-    padding-top: rem(148);
-  }
-}
+
 
 .footer--contact-thankyou {
   margin-top: rem(144);

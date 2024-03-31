@@ -20,6 +20,10 @@ $accent-font-family: 'Gotu', sans-serif;
 
 // ※検証ツールでしっかり反映されているか確認する
 
+html {
+  scroll-padding-top: 90px;
+}
+
 body {
   font-family: $base-font-family;
   color: #0D2936;

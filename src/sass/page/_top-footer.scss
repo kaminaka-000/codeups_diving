@@ -6,3 +6,11 @@
         margin-top: rem(153);
     }
 }
+
+//
+.top-footer--not-found {
+    padding-top: rem(40);
+    @include mq(md){
+      padding-top: rem(148);
+    }
+  }

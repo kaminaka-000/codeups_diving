@@ -141,28 +141,50 @@ jQuery(function ($) {
     });
 
     //sub-campaignタブメニュー
-    // 初期表示で全てのコンテンツを表示
-    $('.js-tab-campaign-cards-info-card').show();
-
-    // タブメニューのクリックイベント
-    $('.js-tab-menu').on('click', function() {
-        // クリックされたタブのカテゴリを取得
-        var category = $(this).data('category');
-
-        // タブメニューのアクティブ状態を更新
+    // タブを切り替える関数
+    function switchTab(category) {
         $('.js-tab-menu').removeClass('is-active');
-        $(this).addClass('is-active');
+        $('.js-tab-campaign-cards-info-card').hide();
 
-        // タブコンテンツの表示を制御
         if (category === 'all') {
+            $('.js-tab-menu[data-category="all"]').addClass('is-active');
             $('.js-tab-campaign-cards-info-card').show();
         } else {
-            $('.js-tab-campaign-cards-info-card').hide();
+            $('.js-tab-menu[data-category="' + category + '"]').addClass('is-active');
             $('.js-tab-campaign-cards-info-card.' + category).show();
         }
+    }
+
+    // URLからクエリパラメータを取得する関数
+    function getQueryParam(name) {
+        var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+        if (results == null) {
+            return null;
+        } else {
+            return decodeURIComponent(results[1]) || 0;
+        }
+    }
+
+    // ページ読み込み時、またはタブクリック時のタブ切り替え処理
+    $(document).ready(function() {
+        var tabParam = getQueryParam('tab');
+
+        // クエリパラメータがある場合、対応するタブを表示
+        if (tabParam) {
+            switchTab(tabParam);
+        } else {
+            // クエリパラメータがない場合、デフォルトで'all'を表示
+            switchTab('all');
+        }
+
+        // タブメニューのクリックイベント
+        $('.js-tab-menu').on('click', function() {
+            var category = $(this).data('category');
+            switchTab(category);
+        });
     });
 
-    
+
     // モーダルウィンドウ
     $(".js-modal-open").on("click", function () {
         var target = $(this).data("target");
@@ -207,13 +229,38 @@ jQuery(function ($) {
 
 
         //sub-informationタブメニュー
-        $('.js-tab-second').on('click', function () {
+    // クエリパラメータからタブのIDを取得する関数
+    function getQueryParam(name) {
+        var results = new RegExp('[?&]' + name + '=([^&#]*)').exec(window.location.href);
+        if (results == null) {
+            return null;
+        } else {
+            return decodeURIComponent(results[1]) || 0;
+        }
+    }
+
+    // ページが読み込まれたときにクエリパラメータをチェックし、対応するタブをアクティブにする
+    $(document).ready(function() {
+        var tabId = getQueryParam('tab');
+        if (tabId) {
+            $('.js-tab-second').removeClass('is-active');
+            $('.js-tab-second-content').removeClass('is-active');
+
+            // タブメニューをアクティブにする
+            $('.js-tab-second[data-number="' + tabId + '"]').addClass('is-active');
+            // 対応するタブコンテンツを表示する
+            $('#' + tabId).addClass('is-active');
+        }
+
+        // タブメニューのクリックイベントを設定
+        $('.js-tab-second').on('click', function() {
             $('.js-tab-second').removeClass('is-active');
             $('.js-tab-second-content').removeClass('is-active');
             $(this).addClass('is-active');
             var number = $(this).data("number");
             $('#' + number).addClass('is-active');
         });
+    });
 
 
 
@@ -349,4 +396,8 @@ jQuery(function ($) {
             }
         });
 
+
+
+
 });
+
