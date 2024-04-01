@@ -43,6 +43,9 @@
 
 .sub-price__wrapper + .sub-price__wrapper {
     margin-top: rem(40);
+    @include mq(md){
+        margin-top: rem(76);
+    }
 }
 
 .sub-price__title-group {
@@ -114,13 +117,13 @@
 
 .sub-price__data,
 .sub-price__cost {
-    padding: rem(6);
+    padding: 0 rem(16);
     font-size: rem(16);
     font-weight: $normal;
     border: 1px solid $accent-green;
     line-height: 1.5;
     @include mq(md){
-        padding: rem(17);
+        padding: rem(17) rem(16);
     }
 }
 
@@ -128,13 +131,11 @@
     width: 70%;
     height: rem(60);
     @include mq(md){
-        width: 72%;
+        width: 67%;
         text-align: left;
     }
 }
 
 .sub-price__cost {
-    @include mq(md){
-        text-align: right;
-    }
+    text-align: right;
 }

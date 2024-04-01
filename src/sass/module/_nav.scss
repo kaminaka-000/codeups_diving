@@ -119,6 +119,15 @@
   }
 }
 
+.nav__area--sitemap {
+  gap: 0 rem(25);
+  @include mq(md){
+    max-width: rem(1130);
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
 .nav--sitemap .nav__item a {
   color: $green;
 }

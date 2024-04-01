@@ -1,18 +1,21 @@
 @use "global" as *;
 
 .form-select select {
-    padding: rem(12) rem(50) rem(12) rem(8);
+    padding: rem(12) rem(50) rem(15) rem(8);
     width: 100%;
-    font-size: rem(15);
+    font-size: rem(12);
     line-height: 1;
     border-radius: 0;
     border: 1px solid $accent-green;
     background-image: url(../images/common/sub-contact-arrow.svg);
     background-repeat: no-repeat;
-    background-size: rem(15);
-    background-position: right rem(15) top rem(15);
+    background-size: rem(12);
+    background-position: right rem(7) top rem(10);
     appearance: none;
     cursor: pointer;
+    @include mq(md){
+        padding: rem(7) rem(20) rem(8) rem(8);
+    }
 }
 
 .form-select select::-ms-expand {

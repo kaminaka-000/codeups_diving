@@ -8,9 +8,13 @@
 }
 
 //
+.top-footer--contact {
+    margin-top: rem(144);
+}
+
 .top-footer--not-found {
     padding-top: rem(40);
     @include mq(md){
       padding-top: rem(148);
     }
-  }
+}

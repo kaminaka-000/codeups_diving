@@ -91,3 +91,7 @@
 .button--not-found:hover span::after {
     background-image: url(../images/common/arrow-icon.svg);
 }
+
+.button--form {
+    padding: rem(16) rem(98) rem(16) rem(56);
+}

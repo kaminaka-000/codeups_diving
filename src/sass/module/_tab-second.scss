@@ -21,7 +21,7 @@
     cursor: pointer;
     @include mq(md){
         font-size: rem(24);
-        padding: rem(18) 0;
+        padding: rem(13) 0 rem(13) 0;
         min-width: rem(300);
         line-height: 1;
     }
@@ -47,9 +47,13 @@
 }
 
 .tab-second__content-item {
-    padding: rem(24);
+    padding: rem(22) rem(22) rem(22) rem(24);
     display: none;
     border: 1px solid $accent-green;
+    @include mq(md){
+        //padding: rem(34) rem(24) rem(31) rem(24);
+        padding: rem(24);
+    }
 }
 
 .tab-second__content-item.is-active {
@@ -70,13 +74,13 @@
     @include mq(md){
         display: flex;
         align-items: center;
-        gap: rem(48);
+        gap: rem(58);
     }
 }
 
 .tab-second__box {
     @include mq(md){
-        width: 54.444445%;
+        width: 47%;
     }
 }
 
@@ -92,17 +96,15 @@
     margin-top: rem(8);
     font-size: rem(16);
     font-weight: $normal;
-    line-height: 1;
-    @include mq(md){
-        line-height: 1.5;
-    }
+    line-height: 1.5;
 }
 
 .tab-second__img {
     margin-top: rem(8);
     aspect-ratio: 297/189;
     @include mq(md){
-        width: 45.555555%;
+        //width: 45.555555%;
+        width: 47%;
     }
 }
 

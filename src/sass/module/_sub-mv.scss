@@ -22,6 +22,9 @@
   text-align: center;
   font-family: $second-font-family;
   line-height: 1;
+  @include mq(md){
+    transform: translate(-50%, 8%);
+  }
 }
 
 .sub-mv__title {

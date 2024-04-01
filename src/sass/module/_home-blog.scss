@@ -1,16 +1,10 @@
 @use "global" as *;
 
-.home-blog__inner {
-    max-width: rem(600);
-    width: 100%;
+.home-blog {
     position: relative;
-    @include mq(md){
-        display: flex;
-        gap: rem(80);
-    }
 }
 
-.home-blog__inner::before {
+.home-blog::before {
     position: absolute;
     content: "";
     background-image: url(../images/common/voice-design1.svg);
@@ -28,10 +22,24 @@
         height: rem(138);
         top: rem(-70);
     }
+
+}
+
+.home-blog__inner {
+    max-width: rem(600);
+    width: 100%;
+    padding: 0 rem(21);
+    margin-inline: auto;
+    @include mq(md){
+        max-width: rem(1130);
+        padding: 0 rem(25);
+        display: flex;
+        gap: rem(80);
+    }
 }
 
 .home-blog__sidebar {
-    padding: 0 rem(25);
+    padding: 0 rem(19);
     @include mq(md){
         padding: 0;
     }

@@ -28,7 +28,7 @@
     max-width: rem(600);
     width: 100%;
     margin-inline: auto;
-    padding: 0 rem(25);
+    padding: 0 rem(15);
     @include mq(md){
         max-width: rem(850);
         padding: 0 rem(25);
@@ -46,12 +46,12 @@
 .privacy-policy__wrapper {
     font-size: rem(16);
     font-weight: $normal;
-    line-height: 2;
+    line-height: 32px;
     margin-top: rem(40);
 }
 
 .privacy-policy__box {
-    margin-top: rem(40);
+    margin-top: rem(32);
 }
 
 .privacy-policy__description-numbers {
@@ -59,8 +59,8 @@
 }
 
 .privacy-policy__description-number {
-    padding-left: rem(15);
-    text-indent: rem(-15);
+    padding-left: rem(24);
+    text-indent: rem(-17);
 }
 
 .privacy-policy__description-number::before {
@@ -69,5 +69,5 @@
 }
 
 .privacy-policy__text {
-    margin-top: rem(40);
+    margin-top: rem(32);
 }

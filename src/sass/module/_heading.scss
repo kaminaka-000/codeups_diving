@@ -35,6 +35,7 @@
     }
 }
 
+//
 .heading--blog,
 .heading__engtitle--blog span,
 .heading__jatitle--blog {
@@ -57,3 +58,6 @@
     font-size: rem(12);
 }
 
+.heading__engtitle--sub {
+    line-height: 1;
+}

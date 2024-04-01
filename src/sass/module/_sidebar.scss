@@ -1,7 +1,7 @@
 @use "global" as *;
 
 .sidebar__item {
-    margin-top: rem(80);
+    margin-top: rem(72);
     @include mq(md) {
         margin-top: 0;
     }
@@ -35,6 +35,10 @@
     margin-top: rem(24);
 }
 
+.sidebar__popular a:hover {
+    opacity: 0.6;
+}
+
 .sidebar__popular-link {
     display: flex;
     flex-direction: row-reverse;
@@ -45,6 +49,9 @@
 
 .sidebar__popular-link + .sidebar__popular-link {
     margin-top: rem(24);
+    @include mq(md){
+        margin-top: rem(16);
+    }
 }
 
 .sidebar__popular-box {
@@ -74,7 +81,7 @@
     width: 100%;
 }
 
-.sidebar__review-group {
+.sidebar__review {
     margin-top: rem(24);
 }
 
@@ -109,14 +116,97 @@
     margin-top: rem(24);
 }
 
-.sidebar__info-card + .sidebar__info-card {
+.sidebar__card {
+    height: 100%;
+    box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.25);
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar__card + .sidebar__card {
     margin-top: rem(40);
 }
 
-.sidebar__info-card:hover .info-card__img img {
+.sidebar__card-img img{
+    object-fit: cover;
+    aspect-ratio: 294/188;
+    width: 100%;
+}
+
+.sidebar__card-content {
+    padding: rem(16) rem(23) rem(24) rem(23);
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    text-align: center;
+}
+
+.sidebar__card-title {
+    font-size: rem(16);
+    font-weight: $medium;
+    //margin-top: rem(4);
+    line-height: 1.5;
+    flex-grow: 1;
     @include mq(md) {
-        transform: none;
+        margin-top: rem(5);
     }
+
+}
+
+.sidebar__card-lead {
+    text-align: center;
+    font-size: rem(14);
+    border-top: 1px solid $accent-green;
+    padding-top: rem(8);
+    margin-top: rem(6);
+    line-height: 1.71429;
+}
+
+.sidebar__card-layout {
+    display: flex;
+    align-items: center;
+    margin-top: rem(8);
+    gap: rem(16);
+    justify-content: center;
+}
+
+.sidebar__card-before {
+    font-family: $second-font-family;
+    font-size: rem(20);
+    font-weight: $bold;
+    line-height: 1;
+    margin-top: rem(5);
+    @include mq(md) {
+        margin-top: rem(12);
+        min-width: 0;
+    }
+}
+
+.sidebar__card-before span {
+    position: relative;
+}
+
+.sidebar__card-before span::after {
+    content: "";
+    width: 103%;
+    border-top: 3px solid #c94800;
+    position: absolute;
+    top: 50%;
+    left: 0;
+}
+
+.sidebar__card-after {
+    font-family: $second-font-family;
+    font-size: rem(32);
+    font-weight: $bold;
+    line-height: 1;
+    color: $accent-green;
+}
+
+.sidebar__card-button {
+    margin-top: rem(40);
+    text-align: center;
 }
 
 .sidebar__archive {

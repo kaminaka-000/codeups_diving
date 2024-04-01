@@ -1,8 +1,8 @@
 @use "global" as *;
 
 .top-faq {
-    margin-top: rem(80);
+    margin-top: rem(52);
     @include mq(md){
-        margin-top: rem(178);
+        margin-top: rem(150);
     }
 }

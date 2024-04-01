@@ -37,7 +37,7 @@
 
 .contact-thankyou p {
     text-align: center;
-    line-height: 1.1125;
+    line-height: 1.5;
     font-size: rem(16);
     font-weight: $normal;
     max-width: rem(345);
@@ -49,5 +49,5 @@
 }
 
 .contact-thankyou p:nth-child(2) {
-    margin-top: rem(40);
+    margin-top: rem(30);
 }
