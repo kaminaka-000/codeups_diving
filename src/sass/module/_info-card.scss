@@ -129,20 +129,20 @@
   }
 }
 
-//
-.info-card__title--sub-campaign {
+//modifier
+.info-card__title--sub {
   @include mq(md) {
     font-size: rem(24);
   }
 }
 
-.info-card__content--sub-campaign {
+.info-card__content--sub {
   @include mq(md) {
     padding: rem(24) rem(24) rem(40) rem(24);
   }
 }
 
-.info-card__after-sub {
+.info-card__after--sub {
   @include mq(md){
     margin-left: rem(41);
   }

@@ -48,13 +48,12 @@
 
 .faq-list__item-answer {
     padding: rem(24) rem(16) rem(15) rem(16);
-    //display: none;
     font-size: rem(16);
     font-weight: $normal;
     background-color: $white;
     border: 1px solid $accent-green;
     @include mq(md){
-        padding: rem(36) rem(40) rem(36) rem(40);
+        padding: rem(36) rem(40) rem(36) rem(37);
         margin-top: rem(16);
     }
 }

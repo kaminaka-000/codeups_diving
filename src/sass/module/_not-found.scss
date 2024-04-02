@@ -30,7 +30,7 @@
         max-width: rem(698);
         height: rem(698);
         top: 65%;
-        left: 38%;
+        left: 37%;
     }
 }
 
@@ -44,10 +44,14 @@
     font-weight: $normal;
     font-family: $second-font-family;
     letter-spacing: rem(40);
-    margin-top: rem(54);
+    margin-top: rem(64);
+    text-indent: rem(40);
+    line-height: 1;
     @include mq(md){
-        margin-top: rem(119);
+        margin-top: rem(135);
         font-size: rem(160);
+        letter-spacing: rem(80);
+        text-indent: rem(80);
     }
 }
 
@@ -57,7 +61,7 @@
     font-weight: $normal;
     line-height: 1.5;
     @include mq(md){
-        margin-top: rem(24);
+        margin-top: rem(40);
     }
 }
 

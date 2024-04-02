@@ -26,6 +26,12 @@
     }
 }
 
+.sub-information__info-tab  {
+    margin-top: rem(16);
+    @include mq(md){
+        margin-top: rem(24);
+    }
+}
 
 
 

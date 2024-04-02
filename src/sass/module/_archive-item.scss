@@ -1,0 +1,37 @@
+@use "global" as *;
+
+.archive-item__past {
+    font-size: rem(24);
+    color: $accent-green;
+    font-weight: $normal;
+}
+
+.archive-item__past::before,
+.archive-item__link::before {
+    content: "";
+    display: inline-block;
+    background-image: url(../images/common/home-blog-triangle2.svg);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    max-width: rem(24);
+    width: 100%;
+    height: rem(24);
+    vertical-align: middle;
+    margin-right: rem(8);
+}
+
+.archive-item__months {
+    display: none;
+}
+
+.archive-item__past--active::before {
+    background-image: url(../images/common/home-blog-triangle.svg);
+}
+
+.archive-item__link {
+    margin-left: rem(24);
+    font-size: rem(24);
+    color: $accent-green;
+    font-weight: $normal;
+}

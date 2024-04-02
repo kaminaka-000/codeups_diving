@@ -20,6 +20,6 @@
 .cards--home-blog {
     @include mq(md){
         grid-template-columns: repeat(2, 1fr);
-        gap: rem(85) rem(40);
+        gap: rem(81) rem(40);
     }
 }

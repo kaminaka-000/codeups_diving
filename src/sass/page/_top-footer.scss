@@ -7,14 +7,15 @@
     }
 }
 
-//
+//modifier
 .top-footer--contact {
     margin-top: rem(144);
 }
 
-.top-footer--not-found {
-    padding-top: rem(40);
+footer.footer.top-footer--not-found {
+    margin-top: 0;
+    padding-top: rem(88);
     @include mq(md){
-      padding-top: rem(148);
+        padding-top: rem(226);
     }
 }

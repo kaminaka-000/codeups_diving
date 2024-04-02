@@ -1,5 +1,14 @@
 @use "global" as *;
 
+.gallery-list {
+    display: grid;
+    gap: rem(8);
+    @include mq(md){
+        grid-template-columns: repeat(9, 1fr);
+        grid-auto-flow: dense;
+    }
+}
+
 .gallery-list__item {
     @include mq(md) {
         grid-column: span 5;
@@ -34,7 +43,7 @@
 }
 
 //モーダル
-.gallery-list__modal {
+.gallery-item__modal {
     display: none;
     height: 100vh;
     left: 0;
@@ -44,14 +53,14 @@
     z-index: 901;
 }
 
-.gallery-list__overlay {
+.gallery-item__overlay {
     background: rgba(32, 32, 32, 0.80);
     height: 100vh;
     position: absolute;
     width: 100%;
 }
 
-.gallery-list__content {
+.gallery-item__content {
     left: 50%;
     padding: 10px;
     position: absolute;
@@ -63,11 +72,10 @@
 }
 
 .gallery-list__content img {
-    //max-width: 200px;
     width: 100%;
 }
 
-.gallery-list__content--vertical {
+.gallery-item__content--vertical {
     max-width: rem(500);
     width: 100%;
 }

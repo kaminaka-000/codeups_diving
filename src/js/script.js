@@ -144,14 +144,14 @@ jQuery(function ($) {
     // タブを切り替える関数
     function switchTab(category) {
         $('.js-tab-menu').removeClass('is-active');
-        $('.js-tab-campaign-cards-info-card').hide();
+        $('.js-tab-first').hide();
 
         if (category === 'all') {
             $('.js-tab-menu[data-category="all"]').addClass('is-active');
-            $('.js-tab-campaign-cards-info-card').show();
+            $('.js-tab-first').show();
         } else {
             $('.js-tab-menu[data-category="' + category + '"]').addClass('is-active');
-            $('.js-tab-campaign-cards-info-card.' + category).show();
+            $('.js-tab-first.' + category).show();
         }
     }
 
@@ -228,7 +228,7 @@ jQuery(function ($) {
         });
 
 
-        //sub-informationタブメニュー
+    //sub-informationタブメニュー
     // クエリパラメータからタブのIDを取得する関数
     function getQueryParam(name) {
         var results = new RegExp('[?&]' + name + '=([^&#]*)').exec(window.location.href);
@@ -265,15 +265,11 @@ jQuery(function ($) {
 
 
         //サイドバーブログアーカイブ
-        $(document).ready(function() {
-            // 2023をクリックしたときのイベントハンドラを追加
-            $('.sidebar__archive-item > .sidebar__past').on('click', function() {
-                // クリックされた要素の直後のulの表示状態を切り替える
-                $(this).toggleClass('sidebar__past--active');
-                $(this).next('.sidebar__months').slideToggle();
-                return false; // デフォルトのアクション（リンクの遷移）を防ぐ
+            $('.js-toggle-year').on('click', function(event) {
+                event.preventDefault();
+                $(this).toggleClass('archive-item__past--active');
+                $(this).next('.js-months-list').slideToggle();
             });
-        });
 
 
         //faq
@@ -284,7 +280,7 @@ jQuery(function ($) {
 
 
 
-        //
+        //コンタクトフォームエラー
         $('form').submit(function(e) {
             // エラーメッセージ要素を取得
             var errorMessage = $('#error-message');
@@ -354,6 +350,9 @@ jQuery(function ($) {
             // フォームが有効でない場合はエラーメッセージを表示し、送信を中止
             if (!isFormValid) {
                 errorMessage.show();
+
+                // sub-contact__formにmargin-topを追加
+                $('.sub-contact__form').css('margin-top', '2.5rem');
 
                 // パンくずリストの内容を更新
                 $('.breadcrumb__inner').html(`
