@@ -37,46 +37,6 @@
 
 .sub-contact__error-message {
     display: none;
-    //text-align: center;
-}
-
-.sub-contact__error-message p {
-    // color: #C94800;
-    // font-size: rem(14);
-    // max-width: rem(224);
-    // width: 100%;
-    // margin-inline: auto;
-    // @include mq(md){
-    //     max-width: none;
-    //     text-align: center;
-    //     text-indent: rem(12);
-    // }
-
-    // max-width: rem(224);
-    // width: 100%;
-    // margin-inline: auto;
-    // @include mq(md){
-    //     max-width: none;
-    // }
-}
-
-.dddd,.cccc {
-    // color: #C94800;
-    // display: block;
-
-    // @include mq(md){
-    //     display: inline-block;
-    //    // text-align: center;
-    // }
-    
-
-}
-
-.cccc {
-    // color: #C94800;
-    // display: inline-block;
-    // text-align: center;
-
 }
 
 .sub-contact__error-text {
@@ -96,5 +56,5 @@
 }
 
 .sub-contact__error-text::before {
-    content: "※ ";
+    content: "※";
 }

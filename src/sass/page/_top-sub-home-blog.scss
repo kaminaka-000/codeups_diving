@@ -1,7 +1,7 @@
 @use "global" as *;
 
-.top-contact-thankyou {
-    margin-top: rem(50);
+.top-sub-home-blog {
+    margin-top: rem(52);
     @include mq(md){
         margin-top: rem(150);
     }

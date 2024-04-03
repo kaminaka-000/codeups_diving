@@ -10,7 +10,7 @@
     background-image: url(../images/common/sub-contact-arrow.svg);
     background-repeat: no-repeat;
     background-size: rem(12);
-    background-position: right rem(7) top rem(10);
+    background-position: calc(100% - rem(9)) center;
     appearance: none;
     cursor: pointer;
     @include mq(md){

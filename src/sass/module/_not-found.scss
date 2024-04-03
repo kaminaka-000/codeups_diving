@@ -57,7 +57,7 @@
 
 .not-found__text {
     font-size: rem(16);
-    font-family: $second-font-family;
+    //font-family: $second-font-family;
     font-weight: $normal;
     line-height: 1.5;
     @include mq(md){

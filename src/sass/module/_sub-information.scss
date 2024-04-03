@@ -1,12 +1,10 @@
 @use "global" as *;
 
-.sub-information__inner {
+.sub-information {
     position: relative;
-    max-width: rem(600);
-    width: 100%;
 }
 
-.sub-information__inner::before {
+.sub-information::before {
     position: absolute;
     content: "";
     background-image: url(../images/common/voice-design1.svg);
@@ -16,7 +14,7 @@
     max-width: rem(120);
     width: 100%;
     height: rem(55);
-    left: calc(50% - min(47vw, 39rem));
+    left: calc(49% - min(47vw, 38rem));
     top: rem(-93);
     z-index: -1;
     @include mq(md){
@@ -24,6 +22,11 @@
         height: rem(138);
         top: rem(-70);
     }
+}
+
+.sub-information__inner {
+    max-width: rem(600);
+    width: 100%;
 }
 
 .sub-information__info-tab  {

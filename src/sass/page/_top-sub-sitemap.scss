@@ -1,6 +1,6 @@
 @use "global" as *;
 
-.top-sitemap {
+.top-sub-sitemap {
     margin-top: rem(12);
     @include mq(md){
         margin-top: rem(120);
