@@ -12,6 +12,7 @@
     background-size: rem(12);
     background-position: calc(100% - rem(9)) center;
     appearance: none;
+    color: #000;
     cursor: pointer;
     @include mq(md){
         padding: rem(7) rem(20) rem(8) rem(8);
