@@ -1,6 +1,6 @@
 @use "global" as *;
 
-.top-sub-pagenavi {
+.sub-pagenavi-spacing {
     margin-top: rem(72);
     @include mq(md){
         margin-top: rem(72);

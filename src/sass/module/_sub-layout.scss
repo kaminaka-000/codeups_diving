@@ -1,10 +1,10 @@
 @use "global" as *;
 
-.home-blog {
+.sub-layout {
     position: relative;
 }
 
-.home-blog::before {
+.sub-layout::before {
     position: absolute;
     content: "";
     background-image: url(../images/common/voice-design1.svg);
@@ -24,24 +24,14 @@
     }
 }
 
-.home-blog__inner {
-    max-width: rem(600);
-    width: 100%;
-    padding: 0 rem(21);
-    margin-inline: auto;
+
+//modifier
+.sub-layout--about::before {
     @include mq(md){
-        max-width: rem(1130);
-        padding: 0 rem(25);
-        display: flex;
+        top: rem(-150);
     }
 }
 
-.home-blog__sidebar {
-    padding: 0 rem(19);
-    margin-left: 0;
-    @include mq(md){
-        padding: 0;
-        margin-left: rem(84);
-    }
+.sub-layout--information::before {
+    top: rem(-93);
 }
-

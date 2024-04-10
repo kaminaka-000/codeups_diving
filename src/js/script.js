@@ -140,49 +140,49 @@ jQuery(function ($) {
         }
     });
 
-    //sub-campaignタブメニュー
-    // タブを切り替える関数
-    function switchTab(category) {
-        $('.js-tab-menu').removeClass('is-active');
-        $('.js-tab-first').hide();
+    // //sub-campaignタブメニュー
+    // // タブを切り替える関数
+    // function switchTab(category) {
+    //     $('.js-tab-menu').removeClass('is-active');
+    //     $('.js-tab-first').hide();
 
-        if (category === 'all') {
-            $('.js-tab-menu[data-category="all"]').addClass('is-active');
-            $('.js-tab-first').show();
-        } else {
-            $('.js-tab-menu[data-category="' + category + '"]').addClass('is-active');
-            $('.js-tab-first.' + category).show();
-        }
-    }
+    //     if (category === 'all') {
+    //         $('.js-tab-menu[data-category="all"]').addClass('is-active');
+    //         $('.js-tab-first').show();
+    //     } else {
+    //         $('.js-tab-menu[data-category="' + category + '"]').addClass('is-active');
+    //         $('.js-tab-first.' + category).show();
+    //     }
+    // }
 
-    // URLからクエリパラメータを取得する関数
-    function getQueryParam(name) {
-        var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
-        if (results == null) {
-            return null;
-        } else {
-            return decodeURIComponent(results[1]) || 0;
-        }
-    }
+    // // URLからクエリパラメータを取得する関数
+    // function getQueryParam(name) {
+    //     var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+    //     if (results == null) {
+    //         return null;
+    //     } else {
+    //         return decodeURIComponent(results[1]) || 0;
+    //     }
+    // }
 
-    // ページ読み込み時、またはタブクリック時のタブ切り替え処理
-    $(document).ready(function() {
-        var tabParam = getQueryParam('tab');
+    // // ページ読み込み時、またはタブクリック時のタブ切り替え処理
+    // $(document).ready(function() {
+    //     var tabParam = getQueryParam('tab');
 
-        // クエリパラメータがある場合、対応するタブを表示
-        if (tabParam) {
-            switchTab(tabParam);
-        } else {
-            // クエリパラメータがない場合、デフォルトで'all'を表示
-            switchTab('all');
-        }
+    //     // クエリパラメータがある場合、対応するタブを表示
+    //     if (tabParam) {
+    //         switchTab(tabParam);
+    //     } else {
+    //         // クエリパラメータがない場合、デフォルトで'all'を表示
+    //         switchTab('all');
+    //     }
 
-        // タブメニューのクリックイベント
-        $('.js-tab-menu').on('click', function() {
-            var category = $(this).data('category');
-            switchTab(category);
-        });
-    });
+    //     // タブメニューのクリックイベント
+    //     $('.js-tab-menu').on('click', function() {
+    //         var category = $(this).data('category');
+    //         switchTab(category);
+    //     });
+    // });
 
 
     // モーダルウィンドウ
@@ -395,6 +395,8 @@ jQuery(function ($) {
             }
         });
 
+
+        
 
 
 

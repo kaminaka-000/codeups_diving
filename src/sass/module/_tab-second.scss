@@ -1,17 +1,45 @@
 @use "global" as *;
 
+// .tab-second__menu {
+//     display: grid;
+//     grid-template-columns: repeat(3, 1fr);
+//     justify-content: center;
+// }
+
+// .tab-second__menu {
+//     @include mq(md){
+//         display: flex;
+//         flex-wrap: wrap;
+//         justify-content: space-between;
+//         gap: rem(24);
+//     }
+// }
+
 .tab-second__menu {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     justify-content: center;
+    gap: rem(20);
     @include mq(md){
+        display: flex;
+        flex-wrap: wrap;
         justify-content: space-between;
+        gap: rem(24);
+    }
+}
+
+.tab-second__menu + .tab-second__menu {
+    margin-top: rem(16);
+    @include mq(md){
+        margin-top: rem(24);
     }
 }
 
 .tab-second__item {
-    padding: rem(10) rem(16);
+    padding: rem(10) rem(16) ;
     min-width: rem(102);
-    width: fit-content;
+    //width: fit-content;
+   // width: 100%;
     font-size: rem(14);
     line-height: 1.5;
     color: #408F95;
@@ -19,6 +47,7 @@
     background-color: #DDF0F1;
     text-align: center;
     cursor: pointer;
+    transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
     @include mq(md){
         font-size: rem(24);
         padding: rem(13) 0 rem(13) 0;
@@ -27,8 +56,13 @@
     }
 }
 
+.tab-second__item:hover {
+    color: #fff;
+    background-color: #408F95;
+}
+
 .tab-second__item + .tab-second__item {
-    margin-left: rem(20);
+    // margin-left: rem(20);
     @include mq(md){
         margin-left: 0;
     }
@@ -58,8 +92,13 @@
 
 .tab-second__item .tab-second__svg path {
     fill: #408F95;
+    transition: fill 0.3s ease-in-out;
 }
 
 .tab-second__item.is-active .tab-second__svg path {
+    fill: #fff;
+}
+
+.tab-second__item:hover .tab-second__svg path {
     fill: #fff;
 }

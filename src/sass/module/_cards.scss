@@ -17,7 +17,7 @@
 }
 
 //modifier
-.cards--home-blog {
+.cards--blog-section {
     @include mq(md){
         grid-template-columns: repeat(2, 1fr);
         gap: rem(81) rem(40);

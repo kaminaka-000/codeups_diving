@@ -1,6 +1,7 @@
 @use "global" as *;
 
 .gallery-item {
+    cursor: pointer;
     @include mq(md) {
         grid-column: span 5;
         grid-row: span 1;

@@ -1,8 +1,8 @@
 @use "global" as *;
 
-.top-sub-about {
+.sub-blog-section-spacing {
     margin-top: rem(52);
     @include mq(md){
-        margin-top: rem(228);
+        margin-top: rem(150);
     }
 }

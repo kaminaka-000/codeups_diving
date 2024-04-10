@@ -1,37 +1,10 @@
 @use "global" as *;
 
-.privacy-policy {
-    position: relative;
-}
-
-.privacy-policy::before {
-    position: absolute;
-    content: "";
-    background-image: url(../images/common/voice-design1.svg);
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    max-width: rem(120);
-    width: 100%;
-    height: rem(55);
-    left: calc(49% - min(47vw, 38rem));
-    top: rem(-24);
-    z-index: -1;
-    @include mq(md){
-        max-width: rem(301);
-        height: rem(138);
-        top: rem(-70);
-    }
-}
-
 .privacy-policy__inner {
     max-width: rem(600);
     width: 100%;
-    margin-inline: auto;
-    padding: 0 rem(15);
     @include mq(md){
         max-width: rem(850);
-        padding: 0 rem(25);
     }
 }
 
