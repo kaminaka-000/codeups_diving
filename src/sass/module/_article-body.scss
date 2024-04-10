@@ -22,7 +22,6 @@
     aspect-ratio: 345/231;
     @include mq(md){
         margin-top: rem(35);
-        //aspect-ratio: 700/468;
         aspect-ratio: 700/462;
     }
 }

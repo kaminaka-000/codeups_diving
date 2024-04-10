@@ -1,20 +1,5 @@
 @use "global" as *;
 
-// .tab-second__menu {
-//     display: grid;
-//     grid-template-columns: repeat(3, 1fr);
-//     justify-content: center;
-// }
-
-// .tab-second__menu {
-//     @include mq(md){
-//         display: flex;
-//         flex-wrap: wrap;
-//         justify-content: space-between;
-//         gap: rem(24);
-//     }
-// }
-
 .tab-second__menu {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -38,8 +23,6 @@
 .tab-second__item {
     padding: rem(10) rem(16) ;
     min-width: rem(102);
-    //width: fit-content;
-   // width: 100%;
     font-size: rem(14);
     line-height: 1.5;
     color: #408F95;
@@ -59,13 +42,6 @@
 .tab-second__item:hover {
     color: #fff;
     background-color: #408F95;
-}
-
-.tab-second__item + .tab-second__item {
-    // margin-left: rem(20);
-    @include mq(md){
-        margin-left: 0;
-    }
 }
 
 .tab-second__item.is-active {
