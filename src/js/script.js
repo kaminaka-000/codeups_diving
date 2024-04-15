@@ -1,7 +1,9 @@
 jQuery(function ($) {
   // この中であればWordpressでも「$」が使用可能になる
 
-     // ハンバーガーメニュー
+    /*================================================================
+        ハンバーガーメニュー
+    ================================================================ */
     $(function () {
         // ハンバーガーメニューのクリックイベントハンドラ
         $(".js-header-hamburger").on("click", function () {
@@ -43,7 +45,9 @@ jQuery(function ($) {
 
 
 
-    //mvスライダー
+    /*================================================================
+        mvスライダー
+    ================================================================ */
     var swiper = new Swiper(".js-mv-swiper", {
         loop: true,
         effect: 'fade', // フェード効果を適用
@@ -57,7 +61,10 @@ jQuery(function ($) {
         },
     });
 
-    //campaignスライダー
+
+    /*================================================================
+        campaignスライダー
+    ================================================================ */
     var swiper = new Swiper(".js-campaign-cards", {
         loop: true,
         slidesPerView: 1.26,
@@ -83,7 +90,10 @@ jQuery(function ($) {
     });
 
 
-    //画像の出現アニメーション
+
+    /*================================================================
+        画像の出現アニメーション
+    ================================================================ */
     var box = $('.course__img, .testimonial-item__img, .price__img-sp, .price__img-pc'),
     speed = 700;
 
@@ -109,7 +119,9 @@ jQuery(function ($) {
         });
     });
 
-    //トップへ戻るボタン
+    /*================================================================
+        トップへ戻るボタン
+    ================================================================ */
     let topBtn = $('.to-top');
     topBtn.hide();
 
@@ -140,57 +152,14 @@ jQuery(function ($) {
         }
     });
 
-    // //sub-campaignタブメニュー
-    // // タブを切り替える関数
-    // function switchTab(category) {
-    //     $('.js-tab-menu').removeClass('is-active');
-    //     $('.js-tab-first').hide();
 
-    //     if (category === 'all') {
-    //         $('.js-tab-menu[data-category="all"]').addClass('is-active');
-    //         $('.js-tab-first').show();
-    //     } else {
-    //         $('.js-tab-menu[data-category="' + category + '"]').addClass('is-active');
-    //         $('.js-tab-first.' + category).show();
-    //     }
-    // }
-
-    // // URLからクエリパラメータを取得する関数
-    // function getQueryParam(name) {
-    //     var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
-    //     if (results == null) {
-    //         return null;
-    //     } else {
-    //         return decodeURIComponent(results[1]) || 0;
-    //     }
-    // }
-
-    // // ページ読み込み時、またはタブクリック時のタブ切り替え処理
-    // $(document).ready(function() {
-    //     var tabParam = getQueryParam('tab');
-
-    //     // クエリパラメータがある場合、対応するタブを表示
-    //     if (tabParam) {
-    //         switchTab(tabParam);
-    //     } else {
-    //         // クエリパラメータがない場合、デフォルトで'all'を表示
-    //         switchTab('all');
-    //     }
-
-    //     // タブメニューのクリックイベント
-    //     $('.js-tab-menu').on('click', function() {
-    //         var category = $(this).data('category');
-    //         switchTab(category);
-    //     });
-    // });
-
-
-    // モーダルウィンドウ
+    /*================================================================
+        モーダルウィンドウ
+    ================================================================ */
     $(".js-modal-open").on("click", function () {
         var target = $(this).data("target");
         var modal = $("#" + target);
         $(modal).fadeIn();
-        //preventScroll(true);
         return false;
     })
 
@@ -228,7 +197,9 @@ jQuery(function ($) {
         });
 
 
-    //sub-informationタブメニュー
+    /*================================================================
+        sub-informationタブメニュー
+    ================================================================ */
     // クエリパラメータからタブのIDを取得する関数
     function getQueryParam(name) {
         var results = new RegExp('[?&]' + name + '=([^&#]*)').exec(window.location.href);
@@ -280,7 +251,10 @@ jQuery(function ($) {
 
 
 
-        //コンタクトフォームエラー
+
+        /*================================================================
+            コンタクトフォームエラー
+        ================================================================ */
         $('form').submit(function(e) {
             // エラーメッセージ要素を取得
             var errorMessage = $('#error-message');
@@ -394,9 +368,6 @@ jQuery(function ($) {
             e.preventDefault(); // デフォルトのフォーム送信を防止
             }
         });
-
-
-        
 
 
 
