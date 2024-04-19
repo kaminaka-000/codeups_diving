@@ -34,13 +34,11 @@
       <!-- contact -->
       <section class="sub-contact sub-contact-spacing sub-layout">
         <div class="sub-contact__inner inner">
-          <div id="error-message" class="sub-contact__error-message">
+          <!-- <div id="error-message" class="sub-contact__error-message">
             <p class="sub-contact__error-text">必須項目が入力されていません。入力してください。</p>
-          </div>
+          </div> -->
 
           <?php echo do_shortcode('[contact-form-7 id="0168f41" title="お問い合わせ"]'); ?>
-
-
 
         </div>
       </section>

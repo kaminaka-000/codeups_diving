@@ -10,7 +10,8 @@
           </div>
           <div class="swiper mv__swiper js-mv-swiper">
             <div class="swiper-wrapper mv__wrapper">
-              <div class="swiper-slide mv__img">
+
+              <!-- <div class="swiper-slide mv__img">
                 <picture>
                   <source media="(min-width: 768px)" srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/mv-main-pc.jpeg"/>
                   <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/mv-main.jpeg" alt="写真:透明度の高い海の中を海亀が泳いでいます。"/>
@@ -33,7 +34,28 @@
                   <source media="(min-width: 768px)" srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/mv-img-3-pc.jpeg"/>
                   <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/mv-img-3.jpeg" alt="写真:砂浜と澄んだ水色の海で遊ぶ人たち。"/>
                 </picture>
-              </div>
+              </div> -->
+
+              <?php
+                // Smart Custom Fieldsで設定された繰り返しフィールドの値を取得
+                $top_images = SCF::get('top-img');
+                foreach ($top_images as $fields) {
+                  foreach ($fields as $image_id) { // すべての画像IDをループ処理
+                    $image_url = wp_get_attachment_image_url($image_id, 'full');
+                    if ($image_url) { // 画像が存在する場合
+                      $alt_text = get_post_meta($image_id, '_wp_attachment_image_alt', true); // 画像の代替テキストを取得
+                ?>
+                      <div class="swiper-slide mv__img">
+                        <picture>
+                          <img src="<?php echo esc_url($image_url); ?>" alt="<?php echo esc_attr($alt_text); ?>"/>
+                        </picture>
+                      </div>
+                <?php
+                    }
+                  }
+                }
+              ?>
+
             </div>
           </div>
         </div>

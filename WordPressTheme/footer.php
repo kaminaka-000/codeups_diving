@@ -1,6 +1,6 @@
     <!-- to-top -->
     <a href="#top" class="to-top">
-      <img src="/assets/images/common/to-top.svg" alt=""/>
+      <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/to-top.svg" alt=""/>
     </a>
 
     <!-- footer -->

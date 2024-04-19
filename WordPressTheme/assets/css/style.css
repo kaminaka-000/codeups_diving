@@ -1233,31 +1233,24 @@ footer.footer.top-footer--not-found {
 	z-index: 901;
 }
 
-.gallery-item__overlay {
+.gallery-item__content {
 	background: rgba(32, 32, 32, 0.8);
 	height: 100vh;
 	position: absolute;
 	width: 100%;
 }
 
-.gallery-item__content {
-	left: 50%;
-	max-width: 57.5rem;
-	padding: 10px;
-	position: absolute;
-	text-align: right;
-	top: 50%;
-	transform: translate(-50%, -50%);
-	width: 100%;
-}
-
 .gallery-item__content img {
-	width: 100%;
-}
-
-.gallery-item__content--vertical {
-	max-width: 31.25rem;
-	width: 100%;
+	-o-object-fit: contain;
+	bottom: 0;
+	left: 0;
+	margin: auto;
+	max-height: 95%;
+	max-width: 68%;
+	object-fit: contain;
+	position: absolute;
+	right: 0;
+	top: 0;
 }
 
 .gallery-list {
