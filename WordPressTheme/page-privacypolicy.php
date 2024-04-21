@@ -17,19 +17,7 @@
       </section>
 
       <!-- パンくず -->
-      <div class="breadcrumb sub-breadcrumb-spacing">
-        <div class="breadcrumb__inner inner">
-          <span>
-            <a href="index.html">
-              <span>TOP</span>
-            </a>
-          </span>
-          &nbsp;&gt;&nbsp;
-          <span>
-            <span>プライバシーポリシー</span>
-          </span>
-        </div>
-      </div>
+      <?php get_template_part('parts/breadcrumb'); ?>
 
       <!-- privacy-policy -->
       <section class="privacy-policy sub-privacy-policy-spacing sub-layout">

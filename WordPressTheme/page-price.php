@@ -18,19 +18,7 @@
       </section>
 
       <!-- パンくず -->
-      <div class="breadcrumb sub-breadcrumb-spacing">
-        <div class="breadcrumb__inner inner">
-          <span>
-            <a href="index.html">
-              <span>TOP</span>
-            </a>
-          </span>
-          &nbsp;&gt;&nbsp;
-          <span>
-            <span>料金一覧</span>
-          </span>
-        </div>
-      </div>
+      <?php get_template_part('parts/breadcrumb'); ?>
 
       <!-- sub-price -->
       <section class="sub-price sub-price-spacing sub-layout">
@@ -41,18 +29,24 @@
             </div>
             <table class="sub-price__list">
               <tbody>
-                <tr>
-                  <td class="sub-price__data">オープンウォーター<br class="u-mobile">ダイバーコース</td>
-                  <td class="sub-price__cost">¥50,000</td>
-                </tr>
-                <tr>
-                  <td class="sub-price__data">アドバンスド<br class="u-mobile">オープンウォーターコース</td>
-                  <td class="sub-price__cost">¥60,000</td>
-                </tr>
-                <tr>
-                  <td class="sub-price__data">レスキュー＋EFRコース</td>
-                  <td class="sub-price__cost">¥70,000</td>
-                </tr>
+              <?php
+                  $price_list_items = SCF::get('license-course');
+                  foreach ($price_list_items as $item) {
+                    // サブフィールドの数だけループ
+                    for ($i = 1; $i <= count($item) / 2; $i++) {
+                      $title_field_name = "license-course-title{$i}";
+                      $cost_field_name = "license-course-cost{$i}";
+
+                      // タイトルとコストが存在するかを確認
+                      if (isset($item[$title_field_name]) && isset($item[$cost_field_name])) {
+                        echo '<tr>';
+                        echo '<td class="sub-price__data">' . esc_html($item[$title_field_name]) . '</td>';
+                        echo '<td class="sub-price__cost">' . esc_html($item[$cost_field_name]) . '</td>';
+                        echo '</tr>';
+                      }
+                    }
+                  }
+                ?>
               </tbody>
             </table>
           </div>
@@ -62,22 +56,24 @@
             </div>
             <table class="sub-price__list">
               <tbody>
-                <tr>
-                  <td class="sub-price__data">ビーチ体験ダイビング<br class="u-mobile">(半日)</td>
-                  <td class="sub-price__cost">¥7,000</td>
-                </tr>
-                <tr>
-                  <td class="sub-price__data">ビーチ体験ダイビング<br class="u-mobile">(1日)</td>
-                  <td class="sub-price__cost">¥14,000</td>
-                </tr>
-                <tr>
-                  <td class="sub-price__data">ボート体験ダイビング<br class="u-mobile">(半日)</td>
-                  <td class="sub-price__cost">¥10,000</td>
-                </tr>
-                <tr>
-                  <td class="sub-price__data">ボート体験ダイビング<br class="u-mobile">(1日)</td>
-                  <td class="sub-price__cost">¥18,000</td>
-                </tr>
+              <?php
+                  $price_list_items = SCF::get('trial-diving');
+                  foreach ($price_list_items as $item) {
+                    // サブフィールドの数だけループ
+                    for ($i = 1; $i <= count($item) / 2; $i++) {
+                      $title_field_name = "trial-diving-title{$i}";
+                      $cost_field_name = "trial-diving-cost{$i}";
+
+                      // タイトルとコストが存在するかを確認
+                      if (isset($item[$title_field_name]) && isset($item[$cost_field_name])) {
+                        echo '<tr>';
+                        echo '<td class="sub-price__data">' . esc_html($item[$title_field_name]) . '</td>';
+                        echo '<td class="sub-price__cost">' . esc_html($item[$cost_field_name]) . '</td>';
+                        echo '</tr>';
+                      }
+                    }
+                  }
+                ?>
               </tbody>
             </table>
           </div>
@@ -87,22 +83,24 @@
             </div>
             <table class="sub-price__list">
               <tbody>
-                <tr>
-                  <td class="sub-price__data">ビーチダイビング<br class="u-mobile">(2ダイブ)</td>
-                  <td class="sub-price__cost">¥14,000</td>
-                </tr>
-                <tr>
-                  <td class="sub-price__data">ボートダイビング<br class="u-mobile">(2ダイブ)</td>
-                  <td class="sub-price__cost">¥18,000</td>
-                </tr>
-                <tr>
-                  <td class="sub-price__data">スペシャルダイビング<br class="u-mobile">(2ダイブ)</td>
-                  <td class="sub-price__cost">¥24,000</td>
-                </tr>
-                <tr>
-                  <td class="sub-price__data">ナイトダイビング<br class="u-mobile">(2ダイブ)</td>
-                  <td class="sub-price__cost">¥10,000</td>
-                </tr>
+              <?php
+                  $price_list_items = SCF::get('fun-diving');
+                  foreach ($price_list_items as $item) {
+                    // サブフィールドの数だけループ
+                    for ($i = 1; $i <= count($item) / 2; $i++) {
+                      $title_field_name = "fun-diving-title{$i}";
+                      $cost_field_name = "fun-diving-cost{$i}";
+
+                      // タイトルとコストが存在するかを確認
+                      if (isset($item[$title_field_name]) && isset($item[$cost_field_name])) {
+                        echo '<tr>';
+                        echo '<td class="sub-price__data">' . esc_html($item[$title_field_name]) . '</td>';
+                        echo '<td class="sub-price__cost">' . esc_html($item[$cost_field_name]) . '</td>';
+                        echo '</tr>';
+                      }
+                    }
+                  }
+                ?>
               </tbody>
             </table>
           </div>
@@ -112,18 +110,24 @@
             </div>
             <table class="sub-price__list">
               <tbody>
-                <tr>
-                  <td class="sub-price__data">貸切ダイビング<br class="u-mobile">(2ダイブ)</td>
-                  <td class="sub-price__cost">¥24,000</td>
-                </tr>
-                <tr>
-                  <td class="sub-price__data">1日ダイビング<br class="u-mobile">(3ダイブ)</td>
-                  <td class="sub-price__cost">¥32,000</td>
-                </tr>
-                <tr>
-                  <td class="sub-price__data">ナイトダイビング<br class="u-mobile">(2ダイブ)</td>
-                  <td class="sub-price__cost">¥14,000</td>
-                </tr>
+              <?php
+                  $price_list_items = SCF::get('special-diving');
+                  foreach ($price_list_items as $item) {
+                    // サブフィールドの数だけループ
+                    for ($i = 1; $i <= count($item) / 2; $i++) {
+                      $title_field_name = "special-diving-title{$i}";
+                      $cost_field_name = "special-diving-cost{$i}";
+
+                      // タイトルとコストが存在するかを確認
+                      if (isset($item[$title_field_name]) && isset($item[$cost_field_name])) {
+                        echo '<tr>';
+                        echo '<td class="sub-price__data">' . esc_html($item[$title_field_name]) . '</td>';
+                        echo '<td class="sub-price__cost">' . esc_html($item[$cost_field_name]) . '</td>';
+                        echo '</tr>';
+                      }
+                    }
+                  }
+                ?>
               </tbody>
             </table>
           </div>

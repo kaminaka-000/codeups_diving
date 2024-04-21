@@ -171,7 +171,6 @@ jQuery(function ($) {
     $(modal).fadeIn();
     return false;
   });
-
   $(".js-modal-close").on("click", function () {
     $(".js-modal").fadeOut();
     return false;
@@ -198,7 +197,8 @@ $(function () {
   // モーダルクローズ
   $(".js-modal-close").on("click", function () {
     $("body").css({
-      overflow: '',// スクロールを再度許可
+      overflow: '',
+      // スクロールを再度許可
       position: '' // 'body'のpositionをリセット
     }).scrollTop(scrollPosition); // スクロール位置を復元
     // モーダル非表示処理（省略）

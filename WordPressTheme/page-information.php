@@ -18,19 +18,7 @@
       </section>
 
       <!-- パンくず -->
-      <div class="breadcrumb sub-breadcrumb-spacing">
-        <div class="breadcrumb__inner inner">
-          <span>
-            <a href="#">
-              <span>TOP</span>
-            </a>
-          </span>
-          &nbsp;&gt;&nbsp;
-          <span>
-            <span>ダイビング情報</span>
-          </span>
-        </div>
-      </div>
+      <?php get_template_part('parts/breadcrumb'); ?>
 
       <!-- sub-information -->
       <section class="sub-information sub-information-spacing sub-layout sub-layout--information">

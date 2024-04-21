@@ -421,73 +421,113 @@
               <div class="price__item">
                 <h3 class="price__sub-title">ライセンス講習</h3>
                 <dl class="price__group">
-                  <div class="price__layout">
-                    <dt class="price__menu">オープンウォーターダイバーコース</dt>
-                    <dd class="price__cost">¥50,000</dd>
-                  </div>
-                  <div class="price__layout">
-                    <dt class="price__menu">アドバンスドオープンウォーターコース</dt>
-                    <dd class="price__cost">¥60,000</dd>
-                  </div>
-                  <div class="price__layout">
-                    <dt class="price__menu">レスキュー＋EFRコース</dt>
-                    <dd class="price__cost">¥70,000</dd>
-                  </div>
+                  <?php
+                    // 特定の固定ページの投稿ID
+                    $post_id = 42; // このIDは特定の固定ページのものに置き換えてください。
+
+                    // 'trial-diving'がグループフィールドのスラッグ名
+                    $price_list_items = SCF::get('license-course', $post_id);
+
+                    foreach ($price_list_items as $item) {
+                      // サブフィールドの数だけループ
+                      for ($i = 1; $i <= count($item) / 2; $i++) {
+                        $title_field_name = "license-course-title{$i}";
+                        $cost_field_name = "license-course-cost{$i}";
+
+                        // タイトルとコストが存在するかを確認
+                        if (isset($item[$title_field_name]) && isset($item[$cost_field_name])) {
+                          echo '<div class="price__layout">';
+                          echo '<dt class="price__menu">' . esc_html($item[$title_field_name]) . '</dt>';
+                          echo '<dd class="price__cost">' . esc_html($item[$cost_field_name]) . '</dd>';
+                          echo '</div>';
+                        }
+                      }
+                    }
+                  ?>
                 </dl>
               </div>
               <div class="price__item">
                 <h3 class="price__sub-title">体験ダイビング</h3>
                 <dl class="price__group">
-                  <div class="price__layout">
-                    <dt class="price__menu">ビーチ体験ダイビング(半日)</dt>
-                    <dd class="price__cost">¥7,000</dd>
-                  </div>
-                  <div class="price__layout">
-                    <dt class="price__menu">ビーチ体験ダイビング(1日)</dt>
-                    <dd class="price__cost">¥14,000</dd>
-                  </div>
-                  <div class="price__layout">
-                    <dt class="price__menu">ボート体験ダイビング(半日)</dt>
-                    <dd class="price__cost">¥10,000</dd>
-                  </div>
-                  <div class="price__layout">
-                    <dt class="price__menu">ボート体験ダイビング(1日)</dt>
-                    <dd class="price__cost">¥18,000</dd>
-                  </div>
+                  <?php
+                    // 特定の固定ページの投稿ID
+                    $post_id = 42; // このIDは特定の固定ページのものに置き換えてください。
+
+                    // 'trial-diving'がグループフィールドのスラッグ名
+                    $price_list_items = SCF::get('trial-diving', $post_id);
+
+                    foreach ($price_list_items as $item) {
+                      // サブフィールドの数だけループ
+                      for ($i = 1; $i <= count($item) / 2; $i++) {
+                        $title_field_name = "trial-diving-title{$i}";
+                        $cost_field_name = "trial-diving-cost{$i}";
+
+                        // タイトルとコストが存在するかを確認
+                        if (isset($item[$title_field_name]) && isset($item[$cost_field_name])) {
+                          echo '<div class="price__layout">';
+                          echo '<dt class="price__menu">' . esc_html($item[$title_field_name]) . '</dt>';
+                          echo '<dd class="price__cost">' . esc_html($item[$cost_field_name]) . '</dd>';
+                          echo '</div>';
+                        }
+                      }
+                    }
+                  ?>
                 </dl>
               </div>
               <div class="price__item">
                 <h3 class="price__sub-title">ファンダイビング</h3>
                 <dl class="price__group">
-                  <div class="price__layout">
-                    <dt class="price__menu">ビーチダイビング(2ダイブ)</dt>
-                    <dd class="price__cost">¥14,000</dd>
-                  </div>
-                  <div class="price__layout">
-                    <dt class="price__menu">ボートダイビング(2ダイブ)</dt>
-                    <dd class="price__cost">¥18,000</dd>
-                  </div>
-                  <div class="price__layout">
-                    <dt class="price__menu">スペシャルダイビング(2ダイブ)</dt>
-                    <dd class="price__cost">¥24,000</dd>
-                  </div>
-                  <div class="price__layout">
-                    <dt class="price__menu">ナイトダイビング(1ダイブ)</dt>
-                    <dd class="price__cost">¥10,000</dd>
-                  </div>
+                  <?php
+                    // 特定の固定ページの投稿ID
+                    $post_id = 42; // このIDは特定の固定ページのものに置き換えてください。
+
+                    // 'trial-diving'がグループフィールドのスラッグ名
+                    $price_list_items = SCF::get('fun-diving', $post_id);
+
+                    foreach ($price_list_items as $item) {
+                      // サブフィールドの数だけループ
+                      for ($i = 1; $i <= count($item) / 2; $i++) {
+                        $title_field_name = "fun-diving-title{$i}";
+                        $cost_field_name = "fun-diving-cost{$i}";
+
+                        // タイトルとコストが存在するかを確認
+                        if (isset($item[$title_field_name]) && isset($item[$cost_field_name])) {
+                          echo '<div class="price__layout">';
+                          echo '<dt class="price__menu">' . esc_html($item[$title_field_name]) . '</dt>';
+                          echo '<dd class="price__cost">' . esc_html($item[$cost_field_name]) . '</dd>';
+                          echo '</div>';
+                        }
+                      }
+                    }
+                  ?>
                 </dl>
               </div>
               <div class="price__item">
                 <h3 class="price__sub-title">スペシャルダイビング</h3>
                 <dl class="price__group">
-                  <div class="price__layout">
-                    <dt class="price__menu">貸切ダイビング(2ダイブ)</dt>
-                    <dd class="price__cost">¥24,000</dd>
-                  </div>
-                  <div class="price__layout">
-                    <dt class="price__menu">1日ダイビング(3ダイブ)</dt>
-                    <dd class="price__cost">¥32,000</dd>
-                  </div>
+                  <?php
+                    // 特定の固定ページの投稿ID
+                    $post_id = 42; // このIDは特定の固定ページのものに置き換えてください。
+
+                    // 'trial-diving'がグループフィールドのスラッグ名
+                    $price_list_items = SCF::get('special-diving', $post_id);
+
+                    foreach ($price_list_items as $item) {
+                      // サブフィールドの数だけループ
+                      for ($i = 1; $i <= count($item) / 2; $i++) {
+                        $title_field_name = "special-diving-title{$i}";
+                        $cost_field_name = "special-diving-cost{$i}";
+
+                        // タイトルとコストが存在するかを確認
+                        if (isset($item[$title_field_name]) && isset($item[$cost_field_name])) {
+                          echo '<div class="price__layout">';
+                          echo '<dt class="price__menu">' . esc_html($item[$title_field_name]) . '</dt>';
+                          echo '<dd class="price__cost">' . esc_html($item[$cost_field_name]) . '</dd>';
+                          echo '</div>';
+                        }
+                      }
+                    }
+                  ?>
                 </dl>
               </div>
             </div>

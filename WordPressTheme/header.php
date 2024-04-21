@@ -9,12 +9,19 @@
     <?php wp_head(); ?>
 
   </head>
+  <?php
+  $information = esc_url( home_url( '/information/' ) );
+  $about_us = esc_url( home_url( '/about-us/' ) );
+  $price = esc_url( home_url( '/price/' ) );
+  $faq = esc_url( home_url( '/faq/' ) );
+  $contact = esc_url( home_url( '/contact/' ) );
+    ?>
   <body>
     <!-- header -->
     <header class="header">
       <div class="header__inner">
         <div class="header__logo">
-          <a href="index.html">
+          <a href="<?php echo home_url(); ?>">
             <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/logo.svg" alt="ロゴ:codeups" />
           </a>
         </div>
@@ -29,10 +36,10 @@
               <a href="archive-campaign.html">Campaign<span>キャンペーン</span></a>
             </li>
             <li class="nav-pc__item">
-              <a href="page-about.html">About us<span>私たちについて</span></a>
+              <a href="<?php echo $about_us; ?>">About us<span>私たちについて</span></a>
             </li>
             <li class="nav-pc__item">
-              <a href="page-information.html">Information<span>ダイビング情報</span></a>
+              <a href="<?php echo $information; ?>">Information<span>ダイビング情報</span></a>
             </li>
             <li class="nav-pc__item">
               <a href="home.html">Blog<span>ブログ</span></a>
@@ -41,13 +48,13 @@
               <a href="archive-voice.html">Voice<span>お客様の声</span></a>
             </li>
             <li class="nav-pc__item">
-              <a href="page-price.html">Price<span>料金一覧</span></a>
+              <a href="<?php echo $price; ?>">Price<span>料金一覧</span></a>
             </li>
             <li class="nav-pc__item">
-              <a href="page-faq.html">FAQ<span>よくある質問</span></a>
+              <a href="<?php echo $faq; ?>">FAQ<span>よくある質問</span></a>
             </li>
             <li class="nav-pc__item">
-              <a href="page-contact.html">Contact<span>お問い合わせ</span></a>
+              <a href="<?php echo $contact; ?>">Contact<span>お問い合わせ</span></a>
             </li>
           </ul>
         </nav>

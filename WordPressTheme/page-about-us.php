@@ -18,19 +18,8 @@
       </section>
 
       <!-- パンくず -->
-      <div class="breadcrumb sub-breadcrumb-spacing">
-        <div class="breadcrumb__inner inner">
-          <span>
-            <a href="index.html">
-              <span>TOP</span>
-            </a>
-          </span>
-          &nbsp;&gt;&nbsp;
-          <span>
-            <span>私たちについて</span>
-          </span>
-        </div>
-      </div>
+      <?php get_template_part('parts/breadcrumb'); ?>
+
 
       <!-- sub-about -->
       <section class="sub-about sub-about-spacing sub-layout sub-layout--about">
@@ -102,7 +91,7 @@
 
 
 
-
+  <!-- contact -->
   <?php get_template_part('parts/contact'); ?>
 
 
