@@ -1,5 +1,6 @@
 <?php
 
+//
 function my_theme_enqueue_scripts() {
   // Preconnect for Google Fonts
   wp_enqueue_style('google-fonts-preconnect', 'https://fonts.googleapis.com', array(), null);
@@ -28,5 +29,33 @@ function my_theme_enqueue_scripts() {
 }
 
 add_action('wp_enqueue_scripts', 'my_theme_enqueue_scripts');
+
+//
+function my_setup() {
+	add_theme_support( 'post-thumbnails' ); /* アイキャッチ */
+	add_theme_support( 'automatic-feed-links' ); /* RSSフィード */
+	add_theme_support( 'title-tag' ); /* タイトルタグ自動生成 */
+	add_theme_support(
+		'html5',
+		array( /* HTML5のタグで出力 */
+			'search-form',
+			'comment-form',
+			'comment-list',
+			'gallery',
+			'caption',
+		)
+	);
+}
+add_action( 'after_setup_theme', 'my_setup' );
+
+//アーカイブの表示件数変更
+function change_posts_per_page($query) {
+  if ( is_admin() || ! $query->is_main_query() )
+      return;
+  if ( $query->is_archive('campaign') ) { //カスタム投稿タイプを指定
+      $query->set( 'posts_per_page', '4' ); //表示件数を指定
+  }
+}
+add_action( 'pre_get_posts', 'change_posts_per_page' );
 
 

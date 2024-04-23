@@ -10,6 +10,7 @@
 
   </head>
   <?php
+  $campaign = esc_url( home_url( '/campaign/' ) );
   $information = esc_url( home_url( '/information/' ) );
   $about_us = esc_url( home_url( '/about-us/' ) );
   $price = esc_url( home_url( '/price/' ) );
@@ -33,7 +34,7 @@
         <nav class="header__nav-pc nav-pc">
           <ul class="nav-pc__items">
             <li class="nav-pc__item">
-              <a href="archive-campaign.html">Campaign<span>キャンペーン</span></a>
+              <a href="<?php echo $campaign; ?>">Campaign<span>キャンペーン</span></a>
             </li>
             <li class="nav-pc__item">
               <a href="<?php echo $about_us; ?>">About us<span>私たちについて</span></a>
