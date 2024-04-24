@@ -2395,6 +2395,18 @@ footer.footer.top-footer--not-found {
 	margin-right: 2.0625rem;
 }
 
+.sub-cards__content {
+	align-items: center; /* 垂直方向の中央揃え */
+	display: grid;
+	grid-column: 1/-1; /* すべての列を跨ぐ */
+	justify-content: center; /* 水平方向の中央揃え */
+	margin-top: 2.5rem;
+}
+
+.sub-cards__text {
+	font-size: 1rem;
+}
+
 .sub-contact__inner {
 	max-width: 37.5rem;
 	width: 100%;
@@ -3793,6 +3805,14 @@ footer.footer.top-footer--not-found {
 	grid-template-columns: repeat(2, 1fr);
 	margin-left: 0;
 	margin-right: 0;
+}
+
+.sub-cards__content {
+	margin-top: 5rem;
+}
+
+.sub-cards__text {
+	font-size: 1.5rem;
 }
 
 .sub-contact__inner {

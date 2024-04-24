@@ -24,16 +24,24 @@
         <div class="sub-campaign__inner inner">
           <div class="sub-campaign__wrapper">
 
-            <div class="sub-campaign__tab tab">
-                <a href="<?php echo get_post_type_archive_link('campaign') ?>" class="tab__menu is-active">ALL</a>
-                <?php $genre_terms = get_terms('campaign_category', array('hide_empty'=>false)); ?>
-                <?php foreach($genre_terms as $genre_term) : ?>
-                  <a href="<?php echo get_term_link($genre_term, 'campaign_category'); ?>" class="tab__menu"><?php echo $genre_term->name; ?></a>
-                  <?php endforeach; ?>
-            </div>
-
+          <div class="sub-campaign__tab tab">
+            <a href="<?php echo get_post_type_archive_link('campaign'); ?>" class="tab__menu <?php if(is_post_type_archive('campaign') && !is_tax('campaign_category')) echo 'is-active'; ?>">ALL</a>
+              <?php
+                  $genre_terms = get_terms('campaign_category', array('hide_empty'=>false));
+                    foreach($genre_terms as $genre_term) :
+                      // クエリされたタームを取得
+                      $queried_object = get_queried_object();
+                      // 現在表示されているタームのIDをチェック
+                      $is_active = ($queried_object && $queried_object->term_id === $genre_term->term_id) ? 'is-active' : '';
+              ?>
+                  <a href="<?php echo get_term_link($genre_term, 'campaign_category'); ?>" class="tab__menu <?php echo $is_active; ?>">
+                      <?php echo $genre_term->name; ?>
+                  </a>
+              <?php endforeach; ?>
+          </div>
 
             <ul class="sub-campaign__cards sub-cards">
+
             <?php if (have_posts()) : ?>
               <?php while(have_posts()) : ?>
                   <?php the_post(); ?>
@@ -62,7 +70,7 @@
                   </div>
                   <div class="info-card__content info-card__content--sub">
                     <div class="info-card__wrapper">
-                    <?php
+                    <?php 
                         // 現在の投稿に関連付けられているタームを取得
                         $terms = get_the_terms(get_the_ID(), 'campaign_category');
                         if (!empty($terms) && !is_wp_error($terms)) :
