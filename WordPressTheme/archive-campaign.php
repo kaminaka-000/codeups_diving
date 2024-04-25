@@ -99,12 +99,11 @@
                     </div>
                   </div>
               </li>
-              <?php endwhile; ?>
-              <?php else : ?>
+              <?php endwhile; else : ?>
               <li class="sub-cards__content">
                 <p class="sub-cards__text">投稿がありません。</p>
               </li>
-            <?php endif; ?>
+              <?php endif; ?>
             </ul>
           </div>
         </div>

@@ -415,22 +415,13 @@ footer.footer.top-footer--not-found {
 
 .article-body__pagenavi .previouspostslink {
 	align-items: center;
+	color: #408F95;
 	display: flex;
+	font-size: 1rem;
 	height: 2.375rem;
 	justify-content: center;
 	margin-right: 2.5625rem;
 	width: 2.375rem;
-}
-
-.article-body__pagenavi .previouspostslink::before {
-	border-bottom: 2px solid #408F95;
-	border-left: 2px solid #408F95;
-	content: "";
-	height: 0.8125rem;
-	left: 50%;
-	top: 50%;
-	transform: translate(2px) rotate(45deg);
-	width: 0.8125rem;
 }
 
 .article-body__pagenavi .previouspostslink:hover::before,
@@ -441,24 +432,17 @@ footer.footer.top-footer--not-found {
 
 .article-body__pagenavi .nextpostslink {
 	align-items: center;
+	color: #408F95;
 	display: flex;
+	font-size: 1rem;
 	height: 2.375rem;
 	justify-content: center;
 	margin-left: 2.5625rem;
 	width: 2.375rem;
 }
 
-.article-body__pagenavi .nextpostslink::before {
-	border-bottom: 2px solid #408F95;
-	border-left: 2px solid #408F95;
-	content: "";
-	display: inline-block;
-	height: 0.8125rem;
-	transform: translate(-2px) rotate(-135deg);
-	width: 0.8125rem;
-}
-
-.article-body__pagenavi .wp-pagenavi a:hover {
+.article-body__pagenavi .previouspostslink:hover,
+.article-body__pagenavi .nextpostslink:hover {
 	background-color: #408F95;
 	border-color: #408F95;
 	color: #fff;
@@ -704,6 +688,15 @@ footer.footer.top-footer--not-found {
 
 .cards__item + .cards__item {
 	margin-top: 2.5rem;
+}
+
+.cards__content {
+	margin-top: 2.5rem;
+}
+
+.card__content-text {
+	font-size: 1rem;
+	text-align: center;
 }
 
 .contact-thankyou__inner {
@@ -2788,6 +2781,15 @@ footer.footer.top-footer--not-found {
 	margin-top: 1.0625rem;
 }
 
+.testimonial-list__content {
+	margin: 2.5rem auto;
+}
+
+.testimonial-list__text {
+	font-size: 1rem;
+	text-align: center;
+}
+
 .to-top {
 	bottom: 1.25rem;
 	position: fixed;
@@ -3131,6 +3133,15 @@ footer.footer.top-footer--not-found {
 
 .cards__item + .cards__item {
 	margin-top: 0;
+}
+
+.cards__content {
+	margin-top: 5rem;
+	width: 44.25rem;
+}
+
+.card__content-text {
+	font-size: 1.5rem;
 }
 
 .cards--blog-section {
@@ -3998,6 +4009,14 @@ footer.footer.top-footer--not-found {
 	display: flex;
 	flex-wrap: wrap;
 	gap: 4.5rem 2.5rem;
+}
+
+.testimonial-list__content {
+	margin-top: 5rem;
+}
+
+.testimonial-list__text {
+	font-size: 1.5rem;
 }
 
 .to-top {

@@ -52,10 +52,53 @@ add_action( 'after_setup_theme', 'my_setup' );
 function change_posts_per_page($query) {
   if ( is_admin() || ! $query->is_main_query() )
       return;
+  //
   if ( $query->is_archive('campaign') ) { //カスタム投稿タイプを指定
       $query->set( 'posts_per_page', '4' ); //表示件数を指定
+  }
+
+  // 'event' カスタム投稿タイプのアーカイブで表示される投稿数を別の値に設定
+  if ( $query->is_post_type_archive('voice') ) {
+    $query->set( 'posts_per_page', '6' ); // 例として6に設定
   }
 }
 add_action( 'pre_get_posts', 'change_posts_per_page' );
 
+//
+function my_widget_init() {
+  register_sidebar(
+    array(
+      'name' => 'サイドバー', // 表示するエリア名
+      'id'   => 'sidebar', // id
+      'before_widget' => '<div id="%1$s" class="widget %2$s">',
+      'after_widget'  => '</div>',
+      'before_title'  => '<div class="widget-title">',
+      'after_title'   => '</div>'
+    )
+  );
+}
+add_action('widgets_init', 'my_widget_init');
 
+
+//
+function set_post_view($post_id) {
+  $count_key = 'post_views_count';
+  $count = get_post_meta($post_id, $count_key, true);
+  if ($count == '') {
+      $count = 1;
+      add_post_meta($post_id, $count_key, $count);
+  } else {
+      $count++;
+      update_post_meta($post_id, $count_key, $count);
+  }
+}
+
+function track_post_views($post_id) {
+  if (!is_single()) return;
+  if (empty($post_id)) {
+      global $post;
+      $post_id = $post->ID;
+  }
+  set_post_view($post_id);
+}
+add_action('wp_head', 'track_post_views');

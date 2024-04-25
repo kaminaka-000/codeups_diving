@@ -4,7 +4,7 @@
     </a>
 
     <!-- footer -->
-    <footer class="footer top-footer">
+    <footer class="footer top-footer<?php if (is_404()) echo ' top-footer--not-found'; ?>">
       <div class="footer__inner inner">
         <div class="footer__group">
           <div class="footer__logo">

@@ -13,6 +13,8 @@
   $campaign = esc_url( home_url( '/campaign/' ) );
   $information = esc_url( home_url( '/information/' ) );
   $about_us = esc_url( home_url( '/about-us/' ) );
+  $blog = esc_url( home_url( '/blog/' ) );
+  $voice = esc_url( home_url( '/voice/' ) );
   $price = esc_url( home_url( '/price/' ) );
   $faq = esc_url( home_url( '/faq/' ) );
   $contact = esc_url( home_url( '/contact/' ) );
@@ -43,10 +45,10 @@
               <a href="<?php echo $information; ?>">Information<span>ダイビング情報</span></a>
             </li>
             <li class="nav-pc__item">
-              <a href="home.html">Blog<span>ブログ</span></a>
+              <a href="<?php echo $blog; ?>">Blog<span>ブログ</span></a>
             </li>
             <li class="nav-pc__item">
-              <a href="archive-voice.html">Voice<span>お客様の声</span></a>
+              <a href="<?php echo $voice; ?>">Voice<span>お客様の声</span></a>
             </li>
             <li class="nav-pc__item">
               <a href="<?php echo $price; ?>">Price<span>料金一覧</span></a>

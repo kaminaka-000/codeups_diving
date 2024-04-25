@@ -33,7 +33,7 @@
                       $queried_object = get_queried_object();
                       // 現在表示されているタームのIDをチェック
                       $is_active = ($queried_object && $queried_object->term_id === $genre_term->term_id) ? 'is-active' : '';
-              ?>
+                      ?>
                   <a href="<?php echo get_term_link($genre_term, 'campaign_category'); ?>" class="tab__menu <?php echo $is_active; ?>">
                       <?php echo $genre_term->name; ?>
                   </a>
@@ -70,7 +70,7 @@
                   </div>
                   <div class="info-card__content info-card__content--sub">
                     <div class="info-card__wrapper">
-                    <?php 
+                    <?php
                         // 現在の投稿に関連付けられているタームを取得
                         $terms = get_the_terms(get_the_ID(), 'campaign_category');
                         if (!empty($terms) && !is_wp_error($terms)) :
@@ -107,8 +107,7 @@
                     </div>
                   </div>
               </li>
-              <?php endwhile; ?>
-              <?php else : ?>
+              <?php endwhile; else : ?>
               <li class="sub-cards__content">
                 <p class="sub-cards__text">投稿がありません。</p>
               </li>
