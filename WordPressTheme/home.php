@@ -40,7 +40,7 @@
                         <time class="card__meta" datetime="<?php the_time('c'); ?>"><?php the_time('Y.m/d'); ?></time>
                         <h2 class="card__title"><?php the_title(); ?></h2>
                         <p class="card__text">
-                          <?php the_excerpt(); ?>
+                        <?php echo wp_trim_words(get_the_excerpt(), 85, ''); ?>
                         </p>
                       </div>
                     </a>

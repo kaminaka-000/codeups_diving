@@ -12,7 +12,7 @@
 }
 
 .form-checkbox input {
-    display: none;
+    // display: none;
 }
 
 .form-checkbox input + span {
@@ -55,4 +55,11 @@
 
 .form-checkbox input:checked + span::after {
     opacity: 1;
+}
+
+.form-checkbox .wpcf7-list-item {
+    @include mq(md){
+        display: block;
+        margin: 0;
+    }
 }

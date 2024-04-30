@@ -1,11 +1,11 @@
 <?php get_header(); ?>
 
-    <main>
+<main>
       <!-- 下層ページのmv -->
       <section class="sub-mv">
         <div class="sub-mv__inner">
           <div class="sub-mv__header">
-            <h1 class="sub-mv__title">Privacy Policy</h1>
+            <h1 class="sub-mv__title">Terms of Service</h1>
           </div>
           <div class="sub-mv__img">
             <picture>
@@ -19,15 +19,17 @@
       <!-- パンくず -->
       <?php get_template_part('parts/breadcrumb'); ?>
 
-      <!-- privacy-policy -->
-      <section class="privacy-policy sub-privacy-policy-spacing sub-layout">
-        <div class="privacy-policy__inner inner">
-          <h2 class="privacy-policy__title"><?php the_title(); ?></h2>
+      <!-- terms-of-service  -->
+      <section class="terms sub-terms-spacing sub-layout">
+        <div class="terms__inner inner">
+          <h2 class="terms__title"><?php the_title(); ?></h2>
           <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
             <?php the_content(); ?>
           <?php endwhile; endif; ?>
         </div>
       </section>
+
+
 
       <!-- contact -->
       <?php get_template_part('parts/contact'); ?>

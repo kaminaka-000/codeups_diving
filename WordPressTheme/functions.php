@@ -93,12 +93,52 @@ function set_post_view($post_id) {
   }
 }
 
-function track_post_views($post_id) {
-  if (!is_single()) return;
-  if (empty($post_id)) {
-      global $post;
-      $post_id = $post->ID;
+//
+function filter_wpcf7_form_tag( $scanned_tag ) {
+  if ( 'your-campaign' === $scanned_tag['name'] ) {
+    $args = array(
+      'post_type'      => 'campaign',
+      'posts_per_page' => 4,
+      'orderby'        => 'date',
+      'order'          => 'DESC',
+    );
+    $posts_query = new WP_Query( $args );
+    if ( $posts_query->have_posts() ) {
+      $scanned_tag['raw_values'] = array(); // 初期化
+      while ( $posts_query->have_posts() ) {
+        $posts_query->the_post();
+        $scanned_tag['values'][] = get_the_title();
+        $scanned_tag['labels'][] = get_the_title();
+        $scanned_tag['raw_values'][] = get_the_title();
+      }
+      wp_reset_postdata();
+    }
   }
-  set_post_view($post_id);
+  return $scanned_tag;
 }
-add_action('wp_head', 'track_post_views');
+add_filter( 'wpcf7_form_tag', 'filter_wpcf7_form_tag', 10, 1 );
+
+
+// // Contact Form 7で自動挿入されるPタグ、brタグを削除
+// add_filter('wpcf7_autop_or_not', 'wpcf7_autop_return_false');
+// function wpcf7_autop_return_false() {
+//   return false;
+// }
+
+add_filter('wpcf7_autop_or_not', '__return_false');
+
+
+//サンクスページ
+add_action('wp_footer', 'redirect_to_thanks_page');
+function redirect_to_thanks_page() {
+  if (is_page('contact')) {
+    $homeUrl = esc_url(home_url());
+    echo <<<EOD
+    <script>
+      document.addEventListener('wpcf7mailsent', function(event) {
+        location = '{$homeUrl}/contact-thanks/';
+      }, false);
+    </script>
+EOD;
+  }
+}

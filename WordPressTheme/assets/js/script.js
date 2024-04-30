@@ -241,14 +241,19 @@ $(function () {
     });
   });
 
-  //サイドバーブログアーカイブ
+  /*================================================================
+      サイドバーブログアーカイブ
+  ================================================================ */
+
   $('.js-toggle-year').on('click', function (event) {
     event.preventDefault();
     $(this).toggleClass('archive-item__past--active');
     $(this).next('.js-months-list').slideToggle();
   });
 
-  //faq
+  /*================================================================
+      よくある質問
+  ================================================================ */
   $('.js-faq-question').on('click', function () {
     $(this).next().slideToggle();
     $(this).toggleClass('is-open');
@@ -257,104 +262,10 @@ $(function () {
   /*================================================================
       コンタクトフォームエラー
   ================================================================ */
-  $('form').submit(function (e) {
-    // エラーメッセージ要素を取得
-    var errorMessage = $('#error-message');
 
-    // 入力フィールドに変更があった場合、エラースタイルをリセットする
-    $('input, textarea').on('input', function () {
-      if ($(this).hasClass('error')) {
-        $(this).css({
-          'border': '1px solid #408F95',
-          // デフォルトの枠線に戻す
-          'color': '#0D2936',
-          // デフォルトのテキスト色に戻す
-          'background': '' // 背景色をリセット
-        }).removeClass('error'); // エラークラスを削除
-      }
+    jQuery(".button--form").click(function () {
+      jQuery(".wpcf7-form-control-wrap").addClass("is-show");
     });
 
-    // 必須入力項目の検証
-    var name = $('input[type="text"]').val().trim();
-    var email = $('input[type="email"]').val().trim();
-    var tel = $('input[type="tel"]').val().trim();
-    var message = $('textarea[name="message"]').val().trim();
-    var privacy = $('input[name="privacy"]:checked').length > 0;
-    var isFormValid = true;
 
-    // 未入力の必須項目があるかチェックし、対象の入力欄にエラークラスを追加
-    if (!name) {
-      $('input[type="text"]').css({
-        'border': '1px solid #C94800',
-        'background': 'rgba(201, 72, 0, 0.20)'
-      }).addClass('error');
-      isFormValid = false;
-    }
-    if (!email) {
-      $('input[type="email"]').css({
-        'border': '1px solid #C94800',
-        'background': 'rgba(201, 72, 0, 0.20)'
-      }).addClass('error');
-      isFormValid = false;
-    }
-    if (!tel) {
-      $('input[type="tel"]').css({
-        'border': '1px solid #C94800',
-        'background': 'rgba(201, 72, 0, 0.20)'
-      }).addClass('error');
-      isFormValid = false;
-    }
-    if (!message) {
-      $('textarea[name="message"]').css({
-        'border': '1px solid #C94800',
-        'background': 'rgba(201, 72, 0, 0.20)'
-      }).addClass('error');
-      isFormValid = false;
-    }
-
-    // お問い合わせ項目のチェックボックス検証
-    var inquiryChecked = $('input[name="inquiry"]:checked').length > 0;
-    if (!inquiryChecked) {
-      isFormValid = false;
-    }
-
-    // プライバシーポリシー同意のチェックボックス検証
-    var privacyChecked = $('input[name="privacy"]:checked').length > 0;
-    if (!privacyChecked) {
-      isFormValid = false;
-    }
-
-    // フォームが有効でない場合はエラーメッセージを表示し、送信を中止
-    if (!isFormValid) {
-      errorMessage.show();
-
-      // sub-contact__formにmargin-topを追加
-      $('.sub-contact__form').css('margin-top', '2.5rem');
-
-      // パンくずリストの内容を更新
-      $('.breadcrumb__inner').html("\n                <span>\n                    <a href=\"index.html\">\n                        <span>TOP</span>\n                    </a>\n                </span>\n                &nbsp;&gt;&nbsp;\n                <span>\n                    <a href=\"contact.html\">\n                        <span>\u304A\u554F\u3044\u5408\u308F\u305B</span>\n                    </a>\n                </span>\n                &nbsp;&gt;&nbsp;\n                <span>\n                    <span>\u304A\u554F\u3044\u5408\u308F\u305B\u30A8\u30E9\u30FC</span>\n                </span>\n            ");
-      e.preventDefault(); // フォームの送信を中止
-    } else {
-      errorMessage.hide();
-
-      // AJAXを使用してフォームデータを送信
-      $.ajax({
-        type: $(this).attr('method'),
-        // フォームのメソッド属性を使用
-        url: $(this).attr('action'),
-        // フォームのアクション属性を使用
-        data: $(this).serialize(),
-        // フォームのデータをシリアライズ
-        success: function success(response) {
-          // 送信成功: サンキューページへ遷移
-          window.location.href = 'page-contact-thankyou.html';
-        },
-        error: function error(xhr, status, _error) {
-          // 送信失敗: エラーメッセージを表示
-          alert("送信に失敗しました。");
-        }
-      });
-      e.preventDefault(); // デフォルトのフォーム送信を防止
-    }
-  });
 });

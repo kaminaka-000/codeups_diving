@@ -17,6 +17,9 @@
   $voice = esc_url( home_url( '/voice/' ) );
   $price = esc_url( home_url( '/price/' ) );
   $faq = esc_url( home_url( '/faq/' ) );
+  $faq = esc_url( home_url( '/privacypolic/' ) );
+  $privacypolicy = esc_url( home_url( '/privacypolicy/' ) );
+  $terms_of_service = esc_url( home_url( '/terms-of-service/' ) );
   $contact = esc_url( home_url( '/contact/' ) );
     ?>
   <body>
@@ -69,27 +72,30 @@
                 <div class="nav__content">
                   <ul class="nav__items">
                     <li class="nav__item">
-                      <a href="archive-campaign.html">
+                      <a href="<?php echo $campaign; ?>">
                         <div class="nav__item-wrapper">
                           <span>キャンペーン</span>
                         </div>
                       </a>
                     </li>
-                    <li class="nav__item">
-                      <a href="archive-campaign.html">ライセンス取得</a>
-                    </li>
-                    <li class="nav__item">
-                      <a href="archive-campaign.html">貸切体験ダイビング</a>
-                    </li>
-                    <li class="nav__item">
-                      <a href="archive-campaign.html">ナイトダイビング</a>
-                    </li>
+                    <?php
+                        // ここで get_terms を使用してカスタムタクソノミーの用語を取得します
+                        $terms = get_terms( array(
+                          'taxonomy' => 'campaign_category',
+                          'hide_empty' => false,
+                        ) );
+
+                        // 取得した用語をループしてリンクを生成します
+                        foreach( $terms as $term ) {
+                          echo '<li class="nav__item"><a href="' . esc_url( get_term_link( $term ) ) . '">' . esc_html( $term->name ) . '</a></li>';
+                        }
+                      ?>
                   </ul>
                 </div>
                 <div class="nav__content">
                   <ul class="nav__items">
                     <li class="nav__item">
-                      <a href="page-about.html">
+                      <a href="<?php echo $about_us; ?>">
                         <div class="nav__item-wrapper">
                           <span>私たちについて</span>
                         </div>
@@ -102,27 +108,27 @@
                 <div class="nav__content">
                   <ul class="nav__items">
                     <li class="nav__item">
-                      <a href="page-information.html">
+                      <a href="<?php echo $information; ?>">
                         <div class="nav__item-wrapper">
                           <span>ダイビング情報</span>
                         </div>
                       </a>
                     </li>
                     <li class="nav__item">
-                      <a href="page-information.html?tab=tab01">ライセンス講習</a>
+                      <a href="<?php echo $information; ?>?tab=tab01">ライセンス講習</a>
                     </li>
                     <li class="nav__item">
-                      <a href="page-information.html?tab=tab03">体験ダイビング</a>
+                      <a href="<?php echo $information; ?>?tab=tab03">体験ダイビング</a>
                     </li>
                     <li class="nav__item">
-                      <a href="page-information.html?tab=tab02">ファンダイビング</a>
+                      <a href="<?php echo $information; ?>?tab=tab02">ファンダイビング</a>
                     </li>
                   </ul>
                 </div>
                 <div class="nav__content">
                   <ul class="nav__items">
                     <li class="nav__item">
-                      <a href="home.html">
+                      <a href="<?php echo $blog; ?>">
                         <div class="nav__item-wrapper">
                           <span>ブログ</span>
                         </div>
@@ -135,7 +141,7 @@
                 <div class="nav__content">
                   <ul class="nav__items">
                     <li class="nav__item">
-                      <a href="archive-voice.html">
+                      <a href="<?php echo $voice; ?>">
                         <div class="nav__item-wrapper">
                           <span>お客様の声</span>
                         </div>
@@ -146,20 +152,20 @@
                 <div class="nav__content">
                   <ul class="nav__items">
                     <li class="nav__item">
-                      <a href="page-price.html">
+                      <a href="<?php echo $price; ?>">
                         <div class="nav__item-wrapper">
                           <span>料金一覧</span>
                         </div>
                       </a>
                     </li>
                     <li class="nav__item">
-                      <a href="page-price.html#sub-price-license">ライセンス講習</a>
+                      <a href="<?php echo $price; ?>#sub-price-license">ライセンス講習</a>
                     </li>
                     <li class="nav__item">
-                      <a href="page-price.html#sub-price-experience">体験ダイビング</a>
+                      <a href="<?php echo $price; ?>#sub-price-experience">体験ダイビング</a>
                     </li>
                     <li class="nav__item">
-                      <a href="page-price.html#sub-price-fan">ファンダイビング</a>
+                      <a href="<?php echo $price; ?>#sub-price-fan">ファンダイビング</a>
                     </li>
                   </ul>
                 </div>
@@ -168,7 +174,7 @@
                 <div class="nav__content">
                   <ul class="nav__items">
                     <li class="nav__item">
-                      <a href="page-faq.html">
+                      <a href="<?php echo $faq; ?>">
                         <div class="nav__item-wrapper">
                           <span>よくある質問</span>
                         </div>
@@ -179,7 +185,7 @@
                 <div class="nav__content">
                   <ul class="nav__items">
                     <li class="nav__item">
-                      <a href="page-privacy-policy.html">
+                      <a href="<?php echo $privacypolicy; ?>">
                         <div class="nav__item-wrapper">
                           <span>プライバシー<br class="u-mobile"/>ポリシー</span>
                         </div>
@@ -190,7 +196,7 @@
                 <div class="nav__content">
                   <ul class="nav__items">
                     <li class="nav__item">
-                      <a href="page-terms-of-service.html">
+                      <a href="<?php echo $terms_of_service; ?>">
                         <div class="nav__item-wrapper">
                           <span>利用規約</span>
                         </div>
@@ -201,7 +207,7 @@
                 <div class="nav__content">
                   <ul class="nav__items">
                     <li class="nav__item">
-                      <a href="page-contact.html">
+                      <a href="<?php echo $contact; ?>">
                         <div class="nav__item-wrapper">
                           <span>お問い合わせ</span>
                         </div>
