@@ -1022,6 +1022,11 @@ footer.footer.top-footer--not-found {
 	opacity: 1;
 }
 
+.form-checkbox .wpcf7-list-item {
+	display: block;
+	margin: 0;
+}
+
 .form-input input {
 	-webkit-appearance: none;
 	-moz-appearance: none;
@@ -3355,11 +3360,6 @@ footer.footer.top-footer--not-found {
 
 .form-checkbox label:not(:first-of-type) {
 	margin-top: 0;
-}
-
-.form-checkbox .wpcf7-list-item {
-	display: block;
-	margin: 0;
 }
 
 .form-select {

@@ -54,8 +54,6 @@
 }
 
 .form-checkbox .wpcf7-list-item {
-    @include mq(md){
         display: block;
         margin: 0;
-    }
 }
