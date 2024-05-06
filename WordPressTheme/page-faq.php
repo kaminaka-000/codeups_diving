@@ -25,14 +25,14 @@
           <div class="faq__inner inner">
             <ul class="faq__list faq-list">
               <?php
-            // 'faq'はグループフィールドのスラッグ名
-            $faq_items = SCF::get('faq');
-            foreach ( $faq_items as $faq_item ) {
-                // 'faq-question'は質問のサブフィールドのスラッグ名
-                $question = $faq_item['faq-question'];
-                // 'faq-answer'は回答のサブフィールドのスラッグ名
-                $answer = $faq_item['faq-answer'];
-                ?>
+                // 'faq'はグループフィールドのスラッグ名
+                $faq_items = SCF::get('faq');
+                foreach ( $faq_items as $faq_item ) {
+                    // 'faq-question'は質問のサブフィールドのスラッグ名
+                    $question = $faq_item['faq-question'];
+                    // 'faq-answer'は回答のサブフィールドのスラッグ名
+                    $answer = $faq_item['faq-answer'];
+                  ?>
                 <li class="faq-list__item">
                     <h2 class="faq-list__item-question js-faq-question"><?php echo esc_html( $question ); ?></h2>
                     <p class="faq-list__item-answer"><?php echo esc_html( $answer ); ?></p>

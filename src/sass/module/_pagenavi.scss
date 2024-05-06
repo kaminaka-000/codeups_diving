@@ -34,21 +34,9 @@
   justify-content: center;
   height: rem(38);
   min-width: rem(38);
-  
   font-size: rem(16);
   color: $accent-green;
   font-weight: $normal;
-}
-
-.pagenavi .previouspostslink::before {
-  // content: "";
-  // display: inline-block;
-  // width: rem(13);
-  // height: rem(13);
-  // border-left: 2px solid $accent-green;
-  // border-bottom: 2px solid $accent-green;
-  // transform: rotate(45deg);
-  // margin-left: rem(5);
 }
 
 .pagenavi .previouspostslink:hover::before,
@@ -64,22 +52,10 @@
   justify-content: center;
   height: rem(38);
   min-width: rem(38);
-
   font-size: rem(16);
   color: $accent-green;
   font-weight: $normal;
 }
-
-.pagenavi .nextpostslink::before {
-    // content: "";
-    // display: inline-block;
-    // width: rem(13);
-    // height: rem(13);
-    // border-left: 2px solid $accent-green;
-    // border-bottom: 2px solid $accent-green;
-    // transform: rotate(-135deg);
-    // margin-right: rem(5);
-  }
 
 .pagenavi .wp-pagenavi a:hover {
   color: #fff;

@@ -59,9 +59,9 @@
                 foreach ($fields as $field_name => $image_id) {
                     // IDから画像のURLを取得する
                     $image_url = wp_get_attachment_image_url($image_id, 'full');
-                    if ($image_url) : // 画像が存在するかチェック
+                    if ($image_url): // 画像が存在するかチェック
                         $modal_id = 'modal-' . $index . '-' . sanitize_title($field_name); // モーダルのIDを生成
-            ?>
+                        ?>
                         <li class="gallery-list__item gallery-item js-modal-open" data-target="<?php echo $modal_id; ?>">
                             <img src="<?php echo esc_url($image_url); ?>" alt="画像の説明" />
                             <div class="gallery-item__modal js-modal" id="<?php echo $modal_id; ?>">
@@ -70,7 +70,7 @@
                                 </div>
                             </div>
                         </li>
-            <?php
+                        <?php
                     endif;
                 }
             }

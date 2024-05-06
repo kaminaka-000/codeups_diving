@@ -30,7 +30,7 @@ function my_theme_enqueue_scripts() {
 
 add_action('wp_enqueue_scripts', 'my_theme_enqueue_scripts');
 
-//
+//セットアップ
 function my_setup() {
 	add_theme_support( 'post-thumbnails' ); /* アイキャッチ */
 	add_theme_support( 'automatic-feed-links' ); /* RSSフィード */
@@ -80,7 +80,7 @@ function my_widget_init() {
 add_action('widgets_init', 'my_widget_init');
 
 
-//
+//投稿を人気順に表示する
 function set_post_view($post_id) {
   $count_key = 'post_views_count';
   $count = get_post_meta($post_id, $count_key, true);
@@ -93,7 +93,8 @@ function set_post_view($post_id) {
   }
 }
 
-//
+
+//コンタクトフォームにカスタム投稿のタイトルを反映させる
 function filter_wpcf7_form_tag( $scanned_tag ) {
   if ( 'your-campaign' === $scanned_tag['name'] ) {
     $args = array(
@@ -119,6 +120,7 @@ function filter_wpcf7_form_tag( $scanned_tag ) {
 add_filter( 'wpcf7_form_tag', 'filter_wpcf7_form_tag', 10, 1 );
 
 
+//<p>タグを生成しない
 add_filter('wpcf7_autop_or_not', '__return_false');
 
 

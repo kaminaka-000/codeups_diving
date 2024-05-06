@@ -20,18 +20,18 @@
 
 
       <?php
-  $campaign = esc_url( home_url( '/campaign/' ) );
-  $information = esc_url( home_url( '/information/' ) );
-  $about_us = esc_url( home_url( '/about-us/' ) );
-  $blog = esc_url( home_url( '/blog/' ) );
-  $voice = esc_url( home_url( '/voice/' ) );
-  $price = esc_url( home_url( '/price/' ) );
-  $faq = esc_url( home_url( '/faq/' ) );
-  $faq = esc_url( home_url( '/privacypolic/' ) );
-  $privacypolicy = esc_url( home_url( '/privacypolicy/' ) );
-  $terms_of_service = esc_url( home_url( '/terms-of-service/' ) );
-  $contact = esc_url( home_url( '/contact/' ) );
-    ?>
+            $campaign = esc_url( home_url( '/campaign/' ) );
+            $information = esc_url( home_url( '/information/' ) );
+            $about_us = esc_url( home_url( '/about-us/' ) );
+            $blog = esc_url( home_url( '/blog/' ) );
+            $voice = esc_url( home_url( '/voice/' ) );
+            $price = esc_url( home_url( '/price/' ) );
+            $faq = esc_url( home_url( '/faq/' ) );
+            $faq = esc_url( home_url( '/privacypolic/' ) );
+            $privacypolicy = esc_url( home_url( '/privacypolicy/' ) );
+            $terms_of_service = esc_url( home_url( '/terms-of-service/' ) );
+            $contact = esc_url( home_url( '/contact/' ) );
+        ?>
 
         <!-- sitemap -->
         <section class="sitemap sub-sitemap-spacing">
