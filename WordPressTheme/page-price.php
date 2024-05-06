@@ -93,6 +93,8 @@
 
                       // タイトルとコストが存在するかを確認
                       if (isset($item[$title_field_name]) && isset($item[$cost_field_name])) {
+                        $title = esc_html($item[$title_field_name]); // 先にエスケープ
+                        $title_with_br = nl2br($title); // 次に改行を変換
                         echo '<tr>';
                         echo '<td class="sub-price__data">' . esc_html($item[$title_field_name]) . '</td>';
                         echo '<td class="sub-price__cost">' . esc_html($item[$cost_field_name]) . '</td>';

@@ -19,7 +19,7 @@
                     );
                     $popular_posts = new WP_Query($args);
 
-                    if ($popular_posts->have_posts()) : 
+                    if ($popular_posts->have_posts()) :
                         while ($popular_posts->have_posts()) : $popular_posts->the_post();
                     ?>
                         <a href="<?php the_permalink(); ?>" class="sidebar-popular__item popular-item">

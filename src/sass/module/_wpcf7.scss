@@ -11,12 +11,7 @@
   text-align: center;
 }
 
-// .wpcf7-not-valid .wpcf7-list-item input[type="checkbox"] + span::before {
-//   border: 1px solid #C94800;
-//   background: rgba(201, 72, 0, 0.20);
-// }
-
-//
+//フォームエラー
 .wpcf7-form-control-wrap > .wpcf7-not-valid-tip {
   display: none;
   margin-top: rem(10);

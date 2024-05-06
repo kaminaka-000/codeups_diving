@@ -64,7 +64,7 @@ function change_posts_per_page($query) {
 }
 add_action( 'pre_get_posts', 'change_posts_per_page' );
 
-//
+//ウィジェット
 function my_widget_init() {
   register_sidebar(
     array(
@@ -119,12 +119,6 @@ function filter_wpcf7_form_tag( $scanned_tag ) {
 add_filter( 'wpcf7_form_tag', 'filter_wpcf7_form_tag', 10, 1 );
 
 
-// // Contact Form 7で自動挿入されるPタグ、brタグを削除
-// add_filter('wpcf7_autop_or_not', 'wpcf7_autop_return_false');
-// function wpcf7_autop_return_false() {
-//   return false;
-// }
-
 add_filter('wpcf7_autop_or_not', '__return_false');
 
 
@@ -142,3 +136,12 @@ function redirect_to_thanks_page() {
 EOD;
   }
 }
+
+//投稿のみにカスタムフィールドを表示
+function my_custom_field_visibility($state) {
+  if (get_post_type() == 'post') {
+      return false;  // ACF によるカスタムフィールドメタボックスの削除を無効化
+  }
+  return $state;  // それ以外の場合は元の状態を保持
+}
+add_filter('acf/settings/remove_wp_meta_box', 'my_custom_field_visibility');

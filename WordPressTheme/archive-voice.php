@@ -10,7 +10,7 @@
           <div class="sub-mv__img">
             <picture>
               <source media="(min-width: 768px)" srcset="<?php echo get_theme_file_uri(); ?>/assets/images/common/sub-voice-mv-pc.jpeg"/>
-              <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/sub-voice-mv.jpeg" alt="写真:海の中を泳ぐ二匹の黄色い熱帯魚。"/>
+              <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/sub-voice-mv.jpeg" alt="写真:海面でダイビングをしている5人の人たち。"/>
             </picture>
           </div>
         </div>
@@ -37,7 +37,6 @@
               <?php while(have_posts()) : ?>
                   <?php the_post(); ?>
                   <li class="testimonial-list__item testimonial-item">
-                <a href="#">
                   <div class="testimonial-item__box">
                     <div class="testimonial-item__layout">
                       <div class="testimonial-item__group">
@@ -85,7 +84,6 @@
                   <p class="testimonial-item__text">
                   <?php echo nl2br(get_field('voice-text')); ?>
                   </p>
-                </a>
               </li>
               <?php endwhile; else : ?>
                 <li class="testimonial-list__content">

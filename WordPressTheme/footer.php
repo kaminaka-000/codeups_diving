@@ -5,17 +5,17 @@
 
 
     <?php
-  $campaign = esc_url( home_url( '/campaign/' ) );
-  $information = esc_url( home_url( '/information/' ) );
-  $about_us = esc_url( home_url( '/about-us/' ) );
-  $blog = esc_url( home_url( '/blog/' ) );
-  $voice = esc_url( home_url( '/voice/' ) );
-  $price = esc_url( home_url( '/price/' ) );
-  $faq = esc_url( home_url( '/faq/' ) );
-  $faq = esc_url( home_url( '/privacypolic/' ) );
-  $privacypolicy = esc_url( home_url( '/privacypolicy/' ) );
-  $terms_of_service = esc_url( home_url( '/terms-of-service/' ) );
-  $contact = esc_url( home_url( '/contact/' ) );
+          $campaign = esc_url( home_url( '/campaign/' ) );
+          $information = esc_url( home_url( '/information/' ) );
+          $about_us = esc_url( home_url( '/about-us/' ) );
+          $blog = esc_url( home_url( '/blog/' ) );
+          $voice = esc_url( home_url( '/voice/' ) );
+          $price = esc_url( home_url( '/price/' ) );
+          $faq = esc_url( home_url( '/faq/' ) );
+          $faq = esc_url( home_url( '/privacypolic/' ) );
+          $privacypolicy = esc_url( home_url( '/privacypolicy/' ) );
+          $terms_of_service = esc_url( home_url( '/terms-of-service/' ) );
+          $contact = esc_url( home_url( '/contact/' ) );
     ?>
     <!-- footer -->
     <footer class="footer top-footer<?php if (is_404()) echo ' top-footer--not-found'; ?>">
@@ -28,12 +28,12 @@
           </div>
           <div class="footer__icons">
             <div class="footer__icon">
-              <a href="#" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.facebook.com/?locale=ja_JP" target="_blank" rel="noopener noreferrer">
                 <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/facebooklogo.svg" alt="アイコン:facebook"/>
               </a>
             </div>
             <div class="footer__icon">
-              <a href="#" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
                 <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/instagramlogo.svg" alt="アイコン:instagram"/>
               </a>
             </div>

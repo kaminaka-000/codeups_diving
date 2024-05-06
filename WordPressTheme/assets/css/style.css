@@ -2696,7 +2696,9 @@ footer.footer.top-footer--not-found {
 }
 
 .testimonial-item:hover {
-	opacity: 0.6;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
 }
 
 .testimonial-item + .testimonial-item {

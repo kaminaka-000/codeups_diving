@@ -45,7 +45,6 @@
               <?php while(have_posts()) : ?>
                   <?php the_post(); ?>
                   <li class="testimonial-list__item testimonial-item">
-                <a href="#">
                   <div class="testimonial-item__box">
                     <div class="testimonial-item__layout">
                       <div class="testimonial-item__group">
@@ -93,7 +92,6 @@
                   <p class="testimonial-item__text">
                   <?php echo nl2br(get_field('voice-text')); ?>
                   </p>
-                </a>
               </li>
               <?php endwhile; else : ?>
                 <li class="testimonial-list__content">

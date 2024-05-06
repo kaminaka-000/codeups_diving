@@ -1,5 +1,11 @@
 <?php get_header(); ?>
 
+    <?php
+        if (is_single()) {
+            set_post_view(get_the_ID());
+        }
+    ?>
+
     <main>
       <!-- 下層ページのmv -->
       <section class="sub-mv">

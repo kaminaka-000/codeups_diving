@@ -93,7 +93,7 @@
                         ご予約・お問い合わせはコチラ
                       </p>
                       <div class="info-card__button">
-                        <a href="page-contact.html" class="button"><span>Contact us</span></a>
+                        <a href="<?php echo home_url('/contact/'); ?>" class="button"><span>Contact us</span></a>
                       </div>
                     </div>
                     </div>
