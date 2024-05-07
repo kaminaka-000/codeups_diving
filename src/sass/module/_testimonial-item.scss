@@ -12,7 +12,7 @@
 }
 
 .testimonial-item:hover {
-    opacity: 0.6;
+    user-select: none;
 }
 
 .testimonial-item + .testimonial-item {

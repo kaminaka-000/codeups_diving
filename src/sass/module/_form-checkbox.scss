@@ -11,10 +11,6 @@
     }
 }
 
-.form-checkbox input {
-    display: none;
-}
-
 .form-checkbox input + span {
     cursor: pointer;
     display: inline-block;
@@ -55,4 +51,9 @@
 
 .form-checkbox input:checked + span::after {
     opacity: 1;
+}
+
+.form-checkbox .wpcf7-list-item {
+        display: block;
+        margin: 0;
 }

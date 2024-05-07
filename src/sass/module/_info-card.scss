@@ -133,6 +133,7 @@
 .info-card__title--sub {
   @include mq(md) {
     font-size: rem(24);
+    flex-grow: 0;
   }
 }
 
@@ -149,11 +150,24 @@
 }
 
 //下層ページ
+.info-card__pc {
+  display: none;
+  @include mq(md){
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+}
+
 .info-card__text {
-  margin-top: rem(24);
-  line-height: 1.5;
-  font-size: rem(16);
-  font-weight: $normal;
+  @include mq(md){
+    margin-top: rem(24);
+    line-height: 1.5;
+    font-size: rem(16);
+    font-weight: $normal;
+    flex-grow: 1;
+  }
 }
 
 .info-card__date {

@@ -16,6 +16,23 @@
     }
 }
 
+.cards__content {
+    margin-top: rem(40);
+    @include mq(md){
+        margin-top: rem(80);
+        width: rem(708);
+    }
+}
+
+.card__content-text {
+    font-size: rem(16);
+    text-align: center;
+    @include mq(md){
+        font-size: rem(24);
+    }
+}
+
+
 //modifier
 .cards--blog-section {
     @include mq(md){
