@@ -12,7 +12,6 @@
           $voice = esc_url( home_url( '/voice/' ) );
           $price = esc_url( home_url( '/price/' ) );
           $faq = esc_url( home_url( '/faq/' ) );
-          $faq = esc_url( home_url( '/privacypolic/' ) );
           $privacypolicy = esc_url( home_url( '/privacypolicy/' ) );
           $terms_of_service = esc_url( home_url( '/terms-of-service/' ) );
           $contact = esc_url( home_url( '/contact/' ) );
