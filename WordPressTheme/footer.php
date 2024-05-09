@@ -15,13 +15,14 @@
           $privacypolicy = esc_url( home_url( '/privacypolicy/' ) );
           $terms_of_service = esc_url( home_url( '/terms-of-service/' ) );
           $contact = esc_url( home_url( '/contact/' ) );
+          $sitemap = esc_url( home_url( '/sitemap/' ) );
     ?>
     <!-- footer -->
     <footer class="footer top-footer<?php if (is_404()) echo ' top-footer--not-found'; ?>">
       <div class="footer__inner inner">
         <div class="footer__group">
           <div class="footer__logo">
-            <a href="index.html">
+            <a href="<?php echo home_url(); ?>">
               <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/logo.svg" alt="ロゴ:codeups"/>
             </a>
           </div>
@@ -183,6 +184,17 @@
                       <a href="<?php echo $contact; ?>">
                         <div class="nav__item-wrapper">
                           <span>お問い合わせ</span>
+                        </div>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="nav__content">
+                  <ul class="nav__items">
+                    <li class="nav__item">
+                      <a href="<?php echo $sitemap; ?>">
+                        <div class="nav__item-wrapper">
+                          <span>サイトマップ</span>
                         </div>
                       </a>
                     </li>

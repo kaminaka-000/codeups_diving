@@ -10,16 +10,17 @@
 
   </head>
   <?php
-  $campaign = esc_url( home_url( '/campaign/' ) );
-  $information = esc_url( home_url( '/information/' ) );
-  $about_us = esc_url( home_url( '/about-us/' ) );
-  $blog = esc_url( home_url( '/blog/' ) );
-  $voice = esc_url( home_url( '/voice/' ) );
-  $price = esc_url( home_url( '/price/' ) );
-  $faq = esc_url( home_url( '/faq/' ) );
-  $privacypolicy = esc_url( home_url( '/privacypolicy/' ) );
-  $terms_of_service = esc_url( home_url( '/terms-of-service/' ) );
-  $contact = esc_url( home_url( '/contact/' ) );
+        $campaign = esc_url( home_url( '/campaign/' ) );
+        $information = esc_url( home_url( '/information/' ) );
+        $about_us = esc_url( home_url( '/about-us/' ) );
+        $blog = esc_url( home_url( '/blog/' ) );
+        $voice = esc_url( home_url( '/voice/' ) );
+        $price = esc_url( home_url( '/price/' ) );
+        $faq = esc_url( home_url( '/faq/' ) );
+        $privacypolicy = esc_url( home_url( '/privacypolicy/' ) );
+        $terms_of_service = esc_url( home_url( '/terms-of-service/' ) );
+        $contact = esc_url( home_url( '/contact/' ) );
+        $sitemap = esc_url( home_url( '/sitemap/' ) );
     ?>
   <body>
     <!-- header -->
@@ -209,6 +210,17 @@
                       <a href="<?php echo $contact; ?>">
                         <div class="nav__item-wrapper">
                           <span>お問い合わせ</span>
+                        </div>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="nav__content">
+                  <ul class="nav__items">
+                    <li class="nav__item">
+                      <a href="<?php echo $sitemap; ?>">
+                        <div class="nav__item-wrapper">
+                          <span>サイトマップ</span>
                         </div>
                       </a>
                     </li>
