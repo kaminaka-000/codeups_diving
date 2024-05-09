@@ -82,7 +82,11 @@
                     </div>
                   </div>
                   <p class="testimonial-item__text">
-                  <?php echo nl2br(get_field('voice-text')); ?>
+                  <?php
+                    $text = get_field('voice-text');
+                    $trimmed_text = mb_substr($text, 0, 173);
+                    echo nl2br($trimmed_text);
+                  ?>
                   </p>
               </li>
               <?php endwhile; else : ?>
