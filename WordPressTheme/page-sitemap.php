@@ -31,6 +31,7 @@
             $privacypolicy = esc_url( home_url( '/privacypolicy/' ) );
             $terms_of_service = esc_url( home_url( '/terms-of-service/' ) );
             $contact = esc_url( home_url( '/contact/' ) );
+            $sitemap = esc_url( home_url( '/sitemap/' ) );
         ?>
 
         <!-- sitemap -->
@@ -186,6 +187,17 @@
                       </li>
                     </ul>
                   </div>
+                  <div class="nav__content">
+                  <ul class="nav__items">
+                    <li class="nav__item">
+                      <a href="<?php echo $sitemap; ?>">
+                        <div class="nav__item-wrapper nav__item-wrapper--sitemap">
+                          <span>サイトマップ</span>
+                        </div>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
                 </div>
               </div>
             </div>
