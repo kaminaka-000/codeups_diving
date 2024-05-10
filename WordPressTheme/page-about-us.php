@@ -54,32 +54,40 @@
 
           <ul class="gallery__list gallery-list">
           <?php
-            $gallery_images = SCF::get('gallery-picture');
-            foreach ($gallery_images as $index => $fields) {
-                foreach ($fields as $field_name => $image_id) {
-                    // IDから画像のURLを取得する
-                    $image_url = wp_get_attachment_image_url($image_id, 'full');
-                    if ($image_url): // 画像が存在するかチェック
-                        $modal_id = 'modal-' . $index . '-' . sanitize_title($field_name); // モーダルのIDを生成
-                        ?>
-                        <li class="gallery-list__item gallery-item js-modal-open" data-target="<?php echo $modal_id; ?>">
-                            <img src="<?php echo esc_url($image_url); ?>" alt="画像の説明" />
-                            <div class="gallery-item__modal js-modal" id="<?php echo $modal_id; ?>">
-                                <div class="gallery-item__content js-modal-close">
-                                    <img src="<?php echo esc_url($image_url); ?>" alt="画像の説明" />
-                                </div>
-                            </div>
-                        </li>
-                        <?php
-                    endif;
-                }
-            }
+              // 'gallery-picture' というリピーターフィールドからデータを取得
+              $gallery_images = SCF::get('gallery-picture');
+
+                  // 各エントリに対してループ処理
+                  foreach ($gallery_images as $index => $item) {
+                  // 'picture' キーから画像のIDを取得
+                  $image_id = isset($item['picture']) ? $item['picture'] : null;
+
+                  // 画像IDから代替テキストを取得
+                  $alt_text = get_post_meta($image_id, '_wp_attachment_image_alt', true);
+                  $alt_text = !empty($alt_text) ? $alt_text : 'ギャラリーの画像'; // 代替テキストが空の場合のデフォルト値
+
+                  // 画像IDから画像のURLを取得
+                  $image_url = wp_get_attachment_image_url($image_id, 'full');
+
+                  // 画像が存在する場合、画像とモーダルのマークアップを出力
+                  if ($image_url):
+                      $modal_id = 'modal-' . $index;  // モーダルのIDを生成
+                      ?>
+                      <li class="gallery-list__item gallery-item js-modal-open" data-target="<?php echo $modal_id; ?>">
+                          <img src="<?php echo esc_url($image_url); ?>" alt="<?php echo esc_attr($alt_text); ?>" />
+                          <div class="gallery-item__modal js-modal" id="<?php echo $modal_id; ?>">
+                              <div class="gallery-item__content js-modal-close">
+                                  <img src="<?php echo esc_url($image_url); ?>" alt="<?php echo esc_attr($alt_text); ?>" />
+                              </div>
+                          </div>
+                      </li>
+                      <?php
+                  endif;
+              }
             ?>
         </ul>
         </div>
       </section>
-
-
 
 
   <!-- contact -->
