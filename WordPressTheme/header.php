@@ -6,28 +6,27 @@
     <meta name="format-detection" content="telephone=no" />
 
     <?php wp_head(); ?>
-
   </head>
-  <?php
-        $campaign = esc_url( home_url( '/campaign/' ) );
-        $information = esc_url( home_url( '/information/' ) );
-        $about_us = esc_url( home_url( '/about-us/' ) );
-        $blog = esc_url( home_url( '/blog/' ) );
-        $voice = esc_url( home_url( '/voice/' ) );
-        $price = esc_url( home_url( '/price/' ) );
-        $faq = esc_url( home_url( '/faq/' ) );
-        $privacypolicy = esc_url( home_url( '/privacypolicy/' ) );
-        $terms_of_service = esc_url( home_url( '/terms-of-service/' ) );
-        $contact = esc_url( home_url( '/contact/' ) );
-        $sitemap = esc_url( home_url( '/sitemap/' ) );
-    ?>
   <body>
+    <?php
+        $campaign = esc_url(home_url('/campaign/'));
+        $information = esc_url(home_url('/information/'));
+        $about_us = esc_url(home_url('/about-us/'));
+        $blog = esc_url(home_url('/blog/'));
+        $voice = esc_url(home_url('/voice/'));
+        $price = esc_url(home_url('/price/'));
+        $faq = esc_url(home_url('/faq/'));
+        $privacypolicy = esc_url(home_url('/privacypolicy/'));
+        $terms_of_service = esc_url(home_url('/terms-of-service/'));
+        $contact = esc_url(home_url('/contact/'));
+        $sitemap = esc_url(home_url('/sitemap/'));
+    ?>
     <!-- header -->
     <header class="header">
       <div class="header__inner">
         <div class="header__logo">
-          <a href="<?php echo home_url(); ?>">
-            <img src="<?php echo get_theme_file_uri(); ?>/assets/images/common/logo.svg" alt="ロゴ:codeups" />
+          <a href="<?php echo esc_url(home_url()); ?>">
+            <img src="<?php echo esc_url(get_theme_file_uri('/assets/images/common/logo.svg')); ?>" alt="ロゴ:codeups" />
           </a>
         </div>
         <button class="header__hamburger header-hamburger js-header-hamburger">
@@ -79,14 +78,14 @@
                     </li>
                     <?php
                         // ここで get_terms を使用してカスタムタクソノミーの用語を取得します
-                        $terms = get_terms( array(
+                        $terms = get_terms(array(
                           'taxonomy' => 'campaign_category',
                           'hide_empty' => false,
-                        ) );
+                        ));
 
                         // 取得した用語をループしてリンクを生成します
-                        foreach( $terms as $term ) {
-                          echo '<li class="nav__item"><a href="' . esc_url( get_term_link( $term ) ) . '">' . esc_html( $term->name ) . '</a></li>';
+                        foreach ($terms as $term) {
+                          echo '<li class="nav__item"><a href="' . esc_url(get_term_link($term)) . '">' . esc_html($term->name) . '</a></li>';
                         }
                       ?>
                   </ul>
@@ -114,13 +113,13 @@
                       </a>
                     </li>
                     <li class="nav__item">
-                      <a href="<?php echo $information; ?>?tab=tab01">ライセンス講習</a>
+                      <a href="<?php echo esc_url($information . '?tab=tab01'); ?>">ライセンス講習</a>
                     </li>
                     <li class="nav__item">
-                      <a href="<?php echo $information; ?>?tab=tab03">体験ダイビング</a>
+                      <a href="<?php echo esc_url($information . '?tab=tab03'); ?>">体験ダイビング</a>
                     </li>
                     <li class="nav__item">
-                      <a href="<?php echo $information; ?>?tab=tab02">ファンダイビング</a>
+                      <a href="<?php echo esc_url($information . '?tab=tab02'); ?>">ファンダイビング</a>
                     </li>
                   </ul>
                 </div>
@@ -158,13 +157,13 @@
                       </a>
                     </li>
                     <li class="nav__item">
-                      <a href="<?php echo $price; ?>#sub-price-license">ライセンス講習</a>
+                      <a href="<?php echo esc_url($price . '#sub-price-license'); ?>">ライセンス講習</a>
                     </li>
                     <li class="nav__item">
-                      <a href="<?php echo $price; ?>#sub-price-experience">体験ダイビング</a>
+                      <a href="<?php echo esc_url($price . '#sub-price-experience'); ?>">体験ダイビング</a>
                     </li>
                     <li class="nav__item">
-                      <a href="<?php echo $price; ?>#sub-price-fan">ファンダイビング</a>
+                      <a href="<?php echo esc_url($price . '#sub-price-fan'); ?>">ファンダイビング</a>
                     </li>
                   </ul>
                 </div>
