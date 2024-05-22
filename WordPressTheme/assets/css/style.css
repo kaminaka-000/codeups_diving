@@ -2587,38 +2587,38 @@ footer.footer.top-footer--not-found {
 	transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
 }
 
+.tab-second__item::before {
+	display: none;
+}
+
+.tab-second__item:nth-child(1):before {
+	-webkit-mask-image: url(../images/common/information1.svg);
+	mask-image: url(../images/common/information1.svg); /* マスク画像のパス */
+}
+
+.tab-second__item:nth-child(2):before {
+	-webkit-mask-image: url(../images/common/information2.svg);
+	mask-image: url(../images/common/information2.svg); /* マスク画像のパス */
+}
+
+.tab-second__item:nth-child(3):before {
+	-webkit-mask-image: url(../images/common/information3.svg);
+	mask-image: url(../images/common/information3.svg); /* マスク画像のパス */
+}
+
+.tab-second__item:hover::before,
+.tab-second__item.is-active::before {
+	background-color: #fff;
+}
+
 .tab-second__item:hover {
 	background-color: #408F95;
 	color: #fff;
 }
 
 .tab-second__item.is-active {
-	background-color: #408F95;
+	background: #408F95;
 	color: #fff;
-}
-
-.tab-second__img img {
-	-o-object-fit: cover;
-	height: 100%;
-	object-fit: cover;
-	width: 100%;
-}
-
-.tab-second__svg {
-	display: none;
-}
-
-.tab-second__item .tab-second__svg path {
-	fill: #408F95;
-	transition: fill 0.3s ease-in-out;
-}
-
-.tab-second__item.is-active .tab-second__svg path {
-	fill: #fff;
-}
-
-.tab-second__item:hover .tab-second__svg path {
-	fill: #fff;
 }
 
 .tab {
@@ -3971,18 +3971,30 @@ footer.footer.top-footer--not-found {
 }
 
 .tab-second__item {
+	align-items: center;
+	display: flex;
 	font-size: 1.5rem;
+	gap: 0.5rem;
+	justify-content: center;
 	line-height: 1;
 	min-width: 18.75rem;
 	padding: 0.8125rem 0 0.8125rem 0;
 }
 
-.tab-second__svg {
-	display: inline-block;
+.tab-second__item::before {
+	-webkit-mask-size: contain;
+	-webkit-mask-repeat: no-repeat;
+	-webkit-mask-position: center;
+	background-color: #408F95;
+	content: "";
+	display: block;
 	height: 4rem;
-	margin-right: 0.5rem;
-	vertical-align: middle;
-	width: 4rem;
+	mask-position: center;
+	mask-repeat: no-repeat;
+	mask-size: contain;
+	max-width: 4rem;
+	transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+	width: 100%;
 }
 
 .tab {
