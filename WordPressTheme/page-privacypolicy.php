@@ -29,7 +29,4 @@
         </div>
       </section>
 
-      <!-- contact -->
-      <?php get_template_part('parts/contact'); ?>
-
     <?php get_footer(); ?>

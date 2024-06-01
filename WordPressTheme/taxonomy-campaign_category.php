@@ -24,105 +24,111 @@
         <div class="sub-campaign__inner inner">
           <div class="sub-campaign__wrapper">
 
-          <div class="sub-campaign__tab tab">
-            <a href="<?php echo get_post_type_archive_link('campaign'); ?>" class="tab__menu <?php if(is_post_type_archive('campaign') && !is_tax('campaign_category')) echo 'is-active'; ?>">ALL</a>
+            <!-- タブの表示 -->
+            <div class="sub-campaign__tab tab">
+              <a href="<?php echo esc_url(get_post_type_archive_link('campaign')); ?>" class="tab__menu <?php if (is_post_type_archive('campaign') && !is_tax('campaign_category')) echo 'is-active'; ?>">ALL</a>
               <?php
-                  $genre_terms = get_terms('campaign_category', array('hide_empty'=>false));
-                    foreach($genre_terms as $genre_term) :
-                      // クエリされたタームを取得
-                      $queried_object = get_queried_object();
-                      // 現在表示されているタームのIDをチェック
-                      $is_active = ($queried_object && $queried_object->term_id === $genre_term->term_id) ? 'is-active' : '';
-                      ?>
-                  <a href="<?php echo get_term_link($genre_term, 'campaign_category'); ?>" class="tab__menu <?php echo $is_active; ?>">
-                      <?php echo $genre_term->name; ?>
-                  </a>
+                $genre_terms = get_terms('campaign_category', array('hide_empty' => false));
+                foreach ($genre_terms as $genre_term) :
+                  // クエリされたタームを取得
+                  $queried_object = get_queried_object();
+                  // 現在表示されているタームのIDをチェック
+                  $is_active = ($queried_object && $queried_object->term_id === $genre_term->term_id) ? 'is-active' : '';
+              ?>
+                <a href="<?php echo esc_url(get_term_link($genre_term, 'campaign_category')); ?>" class="tab__menu <?php echo esc_attr($is_active); ?>">
+                  <?php echo esc_html($genre_term->name); ?>
+                </a>
               <?php endforeach; ?>
-          </div>
-
-            <ul class="sub-campaign__cards sub-cards">
+            </div>
 
             <?php if (have_posts()) : ?>
-              <?php while(have_posts()) : ?>
-                  <?php the_post(); ?>
+              <ul class="sub-campaign__cards sub-cards">
+                <?php while (have_posts()) : the_post(); ?>
                   <li class="sub-cards__info-card">
-                <div class="info-card">
-                  <div class="info-card__img">
-                  <?php
-                      // ACFを使用して画像フィールドを取得
-                      $image = get_field('campaign-img');
-                      if ($image) {
-                          // ACFで設定された画像があればそのURLとaltテキストを使用
-                          $image_url = esc_url($image['url']);
-                          $image_alt = esc_attr($image['alt']);
-                      } elseif (has_post_thumbnail()) {
-                          // 投稿にアイキャッチ画像が設定されていればそのURLを使用
-                          $image_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
-                          $image_alt = esc_attr(get_the_title()); // 代替テキストとして投稿のタイトルを使用
-                      } else {
+                    <div class="info-card">
+                      <div class="info-card__img">
+                      <?php
+                        // アイキャッチ画像が設定されていればそのURLを使用
+                        if (has_post_thumbnail()) {
+                            $image_url = esc_url(get_the_post_thumbnail_url(get_the_ID(), 'full'));
+                            $image_alt = esc_attr(get_the_title()); // 代替テキストとして投稿のタイトルを使用
+                        } else {
                           // どちらもない場合はデフォルト画像のURLを指定
-                          $image_url = esc_url(get_theme_file_uri('/assets/images/common/no_image.jpeg'));
-                          $image_alt = '画像がありません。'; // 代替テキスト
-                      }
-                      // 画像タグの出力
-                      echo '<img src="' . $image_url . '" alt="' . $image_alt . '"/>';
+                            $image_url = esc_url(get_theme_file_uri('/assets/images/common/no_image.jpeg'));
+                            $image_alt = esc_attr('画像がありません。'); // 代替テキスト
+                        }
+                        // 画像タグの出力
+                        echo '<img src="' . esc_url($image_url) . '" alt="' . esc_attr($image_alt) . '"/>';
                     ?>
-                  </div>
-                  <div class="info-card__content info-card__content--sub">
-                    <div class="info-card__wrapper">
-                    <?php
-                        // 現在の投稿に関連付けられているタームを取得
-                        $terms = get_the_terms(get_the_ID(), 'campaign_category');
-                        if (!empty($terms) && !is_wp_error($terms)) :
-                          // ターム名を配列に追加
-                          $term_names = array_map(function($term) {
-                            return $term->name;
-                          }, $terms);
-                          // ターム名のリストをカンマ区切りで表示
-                          $term_list = join(', ', $term_names);
-                        ?>
-                          <p class="info-card__category"><?php echo esc_html($term_list); ?></p>
-                        <?php endif; ?>
-                    </div>
-                    <h2 class="info-card__title info-card__title--sub">
-                    <?php the_title(); ?>
-                    </h2>
-                    <p class="info-card__lead">全部コミコミ(お一人様)</p>
-                    <div class="info-card__layout">
-                        <div class="info-card__before"><span><?php the_field('campaign-list-price'); ?></span></div>
-                      <div class="info-card__after info-card__after--sub"><?php the_field('campaign-discount-price'); ?></div>
-                    </div>
-                    <div class="info-card__pc u-desktop">
-                      <p class="info-card__text">
-                      <?php echo nl2br(get_field('campaign-description')); ?>
-                      </p>
-                      <p class="info-card__date"><?php the_field('campaign-period'); ?></p>
-                      <p class="info-card__button-text">
-                        ご予約・お問い合わせはコチラ
-                      </p>
-                      <div class="info-card__button">
-                        <a href="<?php echo home_url('/contact/'); ?>" class="button"><span>Contact us</span></a>
+                      </div>
+                      <div class="info-card__content info-card__content--sub">
+                        <div class="info-card__wrapper">
+                          <?php
+                            // 現在の投稿に関連付けられているタームを取得
+                            $terms = get_the_terms(get_the_ID(), 'campaign_category');
+                            if (!empty($terms) && !is_wp_error($terms)) :
+                              // ターム名を配列に追加
+                              $term_names = array_map(function ($term) {
+                                return $term->name;
+                              }, $terms);
+                              // ターム名のリストをカンマ区切りで表示
+                              $term_list = join(', ', $term_names);
+                          ?>
+                            <p class="info-card__category"><?php echo esc_html($term_list); ?></p>
+                          <?php endif; ?>
+                        </div>
+                        <h2 class="info-card__title info-card__title--sub">
+                              <?php the_title(); ?>
+                          </h2>
+                          <p class="info-card__lead">全部コミコミ(お一人様)</p>
+                          <div class="info-card__layout">
+                              <?php
+                              $list_price = get_field('campaign-list-price');
+                              $discount_price = get_field('campaign-discount-price');
+                              ?>
+                              <div class="info-card__before">
+                                  <span><?php echo esc_html($list_price ? $list_price : '準備中'); ?></span>
+                              </div>
+                              <div class="info-card__after info-card__after--sub">
+                                  <?php echo esc_html($discount_price ? $discount_price : '準備中'); ?>
+                              </div>
+                          </div>
+                          <div class="info-card__pc u-desktop">
+                          <?php
+                                $description = get_field('campaign-description');
+                                $period = get_field('campaign-period');
+                                $trimmed_description = mb_substr($description, 0, 165);
+                            ?>
+                            <p class="info-card__text">
+                                <?php echo nl2br(esc_html($trimmed_description ? $trimmed_description : 'テキスト準備中')); ?>
+                            </p>
+                          <p class="info-card__date"><?php echo esc_html(get_field('campaign-period')); ?></p>
+                          <p class="info-card__button-text">
+                            ご予約・お問い合わせはコチラ
+                          </p>
+                          <div class="info-card__button">
+                            <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="button"><span>Contact us</span></a>
+                          </div>
+                        </div>
                       </div>
                     </div>
-                    </div>
-                  </div>
-              </li>
-              <?php endwhile; else : ?>
-              <li class="sub-cards__content">
+                  </li>
+                <?php endwhile; ?>
+              </ul>
+
+              <!-- ページネーション -->
+              <div class="pagenavi sub-pagenavi-spacing">
+                <?php wp_pagenavi(); ?>
+              </div>
+
+            <?php else : ?>
+              <!-- 投稿がない場合のメッセージ -->
+              <div class="sub-cards__content">
                 <p class="sub-cards__text">投稿がありません。</p>
-              </li>
+              </div>
             <?php endif; ?>
-            </ul>
           </div>
         </div>
       </section>
-
-      <!-- ページネーション -->
-      <div class="pagenavi sub-pagenavi-spacing">
-      <?php wp_pagenavi(); ?>
-      </div>
-
-      <!-- contact -->
-      <?php get_template_part('parts/contact'); ?>
 
     <?php get_footer(); ?>

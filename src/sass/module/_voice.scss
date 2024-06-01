@@ -61,3 +61,9 @@
     }
 }
 
+.voice__no-posts {
+    margin-top: rem(24);
+    @include mq(md){
+        margin-top: rem(40);
+    }
+}
