@@ -58,11 +58,10 @@
             <?php endwhile; endif; ?>
           </div>
           <!-- サイドバー -->
-          <?php get_template_part('parts/sidebar'); ?>
+          <div class="blog-section__sidebar blog-section__sidebar--single">
+            <?php get_sidebar(); ?>
+          </div>
         </div>
       </section>
-
-      <!-- contact -->
-      <?php get_template_part('parts/contact'); ?>
 
     <?php get_footer(); ?>

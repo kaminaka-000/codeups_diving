@@ -12,7 +12,7 @@
       $sitemap = esc_url( home_url( '/sitemap/' ) );
       ?>
 
-    <?php if (!(is_page('contact') || is_404())) : ?>
+    <?php if (!(is_page('contact','contact-thanks') || is_page('contact-thanks') || is_404())) : ?>
         <!-- contact -->
         <section class="contact top-contact">
         <div class="contact__inner">
@@ -47,8 +47,8 @@
           </div>
         </div>
       </section>
-      <?php endif; ?>
     </main>
+    <?php endif; ?>
 
     <!-- to-top -->
     <a href="#top" class="to-top">

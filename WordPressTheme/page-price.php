@@ -23,121 +23,80 @@
       <!-- sub-price -->
       <section class="sub-price sub-price-spacing sub-layout">
         <div class="sub-price__inner inner">
-          <div class="sub-price__wrapper">
-            <div id="sub-price-license" class="sub-price__title-group">
-              <h2 class="sub-price__title">ライセンス講習</h2>
-            </div>
-            <table class="sub-price__list">
-              <tbody>
-              <?php
-                  $price_list_items = SCF::get('license-course');
-                  foreach ($price_list_items as $item) {
-                    // サブフィールドの数だけループ
-                    for ($i = 1; $i <= count($item) / 2; $i++) {
-                      $title_field_name = "license-course-title{$i}";
-                      $cost_field_name = "license-course-cost{$i}";
+            <?php
+            // ライセンス講習セクションのデータを取得
+            $license_section_title = SCF::get('license_section_title');
+            $license_course_items = SCF::get('course_items');
 
-                      // タイトルとコストが存在するかを確認
-                      if (isset($item[$title_field_name]) && isset($item[$cost_field_name])) {
-                        echo '<tr>';
-                        echo '<td class="sub-price__data">' . esc_html($item[$title_field_name]) . '</td>';
-                        echo '<td class="sub-price__cost">' . esc_html($item[$cost_field_name]) . '</td>';
-                        echo '</tr>';
-                      }
-                    }
-                  }
-                ?>
-              </tbody>
-            </table>
-          </div>
-          <div id="sub-price-experience" class="sub-price__wrapper">
-            <div class="sub-price__title-group">
-              <h2 class="sub-price__title">体験ダイビング</h2>
-            </div>
-            <table class="sub-price__list">
-              <tbody>
-              <?php
-                  $price_list_items = SCF::get('trial-diving');
-                  foreach ($price_list_items as $item) {
-                    // サブフィールドの数だけループ
-                    for ($i = 1; $i <= count($item) / 2; $i++) {
-                      $title_field_name = "trial-diving-title{$i}";
-                      $cost_field_name = "trial-diving-cost{$i}";
+            // 体験ダイビングセクションのデータを取得
+            $experience_section_title = SCF::get('experience_section_title');
+            $experience_course_items = SCF::get('experience_diving');
 
-                      // タイトルとコストが存在するかを確認
-                      if (isset($item[$title_field_name]) && isset($item[$cost_field_name])) {
-                        echo '<tr>';
-                        echo '<td class="sub-price__data">' . esc_html($item[$title_field_name]) . '</td>';
-                        echo '<td class="sub-price__cost">' . esc_html($item[$cost_field_name]) . '</td>';
-                        echo '</tr>';
-                      }
-                    }
-                  }
-                ?>
-              </tbody>
-            </table>
-          </div>
-          <div id="sub-price-fan" class="sub-price__wrapper">
-            <div class="sub-price__title-group">
-              <h2 class="sub-price__title">ファンダイビング</h2>
-            </div>
-            <table class="sub-price__list">
-              <tbody>
-              <?php
-                  $price_list_items = SCF::get('fun-diving');
-                  foreach ($price_list_items as $item) {
-                    // サブフィールドの数だけループ
-                    for ($i = 1; $i <= count($item) / 2; $i++) {
-                      $title_field_name = "fun-diving-title{$i}";
-                      $cost_field_name = "fun-diving-cost{$i}";
+            // ファンダイビングセクションのデータを取得
+            $fun_section_title = SCF::get('fun_section_title');
+            $fun_course_items = SCF::get('fun_diving');
 
-                      // タイトルとコストが存在するかを確認
-                      if (isset($item[$title_field_name]) && isset($item[$cost_field_name])) {
-                        $title = esc_html($item[$title_field_name]); // 先にエスケープ
-                        $title_with_br = nl2br($title); // 次に改行を変換
-                        echo '<tr>';
-                        echo '<td class="sub-price__data">' . esc_html($item[$title_field_name]) . '</td>';
-                        echo '<td class="sub-price__cost">' . esc_html($item[$cost_field_name]) . '</td>';
-                        echo '</tr>';
-                      }
-                    }
-                  }
-                ?>
-              </tbody>
-            </table>
-          </div>
-          <div class="sub-price__wrapper">
-            <div class="sub-price__title-group">
-              <h2 class="sub-price__title">スペシャルダイビング</h2>
-            </div>
-            <table class="sub-price__list">
-              <tbody>
-              <?php
-                  $price_list_items = SCF::get('special-diving');
-                  foreach ($price_list_items as $item) {
-                    // サブフィールドの数だけループ
-                    for ($i = 1; $i <= count($item) / 2; $i++) {
-                      $title_field_name = "special-diving-title{$i}";
-                      $cost_field_name = "special-diving-cost{$i}";
+            // スペシャルダイビングセクションのデータを取得
+            $special_section_title = SCF::get('special_section_title');
+            $special_course_items = SCF::get('special_diving');
 
-                      // タイトルとコストが存在するかを確認
-                      if (isset($item[$title_field_name]) && isset($item[$cost_field_name])) {
-                        echo '<tr>';
-                        echo '<td class="sub-price__data">' . esc_html($item[$title_field_name]) . '</td>';
-                        echo '<td class="sub-price__cost">' . esc_html($item[$cost_field_name]) . '</td>';
-                        echo '</tr>';
-                      }
+            // セクションを表示する関数
+            function display_diving_section($section_title, $course_items, $item_name_key, $type_detail_key, $item_cost_key) {
+                if (!empty($section_title) && !empty($course_items)) {
+                    $has_valid_items = false;
+
+                    // アイテムのチェック
+                    foreach ($course_items as $item) {
+                        $dive_name = isset($item[$item_name_key]) ? $item[$item_name_key] : '';
+                        $item_cost = isset($item[$item_cost_key]) ? $item[$item_cost_key] : '';
+
+                        if (!empty($dive_name) || !empty($item_cost)) {
+                            $has_valid_items = true;
+                            break;
+                        }
                     }
-                  }
-                ?>
-              </tbody>
-            </table>
-          </div>
+
+                    // 有効なアイテムがある場合のみ表示
+                    if ($has_valid_items) {
+                        echo '<div class="sub-price__wrapper">';
+                        echo '<div class="sub-price__title-group">';
+                        echo '<h2 class="sub-price__title">' . esc_html($section_title) . '</h2>';
+                        echo '</div>';
+
+                        echo '<table class="sub-price__list">';
+                        echo '<tbody>';
+
+                        // 各アイテムの表示
+                        foreach ($course_items as $item) {
+                            $dive_name = isset($item[$item_name_key]) ? $item[$item_name_key] : '';
+                            $dive_type_detail = isset($item[$type_detail_key]) ? $item[$type_detail_key] : '';
+                            $item_cost = isset($item[$item_cost_key]) ? $item[$item_cost_key] : '';
+
+                            // 名前またはコストのどちらかが空の場合に「準備中」を表示
+                            $dive_name_display = !empty($dive_name) ? $dive_name : '準備中';
+                            $item_cost_display = !empty($item_cost) ? $item_cost : '準備中';
+
+                            echo '<tr>';
+                            echo '<td class="sub-price__data"><div class="sub-price__type"><span class="sub-price__name">' . esc_html($dive_name_display) . '<span class="sub-price__detail">' . esc_html($dive_type_detail) . '</span></span></div></td>';
+                            echo '<td class="sub-price__cost">' . esc_html($item_cost_display) . '</td>';
+                            echo '</tr>';
+                        }
+
+                        echo '</tbody>';
+                        echo '</table>';
+                        echo '</div>';
+                    }
+                }
+            }
+
+            // 各セクションの表示
+            display_diving_section($license_section_title, $license_course_items, 'license_item_name', 'license_type_detail', 'license_item_cost');
+            display_diving_section($experience_section_title, $experience_course_items, 'experience_item_name', 'experience_type_detail', 'experience_item_cost');
+            display_diving_section($fun_section_title, $fun_course_items, 'fun_item_name', 'fun_type_detail', 'fun_item_cost');
+            display_diving_section($special_section_title, $special_course_items, 'special_item_name', 'special_type_detail', 'special_item_cost');
+            ?>
         </div>
-      </section>
-
-
-  <?php get_template_part('parts/contact'); ?>
+    </section>
 
 
 <?php get_footer(); ?>

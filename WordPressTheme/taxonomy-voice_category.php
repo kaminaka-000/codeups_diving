@@ -64,33 +64,34 @@
                         <?php endif; ?>
                       </div>
                       <h2 class="testimonial-item__title">
-                      <?php the_title(); ?>
+                        <?php
+                        $title = get_the_title();
+                        echo esc_html(mb_substr($title, 0, 21));
+                        ?>
                       </h2>
                     </div>
                     <div class="testimonial-item__img">
                     <?php
-                      // ACFを使用して画像フィールドを取得
-                      $image = get_field('voice-img');
-                      if ($image) {
-                          // ACFで設定された画像があればそのURLとaltテキストを使用
-                          $image_url = esc_url($image['url']);
-                          $image_alt = esc_attr($image['alt']);
-                      } elseif (has_post_thumbnail()) {
-                          // 投稿にアイキャッチ画像が設定されていればそのURLを使用
-                          $image_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
+                        // アイキャッチ画像が設定されていればそのURLを使用
+                        if (has_post_thumbnail()) {
+                          $image_url = esc_url(get_the_post_thumbnail_url(get_the_ID(), 'full'));
                           $image_alt = esc_attr(get_the_title()); // 代替テキストとして投稿のタイトルを使用
-                      } else {
+                        } else {
                           // どちらもない場合はデフォルト画像のURLを指定
                           $image_url = esc_url(get_theme_file_uri('/assets/images/common/no_image.jpeg'));
-                          $image_alt = '画像がありません。'; // 代替テキスト
-                      }
-                      // 画像タグの出力
-                      echo '<img src="' . $image_url . '" alt="' . $image_alt . '"/>';
+                          $image_alt = esc_attr('画像がありません。'); // 代替テキスト
+                        }
+                        // 画像タグの出力
+                        echo '<img src="' . esc_url($image_url) . '" alt="' . esc_attr($image_alt) . '"/>';
                     ?>
                     </div>
                   </div>
+                  <?php
+                    $text = get_field('voice-text');
+                    $trimmed_text = mb_substr($text, 0, 173);
+                  ?>
                   <p class="testimonial-item__text">
-                  <?php echo nl2br(get_field('voice-text')); ?>
+                    <?php echo nl2br(esc_html($trimmed_text ? $trimmed_text : 'テキスト準備中')); ?>
                   </p>
               </li>
               <?php endwhile; else : ?>
@@ -108,8 +109,5 @@
       <div class="pagenavi sub-pagenavi-spacing">
       <?php wp_pagenavi(); ?>
       </div>
-
-      <!-- contact -->
-      <?php get_template_part('parts/contact'); ?>
 
     <?php get_footer(); ?>

@@ -24,7 +24,7 @@
     }
 }
 
-.card__content-text {
+.cards__content-text {
     font-size: rem(16);
     text-align: center;
     @include mq(md){
@@ -39,4 +39,9 @@
         grid-template-columns: repeat(2, 1fr);
         gap: rem(81) rem(40);
     }
+}
+
+//
+.cards-no-posts {
+    display: block; /* 必要に応じてスタイルを設定 */
 }

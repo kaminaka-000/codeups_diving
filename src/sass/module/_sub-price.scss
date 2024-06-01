@@ -112,3 +112,16 @@
 .sub-price__cost {
     text-align: right;
 }
+
+.sub-price__type {
+    @include mq(md){
+        display: inline;
+    }
+}
+
+.sub-price__detail {
+    display: block;
+    @include mq(md){
+        display: inline;
+    }
+}

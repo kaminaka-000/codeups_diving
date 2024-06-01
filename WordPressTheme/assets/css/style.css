@@ -484,6 +484,10 @@ footer.footer.top-footer--not-found {
 	text-align: center;
 }
 
+.blog__no-posts {
+	margin-top: 1.5rem;
+}
+
 .breadcrumb__inner {
 	max-width: 37.5rem;
 	width: 100%;
@@ -635,6 +639,10 @@ footer.footer.top-footer--not-found {
 	text-align: center;
 }
 
+.campaign__no-posts {
+	margin-top: 1.5rem;
+}
+
 .card {
 	background-color: #fff;
 	box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.25);
@@ -694,9 +702,13 @@ footer.footer.top-footer--not-found {
 	margin-top: 2.5rem;
 }
 
-.card__content-text {
+.cards__content-text {
 	font-size: 1rem;
 	text-align: center;
+}
+
+.cards-no-posts {
+	display: block; /* 必要に応じてスタイルを設定 */
 }
 
 .contact-thankyou__inner {
@@ -1819,6 +1831,11 @@ footer.footer.top-footer--not-found {
 	background-image: url(../images/common/sitemap-starfish.svg);
 }
 
+.no-posts__text {
+	font-size: 1rem;
+	text-align: center;
+}
+
 .not-found {
 	background-color: #408F95;
 }
@@ -2553,6 +2570,10 @@ footer.footer.top-footer--not-found {
 	text-align: right;
 }
 
+.sub-price__detail {
+	display: block;
+}
+
 .sub-voice__inner {
 	max-width: 37.5rem;
 	width: 100%;
@@ -2818,6 +2839,10 @@ footer.footer.top-footer--not-found {
 .voice__button {
 	margin-top: 2.5rem;
 	text-align: center;
+}
+
+.voice__no-posts {
+	margin-top: 1.5rem;
 }
 
 .wpcf7 form .wpcf7-response-output {
@@ -3110,6 +3135,12 @@ footer.footer.top-footer--not-found {
 	margin-top: 5rem;
 }
 
+.blog__no-posts {
+	color: #fff;
+	padding: 5rem 0 13.4375rem 0;
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
 .campaign__inner {
 	max-width: 70.75rem;
 	padding: 0 1.5625rem;
@@ -3161,6 +3192,10 @@ footer.footer.top-footer--not-found {
 	margin-top: 4.375rem;
 }
 
+.campaign__no-posts {
+	margin-top: 2.5rem;
+}
+
 .card:hover .card__img img {
 	transform: scale(1.2);
 }
@@ -3179,7 +3214,7 @@ footer.footer.top-footer--not-found {
 	width: 44.25rem;
 }
 
-.card__content-text {
+.cards__content-text {
 	font-size: 1.5rem;
 }
 
@@ -3686,6 +3721,10 @@ footer.footer.top-footer--not-found {
 	width: 100%;
 }
 
+.no-posts__text {
+	font-size: 1.5rem;
+}
+
 .not-found__inner::after {
 	height: 43.625rem;
 	left: 37%;
@@ -3959,6 +3998,14 @@ footer.footer.top-footer--not-found {
 	width: 67%;
 }
 
+.sub-price__type {
+	display: inline;
+}
+
+.sub-price__detail {
+	display: inline;
+}
+
 .tab-second__menu {
 	display: flex;
 	flex-wrap: wrap;
@@ -4126,6 +4173,10 @@ footer.footer.top-footer--not-found {
 
 .voice__button {
 	margin-top: 5rem;
+}
+
+.voice__no-posts {
+	margin-top: 2.5rem;
 }
 
 }

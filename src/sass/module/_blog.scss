@@ -62,3 +62,12 @@
         margin-top: rem(80);
     }
 }
+
+.blog__no-posts {
+    margin-top: rem(24);
+    @include mq(md){
+        padding: rem(80) 0 rem(215) 0;
+        color: #fff;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+}
