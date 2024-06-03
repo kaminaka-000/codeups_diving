@@ -22,9 +22,9 @@
       <!-- privacy-policy -->
       <section class="privacy-policy sub-privacy-policy-spacing sub-layout">
         <div class="privacy-policy__inner inner">
-          <h2 class="privacy-policy__title"><?php the_title(); ?></h2>
+          <h2 class="privacy-policy__title"><?php echo esc_html(get_the_title()); ?></h2>
           <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-            <?php the_content(); ?>
+            <?php echo wp_kses_post(get_the_content()); ?>
           <?php endwhile; endif; ?>
         </div>
       </section>

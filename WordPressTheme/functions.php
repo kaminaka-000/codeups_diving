@@ -64,20 +64,6 @@ function change_posts_per_page($query) {
 }
 add_action( 'pre_get_posts', 'change_posts_per_page' );
 
-//ウィジェット
-function my_widget_init() {
-  register_sidebar(
-    array(
-      'name' => 'サイドバー', // 表示するエリア名
-      'id'   => 'sidebar', // id
-      'before_widget' => '<div id="%1$s" class="widget %2$s">',
-      'after_widget'  => '</div>',
-      'before_title'  => '<div class="widget-title">',
-      'after_title'   => '</div>'
-    )
-  );
-}
-add_action('widgets_init', 'my_widget_init');
 
 
 //投稿を人気順に表示する
