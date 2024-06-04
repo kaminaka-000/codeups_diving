@@ -62,20 +62,20 @@
                       </h2>
                     </div>
                     <div class="testimonial-item__img">
-                    <?php
-                        // アイキャッチ画像が設定されていればそのURLを使用
-                        if (has_post_thumbnail()) {
+                      <?php
+                      // アイキャッチ画像が設定されていればそのURLを使用
+                      if (has_post_thumbnail()) {
                           $image_url = esc_url(get_the_post_thumbnail_url(get_the_ID(), 'full'));
-                          $image_alt = esc_attr(get_the_title()); // 代替テキストとして投稿のタイトルを使用
-                        } else {
-                          // どちらもない場合はデフォルト画像のURLを指定
+                          $image_alt = esc_attr(get_the_title() . 'のアイキャッチ画像。'); // 代替テキストとして投稿のタイトルを使用し、その後に「のアイキャッチ画像」を追加
+                      } else {
+                          // アイキャッチ画像が設定されていない場合はデフォルト画像のURLを指定
                           $image_url = esc_url(get_theme_file_uri('/assets/images/common/no_image.jpeg'));
                           $image_alt = esc_attr('画像がありません。'); // 代替テキスト
-                        }
-                        // 画像タグの出力
-                        echo '<img src="' . esc_url($image_url) . '" alt="' . esc_attr($image_alt) . '"/>';
-                    ?>
-                    </div>
+                      }
+                      // 画像タグの出力
+                      echo '<img src="' . esc_url($image_url) . '" alt="' . esc_attr($image_alt) . '"/>';
+                      ?>
+                  </div>
                   </div>
                   <?php
                     $text = get_field('voice-text');
