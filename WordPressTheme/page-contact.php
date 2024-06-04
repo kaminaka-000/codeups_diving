@@ -1,5 +1,3 @@
-
-コードをコピーする
 <?php get_header(); ?>
 
 <main>
