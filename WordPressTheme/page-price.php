@@ -41,7 +41,7 @@
             $special_course_items = SCF::get('special_diving');
 
             // セクションを表示する関数
-            function display_diving_section($section_title, $course_items, $item_name_key, $type_detail_key, $item_cost_key) {
+            function display_diving_section($section_id, $section_title, $course_items, $item_name_key, $type_detail_key, $item_cost_key) {
                 if (!empty($section_title) && !empty($course_items)) {
                     $has_valid_items = false;
 
@@ -58,7 +58,7 @@
 
                     // 有効なアイテムがある場合のみ表示
                     if ($has_valid_items) {
-                        echo '<div class="sub-price__wrapper">';
+                        echo '<div id="' . esc_attr($section_id) . '" class="sub-price__wrapper">';
                         echo '<div class="sub-price__title-group">';
                         echo '<h2 class="sub-price__title">' . esc_html($section_title) . '</h2>';
                         echo '</div>';
@@ -90,10 +90,10 @@
             }
 
             // 各セクションの表示
-            display_diving_section($license_section_title, $license_course_items, 'license_item_name', 'license_type_detail', 'license_item_cost');
-            display_diving_section($experience_section_title, $experience_course_items, 'experience_item_name', 'experience_type_detail', 'experience_item_cost');
-            display_diving_section($fun_section_title, $fun_course_items, 'fun_item_name', 'fun_type_detail', 'fun_item_cost');
-            display_diving_section($special_section_title, $special_course_items, 'special_item_name', 'special_type_detail', 'special_item_cost');
+            display_diving_section('sub-price-license', $license_section_title, $license_course_items, 'license_item_name', 'license_type_detail', 'license_item_cost');
+            display_diving_section('sub-price-experience', $experience_section_title, $experience_course_items, 'experience_item_name', 'experience_type_detail', 'experience_item_cost');
+            display_diving_section('sub-price-fan', $fun_section_title, $fun_course_items, 'fun_item_name', 'fun_type_detail', 'fun_item_cost');
+            display_diving_section('sub-price-special', $special_section_title, $special_course_items, 'special_item_name', 'special_type_detail', 'special_item_cost');
             ?>
         </div>
     </section>
