@@ -64,6 +64,17 @@ function change_posts_per_page($query) {
 }
 add_action( 'pre_get_posts', 'change_posts_per_page' );
 
+//date.phpの表示件数変更
+function change_date_archive_posts_per_page($query) {
+  if ( is_admin() || ! $query->is_main_query() )
+      return;
+
+  if ( $query->is_date() ) { // 日付アーカイブページを指定
+      $query->set( 'posts_per_page', '10' ); // 表示件数を10件に設定
+  }
+}
+add_action( 'pre_get_posts', 'change_date_archive_posts_per_page' );
+
 
 
 //投稿を人気順に表示する
