@@ -76,7 +76,7 @@
                         <p class="sidebar-review__age"><?php echo esc_html(get_field('voice-era')); ?></p>
                         <h3 class="sidebar-review__title"><?php echo esc_html($trimmed_title); ?></h3>
                         <div class="sidebar-review__button">
-                            <a href="<?php echo esc_url(home_url('/voice/')); ?>" class="button"><span>詳細を見る</span></a>
+                            <a href="<?php echo esc_url(home_url('/voice/')); ?>" class="button"><span>View more</span></a>
                         </div>
                     <?php
                         endwhile;
