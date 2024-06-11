@@ -13,4 +13,6 @@
 //modifier
 .breadcrumb--not-found {
     color: $white;
+    position: relative;
+    z-index: 1;
 }

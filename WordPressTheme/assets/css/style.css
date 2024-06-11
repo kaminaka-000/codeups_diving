@@ -500,6 +500,8 @@ footer.footer.top-footer--not-found {
 
 .breadcrumb--not-found {
 	color: #fff;
+	position: relative;
+	z-index: 1;
 }
 
 .button {
