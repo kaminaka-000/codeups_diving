@@ -24,19 +24,16 @@
       <section class="sub-price sub-price-spacing sub-layout">
         <div class="sub-price__inner inner">
             <?php
-            // ライセンス講習セクションのデータを取得
+            // SCFでデータを取得する部分
             $license_section_title = SCF::get('license_section_title');
             $license_course_items = SCF::get('course_items');
 
-            // 体験ダイビングセクションのデータを取得
             $experience_section_title = SCF::get('experience_section_title');
             $experience_course_items = SCF::get('experience_diving');
 
-            // ファンダイビングセクションのデータを取得
             $fun_section_title = SCF::get('fun_section_title');
             $fun_course_items = SCF::get('fun_diving');
 
-            // スペシャルダイビングセクションのデータを取得
             $special_section_title = SCF::get('special_section_title');
             $special_course_items = SCF::get('special_diving');
 
@@ -74,7 +71,7 @@
 
                             // 名前またはコストのどちらかが空の場合に「準備中」を表示
                             $dive_name_display = !empty($dive_name) ? $dive_name : '準備中';
-                            $item_cost_display = !empty($item_cost) ? $item_cost : '準備中';
+                            $item_cost_display = !empty($item_cost) ? '￥' . number_format($item_cost) : '準備中';
 
                             echo '<tr>';
                             echo '<td class="sub-price__data"><div class="sub-price__type"><span class="sub-price__name">' . esc_html($dive_name_display) . '<span class="sub-price__detail">' . esc_html($dive_type_detail) . '</span></span></div></td>';
@@ -95,8 +92,50 @@
             display_diving_section('sub-price-fan', $fun_section_title, $fun_course_items, 'fun_item_name', 'fun_type_detail', 'fun_item_cost');
             display_diving_section('sub-price-special', $special_section_title, $special_course_items, 'special_item_name', 'special_type_detail', 'special_item_cost');
             ?>
+
+            <?php
+            // CFSでデータを取得し表示する部分
+            $courses = CFS()->get('courses');
+
+            if (!empty($courses)) {
+                foreach ($courses as $course_section) {
+                    $section_title = $course_section['section_title'];
+                    $section_courses = $course_section['section_courses'];
+
+                    if (!empty($section_title) && !empty($section_courses)) {
+                        echo '<div class="sub-price__wrapper">';
+                        echo '<div class="sub-price__title-group">';
+                        echo '<h2 class="sub-price__title">' . esc_html($section_title) . '</h2>';
+                        echo '</div>';
+
+                        echo '<table class="sub-price__list">';
+                        echo '<tbody>';
+
+                        foreach ($section_courses as $course_item) {
+                            $course_name = $course_item['course_name'];
+                            $course_detail = $course_item['course_detail'];
+                            $course_fee = $course_item['course_fee'];
+
+                            // 名前またはコストのどちらかが空の場合に「準備中」を表示
+                            $course_name_display = !empty($course_name) ? $course_name : '準備中';
+                            $course_fee_display = !empty($course_fee) ? '￥' . number_format($course_fee) : '準備中';
+
+                            echo '<tr>';
+                            echo '<td class="sub-price__data"><div class="sub-price__type"><span class="sub-price__name">' . esc_html($course_name_display) . '<span class="sub-price__detail">' . esc_html($course_detail) . '</span></span></div></td>';
+                            echo '<td class="sub-price__cost">' . esc_html($course_fee_display) . '</td>';
+                            echo '</tr>';
+                        }
+
+                        echo '</tbody>';
+                        echo '</table>';
+                        echo '</div>';
+                    }
+                }
+            }
+            ?>
         </div>
     </section>
+
 
 
 <?php get_footer(); ?>

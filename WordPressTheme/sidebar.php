@@ -60,29 +60,36 @@
                             // アイキャッチ画像が設定されていればそのURLを使用
                             if (has_post_thumbnail()) {
                                 $image_url = esc_url(get_the_post_thumbnail_url(get_the_ID(), 'full'));
-                                $image_alt = esc_attr(get_the_title()); // 代替テキストとして投稿のタイトルを使用
+                                $image_alt = esc_attr(get_the_title() . 'のアイキャッチ画像。'); // 代替テキストとして投稿のタイトルを使用し、その後に「のアイキャッチ画像」を追加
                             } else {
                                 // どちらもない場合はデフォルト画像のURLを指定
                                 $image_url = esc_url(get_theme_file_uri('/assets/images/common/no_image.jpeg'));
-                                $image_alt = '画像がありません。'; // 代替テキスト
+                                $image_alt = esc_attr('画像がありません。'); // 代替テキスト
                             }
                             // 画像タグの出力
                             echo '<div class="sidebar-review__img"><img src="' . esc_url($image_url) . '" alt="' . esc_attr($image_alt) . '"/></div>';
 
+                            // user_attributesフィールドグループから年代と性別のカスタムフィールドを取得して表示
+                            $user_attributes = get_field('user_attributes'); // user_attributesフィールドグループを取得
+                            $age_group = $user_attributes['age_group']; // 年代のフィールドを取得
+                            $gender = $user_attributes['gender']; // 性別のフィールドを取得
+                            ?>
+                            <p class="sidebar-review__age"><?php echo esc_html($age_group) . '（' . esc_html($gender) . '）'; ?></p>
+                            <?php
+
                             // タイトルの文字数を21文字に制限
                             $title = get_the_title();
                             $trimmed_title = mb_substr($title, 0, 21);
-                    ?>
-                        <p class="sidebar-review__age"><?php echo esc_html(get_field('voice-era')); ?></p>
-                        <h3 class="sidebar-review__title"><?php echo esc_html($trimmed_title); ?></h3>
-                        <div class="sidebar-review__button">
-                            <a href="<?php echo esc_url(home_url('/voice/')); ?>" class="button"><span>View more</span></a>
-                        </div>
-                    <?php
+                            ?>
+                            <h3 class="sidebar-review__title"><?php echo esc_html($trimmed_title); ?></h3>
+                            <div class="sidebar-review__button">
+                                <a href="<?php echo esc_url(get_permalink()); ?>" class="button"><span>View more</span></a>
+                            </div>
+                        <?php
                         endwhile;
                         wp_reset_postdata();
                     else :
-                    ?>
+                        ?>
                         <p class="sidebar-review__text">口コミがありません。</p>
                     <?php endif; ?>
                 </div>
@@ -96,48 +103,52 @@
                     <?php
                     // カスタム投稿タイプ 'campaign' の最新の投稿を取得
                     $sidebar_campaigns = new WP_Query(array(
-                    'post_type' => 'campaign',
-                    'posts_per_page' => 2, // ここで表示したい投稿数を指定
+                        'post_type' => 'campaign',
+                        'posts_per_page' => 2, // ここで表示したい投稿数を指定
                     ));
 
                     if ($sidebar_campaigns->have_posts()) :
-                    while ($sidebar_campaigns->have_posts()) : $sidebar_campaigns->the_post();
+                        while ($sidebar_campaigns->have_posts()) : $sidebar_campaigns->the_post();
                     ?>
                     <div class="sidebar__card sidebar-card">
                         <div class="sidebar-card__img">
-                        <?php
-                        // アイキャッチ画像が設定されていればそのURLを使用
-                        if (has_post_thumbnail()) {
-                            $image_url = esc_url(get_the_post_thumbnail_url(get_the_ID(), 'full'));
-                            $image_alt = esc_attr(get_the_title()); // 代替テキストとして投稿のタイトルを使用
-                        } else {
-                            // アイキャッチ画像が設定されていない場合はデフォルト画像のURLを指定
-                            $image_url = esc_url(get_theme_file_uri('/assets/images/common/no_image.jpeg'));
-                            $image_alt = esc_attr('画像がありません。'); // 代替テキスト
-                        }
-                        // 画像タグの出力
-                        echo '<img src="' . esc_url($image_url) . '" alt="' . esc_attr($image_alt) . '"/>';
-                        ?>
+                            <?php
+                            // アイキャッチ画像が設定されていればそのURLを使用
+                            if (has_post_thumbnail()) {
+                                $image_url = esc_url(get_the_post_thumbnail_url(get_the_ID(), 'full'));
+                                $image_alt = esc_attr(get_the_title()); // 代替テキストとして投稿のタイトルを使用
+                            } else {
+                                // アイキャッチ画像が設定されていない場合はデフォルト画像のURLを指定
+                                $image_url = esc_url(get_theme_file_uri('/assets/images/common/no_image.jpeg'));
+                                $image_alt = esc_attr('画像がありません。'); // 代替テキスト
+                            }
+                            // 画像タグの出力
+                            echo '<img src="' . esc_url($image_url) . '" alt="' . esc_attr($image_alt) . '"/>';
+                            ?>
                         </div>
                         <div class="sidebar-card__content">
-                        <h3 class="sidebar-card__title"><?php echo esc_html(get_the_title()); ?></h3>
-                        <p class="sidebar-card__lead">全部コミコミ(お一人様)</p>
-                        <div class="sidebar-card__layout">
-                            <?php
-                            // カスタムフィールドの値を取得
-                            $list_price = get_field('campaign-list-price');
-                            $discount_price = get_field('campaign-discount-price');
-                            ?>
-                            <div class="sidebar-card__before">
-                            <span><?php echo esc_html($list_price ? $list_price : '準備中'); ?></span>
+                            <h3 class="sidebar-card__title"><?php echo esc_html(get_the_title()); ?></h3>
+                            <p class="sidebar-card__lead">全部コミコミ(お一人様)</p>
+                            <div class="sidebar-card__layout">
+                                <?php
+                                // グループフィールド「campaign_info」を取得
+                                $campaign_info = get_field('campaign_info');
+                                if ($campaign_info) {
+                                    // グループ内の各フィールドを取得
+                                    $list_price = $campaign_info['campaign-list-price'];
+                                    $discount_price = $campaign_info['campaign-discount-price'];
+                                ?>
+                                <div class="sidebar-card__before">
+                                    <span><?php echo esc_html($list_price ? '￥' . number_format($list_price) : '準備中'); ?></span>
+                                </div>
+                                <div class="sidebar-card__after"><?php echo esc_html($discount_price ? '￥' . number_format($discount_price) : '準備中'); ?></div>
+                                <?php } ?>
                             </div>
-                            <div class="sidebar-card__after"><?php echo esc_html($discount_price ? $discount_price : '準備中'); ?></div>
-                        </div>
                         </div>
                     </div>
                     <?php
-                    endwhile;
-                    wp_reset_postdata(); // クエリのリセット
+                        endwhile;
+                        wp_reset_postdata(); // クエリのリセット
                     ?>
                     <div class="sidebar-card__button">
                         <a href="<?php echo esc_url(home_url('/campaign/')); ?>" class="button"><span>View more</span></a>
@@ -146,7 +157,7 @@
                     <p>キャンペーンの投稿がありません。</p>
                     <?php endif; ?>
                 </div>
-                </li>
+            </li>
             <li class="sidebar__item">
                 <div class="sidebar__container">
                     <img src="<?php echo esc_url(get_theme_file_uri('/assets/images/common/home-blog-icon.svg')); ?>" alt="ホームブログアイコン" />
