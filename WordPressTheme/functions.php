@@ -1,6 +1,8 @@
 <?php
 
-//
+/*================================================================
+    テーマのスクリプトとスタイルシートを読み込む
+================================================================ */
 function my_theme_enqueue_scripts() {
   // Preconnect for Google Fonts
   wp_enqueue_style('google-fonts-preconnect', 'https://fonts.googleapis.com', array(), null);
@@ -48,16 +50,19 @@ function my_setup() {
 }
 add_action( 'after_setup_theme', 'my_setup' );
 
-//アーカイブの表示件数変更
+/*================================================================
+    アーカイブの表示件数変更
+================================================================ */
 function change_posts_per_page($query) {
   if ( is_admin() || ! $query->is_main_query() )
       return;
-  //
+
+   // カスタム投稿タイプ 'campaign' のアーカイブで表示される投稿数を指定
   if ( $query->is_archive('campaign') ) { //カスタム投稿タイプを指定
       $query->set( 'posts_per_page', '4' ); //表示件数を指定
   }
 
-  // 'event' カスタム投稿タイプのアーカイブで表示される投稿数を別の値に設定
+  // カスタム投稿タイプ 'voice' のアーカイブで表示される投稿数を指定
   if ( $query->is_post_type_archive('voice') ) {
     $query->set( 'posts_per_page', '6' ); // 例として6に設定
   }
@@ -77,7 +82,9 @@ add_action( 'pre_get_posts', 'change_date_archive_posts_per_page' );
 
 
 
-//投稿を人気順に表示する
+/*================================================================
+    投稿を人気順に表示する
+================================================================ */
 function set_post_view($post_id) {
   $count_key = 'post_views_count';
   $count = get_post_meta($post_id, $count_key, true);
@@ -90,8 +97,21 @@ function set_post_view($post_id) {
   }
 }
 
+/*================================================================
+    投稿のみにカスタムフィールドを表示
+================================================================ */
+function my_custom_field_visibility($state) {
+  if (get_post_type() == 'post') {
+      return false;  // ACF によるカスタムフィールドメタボックスの削除を無効化
+  }
+  return $state;  // それ以外の場合は元の状態を保持
+}
+add_filter('acf/settings/remove_wp_meta_box', 'my_custom_field_visibility');
 
-//コンタクトフォームにカスタム投稿のタイトルを反映させる
+
+/*================================================================
+    コンタクトフォームにカスタム投稿のタイトルを反映させる
+================================================================ */
 function filter_wpcf7_form_tag( $scanned_tag ) {
   if ( 'your-campaign' === $scanned_tag['name'] ) {
     $args = array(
@@ -121,7 +141,7 @@ add_filter( 'wpcf7_form_tag', 'filter_wpcf7_form_tag', 10, 1 );
 add_filter('wpcf7_autop_or_not', '__return_false');
 
 
-//サンクスページ
+//サンクスページへのリダイレクト
 add_action('wp_footer', 'redirect_to_thanks_page');
 function redirect_to_thanks_page() {
   if (is_page('contact')) {
@@ -136,11 +156,222 @@ EOD;
   }
 }
 
-//投稿のみにカスタムフィールドを表示
-function my_custom_field_visibility($state) {
-  if (get_post_type() == 'post') {
-      return false;  // ACF によるカスタムフィールドメタボックスの削除を無効化
+
+/*================================================================
+    カスタム投稿タイプのデフォルトカテゴリー設定
+================================================================ */
+
+// 'campaign' のデフォルトカテゴリーを設定
+function set_default_category_for_custom_post($post_id, $post, $update) {
+  // 投稿がカスタム投稿タイプ 'campaign' かどうかを確認します
+  if (get_post_type($post_id) == 'campaign') {
+      // 投稿に 'campaign_category' タクソノミーのカテゴリが付いているかどうかを確認します
+      $categories = wp_get_post_terms($post_id, 'campaign_category');
+
+      // カテゴリが空の場合、デフォルトカテゴリーを設定します
+      if (empty($categories)) {
+          // デフォルトカテゴリーIDを設定します。実際のデフォルトカテゴリーIDに置き換えてください。
+          $default_category_id = 6; // 例として1を使用しています。デフォルトカテゴリーIDに置き換えてください。
+
+          // カテゴリーを設定します
+          wp_set_post_terms($post_id, array($default_category_id), 'campaign_category');
+      }
   }
-  return $state;  // それ以外の場合は元の状態を保持
 }
-add_filter('acf/settings/remove_wp_meta_box', 'my_custom_field_visibility');
+add_action('save_post', 'set_default_category_for_custom_post', 10, 3);
+
+// 'voice' のデフォルトカテゴリーを設定
+function set_default_category_for_voice_post($post_id, $post, $update) {
+  // 投稿がカスタム投稿タイプ 'voice' かどうかを確認します
+  if (get_post_type($post_id) == 'voice') {
+      // 投稿に 'voice_category' タクソノミーのカテゴリが付いているかどうかを確認します
+      $categories = wp_get_post_terms($post_id, 'voice_category');
+
+      // カテゴリが空の場合、デフォルトカテゴリーを設定します
+      if (empty($categories)) {
+          // デフォルトカテゴリーIDを設定します。実際のデフォルトカテゴリーIDに置き換えてください。
+          $default_category_id = 13; // 例として1を使用しています。デフォルトカテゴリーIDに置き換えてください。
+
+          // カテゴリーを設定します
+          wp_set_post_terms($post_id, array($default_category_id), 'voice_category');
+      }
+  }
+}
+add_action('save_post', 'set_default_category_for_voice_post', 10, 3);
+
+
+/*================================================================
+    管理画面の投稿一覧にアイキャッチ画像を表示
+================================================================ */
+// アイキャッチ画像をサポート
+function my_theme_setup() {
+  add_theme_support('post-thumbnails'); // すべての投稿とページにアイキャッチ画像を追加
+  add_post_type_support('post', 'thumbnail'); // 標準投稿タイプにアイキャッチ画像のサポートを追加
+}
+add_action('after_setup_theme', 'my_theme_setup');
+
+// 投稿リストにアイキャッチ画像のカラムを追加
+function add_thumbnail_column($columns) {
+  $columns['thumbnail'] = 'Featured Image';
+  return $columns;
+}
+add_filter('manage_post_posts_columns', 'add_thumbnail_column');
+
+// アイキャッチ画像をカラムに表示
+function display_thumbnail_column($column, $post_id) {
+  if ($column == 'thumbnail') {
+      $post_thumbnail_id = get_post_thumbnail_id($post_id);
+      if ($post_thumbnail_id) {
+          $post_thumbnail_img = wp_get_attachment_image_src($post_thumbnail_id, 'medium');
+          echo '<img src="' . esc_url($post_thumbnail_img[0]) . '" width="150" height="120" />';
+      } else {
+          echo '—';
+      }
+  }
+}
+add_action('manage_post_posts_custom_column', 'display_thumbnail_column', 10, 2);
+
+// カスタム投稿タイプ 'campaign' にアイキャッチ画像のカラムを追加
+add_filter('manage_campaign_posts_columns', 'add_thumbnail_column');
+add_action('manage_campaign_posts_custom_column', 'display_thumbnail_column', 10, 2);
+
+// カスタム投稿タイプ 'voice' にアイキャッチ画像のカラムを追加
+add_filter('manage_voice_posts_columns', 'add_thumbnail_column');
+add_action('manage_voice_posts_custom_column', 'display_thumbnail_column', 10, 2);
+
+
+/*================================================================
+    ダッシュボードにウィジェットを追加する
+================================================================ */
+// 投稿と編集ページに移動できるウィジェットを表示する関数
+function add_custom_widget() {
+  $html = ''; // 変数を初期化
+  $html .= '<div class="admin_panel">';
+  $html .= '<p>クリックすると投稿と編集ページに移動します</p>';
+  $html .= '<div class="widget-icons">';
+  $html .= '<a href="edit.php"><div class="widget-icon"><span class="dashicons dashicons-admin-post"></span><p>『ブログ』投稿</p></div></a>';
+  $html .= '<a href="edit.php?post_type=campaign"><div class="widget-icon"><span class="dashicons dashicons-clock"></span><p>『キャンペーン』投稿</p></div></a>';
+  $html .= '<a href="edit.php?post_type=voice"><div class="widget-icon"><span class="dashicons dashicons-smiley"></span><p>『お客様の声』投稿</p></div></a>';
+  $html .= '<a href="post.php?post=37&action=edit"><div class="widget-icon"><span class="dashicons dashicons-format-gallery"></span><p>『ギャラリー画像』編集</p></div></a>';
+  $html .= '<a href="post.php?post=42&action=edit"><div class="widget-icon"><span class="dashicons dashicons-money-alt"></span><p>『料金一覧』編集</p></div></a>';
+  $html .= '<a href="post.php?post=44&action=edit"><div class="widget-icon"><span class="dashicons dashicons-editor-help"></span><p>『よくある質問』編集</p></div></a>';
+  $html .= '</div>'; // divタグを閉じる
+  $html .= '</div>'; // divタグを閉じる
+  echo $html;
+}
+
+// 基本設定リンクを表示するウィジェットを追加する関数
+function add_basic_settings_widget() {
+  $html = ''; // 変数を初期化
+  $html .= '<div class="admin_panel basic_settings_widget">';
+  $html .= '<p>クリックすると設定ページに移動します</p>';
+  $html .= '<ul class="widget-links">';
+  $html .= '<li><a href="post.php?post=10&action=edit"><div class="widget-icon"><span class="dashicons dashicons-admin-generic"></span><p>【トップページのメインスライダー画像】設定へ</p></div></a></li>';
+  $html .= '<li><a href="post.php?post=33&action=edit"><div class="widget-icon"><span class="dashicons dashicons-admin-generic"></span><p>【プライバシーポリシー】設定へ</p></div></a></li>';
+  $html .= '<li><a href="post.php?post=293&action=edit"><div class="widget-icon"><span class="dashicons dashicons-admin-generic"></span><p>【利用規約】設定へ</p></div></a></li>';
+  $html .= '</ul>'; // ulタグを閉じる
+  $html .= '</div>'; // divタグを閉じる
+  echo $html;
+}
+
+// 自作した情報をダッシュボードのウィジェットに登録する関数
+function add_my_widget() {
+wp_add_dashboard_widget('custom_widget', '投稿と編集', 'add_custom_widget');
+wp_add_dashboard_widget('basic_settings_widget', 'サイト設定', 'add_basic_settings_widget');
+}
+
+// ダッシュボードのウィジェット設定読み込み時に②の処理を呼び出す
+add_action('wp_dashboard_setup', 'add_my_widget');
+
+// カスタムスタイルを追加する関数
+function custom_dashboard_styles() {
+  wp_enqueue_style('custom_dashboard_css', get_template_directory_uri() . '/custom-dashboard.css');
+}
+
+add_action('admin_enqueue_scripts', 'custom_dashboard_styles');
+
+/*================================================================
+    管理画面にカスタムCSSを読み込む
+================================================================ */
+function load_custom_wp_admin_style() {
+  wp_enqueue_style('custom_wp_admin_css', get_template_directory_uri() . '/assets/css/admin-styles.css', false, '1.0.0');
+}
+add_action('admin_enqueue_scripts', 'load_custom_wp_admin_style');
+
+// 管理画面のメニューをカスタマイズ
+function change_post_menu_label() {
+  global $menu;
+  global $submenu;
+  $menu[5][0] = 'ブログ'; // メニューの名前を変更
+  $submenu['edit.php'][5][0] = 'ブログ'; // 投稿一覧の名前を変更
+  $submenu['edit.php'][10][0] = '新規ブログ追加'; // 新規追加の名前を変更
+  // 他のサブメニューを必要に応じて変更
+}
+add_action('admin_menu', 'change_post_menu_label');
+
+// コメントメニューを非表示にする
+function remove_comments_menu() {
+  remove_menu_page('edit-comments.php');
+}
+add_action('admin_menu', 'remove_comments_menu');
+
+// 管理画面のメニューの並び順をカスタマイズ
+function customize_menu_order($menu_order) {
+  if (!$menu_order) return true;
+
+  return array(
+      'index.php', // ダッシュボード
+      'edit.php', // ブログ（投稿）
+      'edit.php?post_type=campaign', // キャンペーン
+      'edit.php?post_type=voice', // お客様の声
+      'upload.php', // メディア
+      'edit.php?post_type=page', // 固定ページ
+      // 'edit-comments.php', // コメント (この行をコメントアウトまたは削除)
+      'wpcf7', // お問い合わせ（Contact Form 7 の例）
+      'themes.php', // 外観
+      'plugins.php', // プラグイン
+      'users.php', // ユーザー
+      'tools.php', // ツール
+      'options-general.php', // 設定
+      'ai1wm_export', // All-in-One WP Migration
+      'edit.php?post_type=scf', // Smart Custom Fields（カスタムフィールドの例）
+      'edit.php?post_type=acf', // ACF
+      'admin.php?page=seo-pack', // SEO PACK
+      'admin.php?page=cptui_main_menu', // CPT UI
+  );
+}
+add_filter('custom_menu_order', '__return_true');
+add_filter('menu_order', 'customize_menu_order');
+
+
+
+/*================================================================
+    管理画面のログイン画面のロゴを変更
+================================================================ */
+// ログイン画面のロゴ変更
+function login_logo() {
+  $logo_url = get_template_directory_uri() . '/assets/images/common/contact-logo.svg';
+  echo '<style type="text/css">
+      .login h1 a {
+          background-image: url("' . esc_url($logo_url) . '");
+          width: 300px;
+          background-size: contain;
+          background-position: center;
+          background-repeat: no-repeat;
+          display: block;
+      }
+  </style>';
+}
+add_action('login_head', 'login_logo');
+
+// ログイン画面のロゴURL
+function custom_login_logo_url() {
+  return home_url();
+}
+add_filter('login_headerurl', 'custom_login_logo_url');
+
+// ログイン画面のロゴタイトル
+function custom_login_logo_url_title() {
+  return 'トップページを表示';
+}
+add_filter('login_headertitle', 'custom_login_logo_url_title');

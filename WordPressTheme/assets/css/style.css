@@ -1838,6 +1838,10 @@ footer.footer.top-footer--not-found {
 	text-align: center;
 }
 
+.no-posts__text--faq {
+	margin-top: 2.5rem;
+}
+
 .not-found {
 	background-color: #408F95;
 }
@@ -3727,6 +3731,10 @@ footer.footer.top-footer--not-found {
 	font-size: 1.5rem;
 }
 
+.no-posts__text--faq {
+	margin-top: 5rem;
+}
+
 .not-found__inner::after {
 	height: 43.625rem;
 	left: 37%;
@@ -3802,6 +3810,7 @@ footer.footer.top-footer--not-found {
 
 .price__img-pc {
 	display: block;
+	width: 45%;
 }
 
 .price__button {

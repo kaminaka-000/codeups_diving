@@ -21,25 +21,33 @@
 
 
     <!-- sub-voice -->
-    <?php if (have_posts()) :// 記事があれば表示 ?>
-    <section class="sub-voice sub-voice-spacing sub-layout">
-      <div class="sub-voice__inner inner">
-        <div class="sub-voice__wrapper">
-          <div class="sub-voice__tab tab">
-            <a href="<?php echo esc_url(get_post_type_archive_link('voice')); ?>" class="tab__menu is-active">ALL</a>
-            <?php $genre_terms = get_terms('voice_category', array('hide_empty' => false)); ?>
-            <?php foreach ($genre_terms as $genre_term) : ?>
-              <a href="<?php echo esc_url(get_term_link($genre_term, 'voice_category')); ?>" class="tab__menu"><?php echo esc_html($genre_term->name); ?></a>
-            <?php endforeach; ?>
-          </div>
+    <?php if (have_posts()) : // 記事があれば表示 ?>
+      <section class="sub-voice sub-voice-spacing sub-layout">
+        <div class="sub-voice__inner inner">
+          <div class="sub-voice__wrapper">
+            <div class="sub-voice__tab tab">
+              <a href="<?php echo esc_url(get_post_type_archive_link('voice')); ?>" class="tab__menu is-active">ALL</a>
+              <?php $genre_terms = get_terms('voice_category', array('hide_empty' => false)); ?>
+              <?php foreach ($genre_terms as $genre_term) : ?>
+                <a href="<?php echo esc_url(get_term_link($genre_term, 'voice_category')); ?>" class="tab__menu"><?php echo esc_html($genre_term->name); ?></a>
+              <?php endforeach; ?>
+            </div>
 
-          <ul class="sub-voice__testimonial-list testimonial-list">
+            <ul class="sub-voice__testimonial-list testimonial-list">
               <?php while (have_posts()) : the_post(); ?>
                 <li class="testimonial-list__item testimonial-item">
                   <div class="testimonial-item__box">
                     <div class="testimonial-item__layout">
                       <div class="testimonial-item__group">
-                        <p class="testimonial-item__personal"><?php echo esc_html(get_field('voice-era')); ?></p>
+                        <!-- user_attributesフィールドグループから年代と性別のカスタムフィールドを取得して表示 -->
+                        <?php
+                          $user_attributes = get_field('user_attributes'); // user_attributesフィールドグループを取得
+                          $age_group = $user_attributes['age_group']; // 年代のフィールドを取得
+                          $gender = $user_attributes['gender']; // 性別のフィールドを取得
+                        ?>
+                        <p class="testimonial-item__personal">
+                          <?php echo esc_html($age_group) . '（' . esc_html($gender) . '）'; ?>
+                        </p>
                         <?php
                           // 現在の投稿に関連付けられているタームを取得
                           $terms = get_the_terms(get_the_ID(), 'voice_category');
@@ -75,7 +83,7 @@
                       // 画像タグの出力
                       echo '<img src="' . esc_url($image_url) . '" alt="' . esc_attr($image_alt) . '"/>';
                       ?>
-                  </div>
+                    </div>
                   </div>
                   <?php
                     $text = get_field('voice-text');
@@ -86,21 +94,22 @@
                   </p>
                 </li>
               <?php endwhile; ?>
-              </ul>
+            </ul>
 
-              <!-- ページネーション -->
-              <div class="pagenavi sub-pagenavi-spacing">
+            <!-- ページネーション -->
+            <div class="pagenavi sub-pagenavi-spacing">
               <?php wp_pagenavi(); ?>
-              </div>
-
-                </div>
-              </div>
-            </section>
-          <?php else : ?>
-            <div class="testimonial-list__content">
-              <p class="testimonial-list__text">投稿がありません。</p>
             </div>
-          <?php endif; ?>
+
+          </div>
+        </div>
+      </section>
+      <?php else : ?>
+        <div class="testimonial-list__content">
+          <p class="testimonial-list__text">投稿がありません。</p>
+        </div>
+      <?php endif; ?>
+
 
 
 
