@@ -65,7 +65,7 @@
                       <h2 class="testimonial-item__title">
                         <?php
                         $title = get_the_title();
-                        echo esc_html(mb_substr($title, 0, 21));
+                        echo esc_html($title);
                         ?>
                       </h2>
                     </div>
@@ -87,10 +87,9 @@
                   </div>
                   <?php
                     $text = get_field('voice-text');
-                    $trimmed_text = mb_substr($text, 0, 173);
                   ?>
                   <p class="testimonial-item__text">
-                    <?php echo nl2br(esc_html($trimmed_text ? $trimmed_text : 'テキスト準備中')); ?>
+                  <?php echo nl2br(esc_html($text ? $text : 'テキスト準備中')); ?>
                   </p>
                 </li>
               <?php endwhile; ?>

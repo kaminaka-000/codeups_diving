@@ -375,3 +375,35 @@ function custom_login_logo_url_title() {
   return 'トップページを表示';
 }
 add_filter('login_headertitle', 'custom_login_logo_url_title');
+
+
+/*================================================================
+    不要なエディタ部分を非表示
+================================================================ */
+function hide_specific_page_editors() {
+  global $post;
+  if (isset($post) && $post->post_type == 'page' && !in_array($post->post_name, ['terms-of-service', 'privacypolicy'])) {
+      echo '
+      <style>
+      #postdivrich, .block-editor-block-list__layout {
+          display: none;
+      }
+      </style>
+      ';
+  }
+}
+add_action('admin_head', 'hide_specific_page_editors');
+
+function hide_custom_post_type_editors() {
+  global $post;
+  if (isset($post) && in_array($post->post_type, ['campaign', 'voice'])) {
+      echo '
+      <style>
+      #postdivrich, .block-editor-block-list__layout {
+          display: none;
+      }
+      </style>
+      ';
+  }
+}
+add_action('admin_head', 'hide_custom_post_type_editors');
