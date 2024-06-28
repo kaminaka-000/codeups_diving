@@ -348,11 +348,20 @@ footer.footer.top-footer--not-found {
 	width: 100%;
 }
 
+.article-body__content h2,
+.article-body__content h3,
+.article-body__content h4,
+.article-body__content h5 {
+	font-weight: 700;
+	line-height: 1.4;
+	margin-top: 1.25rem;
+}
+
 .article-body__content p {
 	font-size: 1rem;
 	font-weight: 400;
 	line-height: 1.5;
-	margin-top: 1.5rem;
+	margin-top: 1rem;
 }
 
 .article-body__content figure {
@@ -375,12 +384,13 @@ footer.footer.top-footer--not-found {
 	font-size: 1rem;
 	font-weight: 400;
 	line-height: 1.5;
+	margin-top: 1rem;
 	padding-left: 1.75rem;
 	position: relative;
 }
 
 .article-body__content li + li {
-	margin-top: 0.25rem;
+	margin-top: 0.75rem;
 }
 
 .article-body__content li::before {
@@ -447,6 +457,13 @@ footer.footer.top-footer--not-found {
 	border-color: #408F95;
 	color: #fff;
 	opacity: 1;
+}
+
+/* キャンペーンの本文エディタを非表示にする */
+
+.campaign .editor-post-title,
+.campaign .block-editor-block-list__layout {
+	display: none;
 }
 
 .blog-section__inner {
@@ -3053,8 +3070,15 @@ footer.footer.top-footer--not-found {
 	margin-top: 2.1875rem;
 }
 
-.article-body__content p {
+.article-body__content h2,
+.article-body__content h3,
+.article-body__content h4,
+.article-body__content h5 {
 	margin-top: 2.5rem;
+}
+
+.article-body__content p {
+	margin-top: 2rem;
 }
 
 .article-body__content figure {
@@ -3063,11 +3087,16 @@ footer.footer.top-footer--not-found {
 }
 
 .article-body__content ul {
-	margin-top: 2.5rem;
+	margin-top: 1rem;
 }
 
 .article-body__content li {
+	margin-top: 1rem;
 	padding-left: 1.9375rem;
+}
+
+.article-body__content li + li {
+	margin-top: 1rem;
 }
 
 .article-body__content li::before {
