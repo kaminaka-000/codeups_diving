@@ -2868,6 +2868,10 @@ footer.footer.top-footer--not-found {
 	margin-top: 1.5rem;
 }
 
+.wpcf7-form.init {
+	overflow: hidden;
+}
+
 .wpcf7 form .wpcf7-response-output {
 	border: none;
 }
